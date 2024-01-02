@@ -1,0 +1,110 @@
+
+output_*/
+outputs/
+.vscode/
+tmp/
+configs/
+data/
+results/
+work_dirs
+shenlei/
+scripts/
+
+YDEmbedding/checkpoints/
+YDEmbedding/data/
+YDEmbedding/results/
+YDEmbedding/outputs/
+YDEmbedding/output_*/
+YDEmbedding/scripts/
+YDEmbedding/shenlei/
+
+BCEmbedding/checkpoints/
+BCEmbedding/data/
+BCEmbedding/results/
+BCEmbedding/outputs/
+BCEmbedding/scripts/
+BCEmbedding/shenlei/
+BCEmbedding/tools/eval_rag/cache
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.ipynb
+
+# C extensions
+*.so
+bin/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+.idea
+
+# Auto generate documentation
+docs/en/_build/
+docs/zh_cn/_build/
+
+# .zip
+*.zip
+
+# sft config ignore list
+configs/sft_cfg/*B_*
+configs/cky/
+
+# path of turbomind's model after runing `lmdeploy.serve.turbomind.deploy`
+turbomind/
