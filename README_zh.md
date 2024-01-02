@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-02 18:41:15
+ * @LastEditTime: 2024-01-02 19:15:46
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -29,7 +29,7 @@
 <details open="open">
 <summary>点击打开目录</summary>
 
-- <a href="#t1">🌐 双语和跨语种优势</a>
+- <a href="#🌐双语和跨语种优势">🌐双语和跨语种优势</a>
 - <a href="#t2">💡 主要特点</a>
 - <a href="#t3">🚀 最新更新</a>
 - <a href="#t4">🍎 模型列表</a>
@@ -60,7 +60,7 @@
 - **基于LlamaIndex的RAG评测，表现SOTA【<a href=#t7-2>基于LlamaIndex的RAG评测指标</a>】。**
 
 <t id="t1"></t>
-## 🌐 双语和跨语种优势
+## 🌐双语和跨语种优势
 
 现有的单个语义表征模型在双语和跨语种场景中常常表现不佳，特别是在中文、英文及其跨语种任务中。`BCEmbedding`充分利用有道翻译引擎的优势，实现只需一个模型就可以在单语、双语和跨语种场景中表现出卓越的性能。
 
