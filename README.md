@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-02 19:20:24
+ * @LastEditTime: 2024-01-03 01:51:03
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -23,30 +23,30 @@
 <p align="center">
   <strong style="background-color: green;">English</strong>
   |
-  <a href="./README_zh.md">简体中文</a>
+  <a href="./README_zh.md" target="_Self">简体中文</a>
 </p>
 
 <details open="open">
 <summary>Click to Open Contents</summary>
 
-- <a href="#t1">🌐 Bilingual and Crosslingual Superiority</a>
-- <a href="#t2">💡 Key Features</a>
-- <a href="#t3">🚀 Latest Updates</a>
-- <a href="#t4">🍎 Model List</a>
-- <a href="#t5">📖 Manual</a>
-  - <a href="#installation">Installation</a>
-  - <a href="#quick-start">Quick Start</a>
-- <a href="#t6">⚙️ Evaluation</a>
-  - <a href="#evaluate-semantic-representation-by-mteb">Evaluate Semantic Representation by MTEB</a>
-  - <a href="#evaluate-rag-by-llamaindex">Evaluate RAG by LlamaIndex</a>
-- <a href="#t7">📈 Leaderboard</a>
-  - <a href="#semantic-representation-evaluations-in-mteb">Semantic Representation Evaluations in MTEB</a>
-  - <a href="#rag-evaluations-in-llamaindex">RAG Evaluations in LlamaIndex</a>
-- <a href="#t8">🛠 Youdao's BCEmbedding API</a>
-- <a href="#t9">🧲 WeChat Group</a>
-- <a href="#t10">✏️ Citation</a>
-- <a href="#t11">🔐 License</a>
-- <a href="#t12">🔗 Related Links</a>
+- <a href="#-bilingual-and-crosslingual-superiority" target="_Self">🌐 Bilingual and Crosslingual Superiority</a>
+- <a href="#-key-features" target="_Self">💡 Key Features</a>
+- <a href="#-latest-updates" target="_Self">🚀 Latest Updates</a>
+- <a href="#-model-list" target="_Self">🍎 Model List</a>
+- <a href="#-manual" target="_Self">📖 Manual</a>
+  - <a href="#installation" target="_Self">Installation</a>
+  - <a href="#quick-start" target="_Self">Quick Start</a>
+- <a href="#%EF%B8%8F-evaluation" target="_Self">⚙️ Evaluation</a>
+  - <a href="#evaluate-semantic-representation-by-mteb" target="_Self">Evaluate Semantic Representation by MTEB</a>
+  - <a href="#evaluate-rag-by-llamaindex" target="_Self">Evaluate RAG by LlamaIndex</a>
+- <a href="#-leaderboard" target="_Self">📈 Leaderboard</a>
+  - <a href="#semantic-representation-evaluations-in-mteb" target="_Self">Semantic Representation Evaluations in MTEB</a>
+  - <a href="#rag-evaluations-in-llamaindex" target="_Self">RAG Evaluations in LlamaIndex</a>
+- <a href="#-youdaos-bcembedding-api" target="_Self">🛠 Youdao's BCEmbedding API</a>
+- <a href="#-wechat-group" target="_Self">🧲 WeChat Group</a>
+- <a href="#%EF%B8%8F-citation" target="_Self">✏️ Citation</a>
+- <a href="#-license" target="_Self">🔐 License</a>
+- <a href="#-related-links" target="_Self">🔗 Related Links</a>
 
 </details>
 <br>
@@ -56,22 +56,20 @@
 `BCEmbedding` serves as the cornerstone of Youdao's Retrieval Augmented Generation (RAG) implmentation, notably [QAnything](http://qanything.ai) [[github](https://github.com/netease-youdao/qanything)], an open-source implementation widely integrated in various Youdao products like [Youdao Speed Reading](https://read.youdao.com/#/home) and [Youdao Translation](https://fanyi.youdao.com/download-Mac?keyfrom=fanyiweb_navigation). 
 
 Distinguished for its bilingual and crosslingual proficiency, `BCEmbedding` excels in bridging Chinese and English linguistic gaps, which achieves
-- **A high performence on <a href=#semantic-representation-evaluations-in-mteb>Semantic Representation Evaluations in MTEB</a>**;
-- **A new benchmark in the realm of <a href=#rag-evaluations-in-llamaindex>RAG Evaluations in LlamaIndex</a>**.
+- **A high performence on <a href="#semantic-representation-evaluations-in-mteb" target="_Self">Semantic Representation Evaluations in MTEB</a>**;
+- **A new benchmark in the realm of <a href="#rag-evaluations-in-llamaindex" target="_Self">RAG Evaluations in LlamaIndex</a>**.
 
-<t id="t1"></t>
 ## 🌐 Bilingual and Crosslingual Superiority
 
 Existing embedding models often encounter performance challenges in bilingual and crosslingual scenarios, particularly in Chinese, English and their crosslingual tasks. `BCEmbedding`, leveraging the strength of Youdao's translation engine, excels in delivering superior performance across monolingual, bilingual, and crosslingual settings.
 
 `EmbeddingModel` supports ***Chinese (ch) and English (en)*** (more languages support will come soon), while `RerankerModel` supports ***Chinese (ch), English (en), Japanese (ja) and Korean (ko)***.
 
-<t id="t2"></t>
 ## 💡 Key Features
 
 - **Bilingual and Crosslingual Proficiency**: Powered by Youdao's translation engine, excelling in Chinese, English and their crosslingual retrieval task, with upcoming support for additional languages.
 
-- **RAG-Optimized**: Tailored for diverse RAG tasks including **translation, summarization, and question answering**, ensuring accurate **query understanding**. See <a href=#rag-evaluations-in-llamaindex>RAG Evaluations in LlamaIndex</a>.
+- **RAG-Optimized**: Tailored for diverse RAG tasks including **translation, summarization, and question answering**, ensuring accurate **query understanding**. See <a href="#rag-evaluations-in-llamaindex" target="_Self">RAG Evaluations in LlamaIndex</a>.
 
 - **Efficient and Precise Retrieval**: Dual-encoder for efficient retrieval of `EmbeddingModel` in first stage, and cross-encoder of `RerankerModel` for enhanced precision and deeper semantic analysis in second stage.
 
@@ -83,14 +81,12 @@ Existing embedding models often encounter performance challenges in bilingual an
 
 - **Proven in Production**: Successfully implemented and validated in Youdao's products.
 
-<t id="t3"></t>
 ## 🚀 Latest Updates
 
 - ***2024-01-03***: **Model Releases** - [bce-embedding-base_v1](https://huggingface.co/maidalun1020/bce-embedding-base_v1) and [bce-reranker-base_v1](https://huggingface.co/maidalun1020/bce-reranker-base_v1) are available.
 - ***2024-01-03***: **Eval Datasets** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - Evaluate the performence of RAG, using [LlamaIndex](https://github.com/run-llama/llama_index).
 - ***2024-01-03***: **Eval Datasets** [[Details](./BCEmbedding/evaluation/c_mteb/Retrieval.py)] - Evaluate the performence of crosslingual semantic representation, using [MTEB](https://github.com/embeddings-benchmark/mteb).
 
-<t id="t4"></t>
 ## 🍎 Model List
 
 | Model Name | Model Type | Languages | Parameters | Weights |  
@@ -98,7 +94,6 @@ Existing embedding models often encounter performance challenges in bilingual an
 | bce-embedding-base_v1 | `EmbeddingModel` | ch, en | 279M | [download](https://huggingface.co/maidalun1020/bce-embedding-base_v1) |  
 | bce-reranker-base_v1 | `RerankerModel` | ch, en, ja, ko | 279M | [download](https://huggingface.co/maidalun1020/bce-reranker-base_v1) |  
 
-<t id="t5"></t>
 ## 📖 Manual
 
 ### Installation
@@ -160,7 +155,6 @@ scores = model.compute_score(sentence_pairs)
 rerank_results = model.rerank(query, passages)
 ```
 
-<t id="t6"></t>
 ## ⚙️ Evaluation
 
 ### Evaluate Semantic Representation by MTEB
@@ -257,9 +251,8 @@ Then, run the following script to sumarize the evaluation results:
 python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir results/rag_results
 ```
 
-The summary of multiple domains evaluations can be seen in <a href=#1-multiple-domains-scenarios>Multiple Domains Scenarios</a>.
+The summary of multiple domains evaluations can be seen in <a href="#1-multiple-domains-scenarios" target="_Self">Multiple Domains Scenarios</a>.
 
-<t id="t7"></t>
 ## 📈 Leaderboard
 
 ### Semantic Representation Evaluations in MTEB
@@ -306,8 +299,9 @@ The summary of multiple domains evaluations can be seen in <a href=#1-multiple-d
 | bge-large-en-v1.5 | 52.67/34.69 | 64.59/52.11 | 64.71/52.05 | **65.36/55.50** |  
 | bge-large-zh-v1.5 | 69.81/47.38 | 79.37/62.13 | 80.11/63.95 | **81.19/68.50** |  
 | llm-embedder | 50.85/33.26 | 63.62/51.45 | 63.54/51.32 | **64.47/54.98** |  
-| CohereV3 | 53.10/35.39 | 65.75/52.80 | 66.29/53.31 | **66.91/56.93** |  
-| JinaAI-Base | 50.27/32.31 | 63.97/51.10 | 64.28/51.83 | **64.82/54.98** |  
+| CohereV3-en | 53.10/35.39 | 65.75/52.80 | 66.29/53.31 | **66.91/56.93** |  
+| CohereV3-multilingual | 79.80/57.22 | 86.34/66.62 | 86.76/68.56 | **88.35/73.73** |  
+| JinaAI-v2-Base-en | 50.27/32.31 | 63.97/51.10 | 64.28/51.83 | **64.82/54.98** |  
 | ***bce-embedding-base_v1*** | **85.91/62.36** | **91.25/69.38** | **91.80/71.13** | ***93.46/77.02*** |  
 
 ***NOTE:***
@@ -315,19 +309,16 @@ The summary of multiple domains evaluations can be seen in <a href=#1-multiple-d
 - With fixing the embedding model, our `bce-reranker-base_v1` achieves the best performence.
 - **The combination of `bce-embedding-base_v1` and `bce-reranker-base_v1` is SOTA**.
 
-<t id="t8"></t>
 ## 🛠 Youdao's BCEmbedding API
 
 For users who prefer a hassle-free experience without the need to download and configure the model on their own systems, `BCEmbedding` is readily accessible through Youdao's API. This option offers a streamlined and efficient way to integrate BCEmbedding into your projects, bypassing the complexities of manual setup and maintenance. Detailed instructions and comprehensive API documentation are available at [Youdao BCEmbedding API](https://ai.youdao.com/DOCSIRMA/html/aigc/api/embedding/index.html). Here, you'll find all the necessary guidance to easily implement `BCEmbedding` across a variety of use cases, ensuring a smooth and effective integration for optimal results.
 
-<t id="t9"></t>
 ## 🧲 WeChat Group
 
 Welcome to scan the QR code below and join the WeChat group.
 
 <img src="./Docs/assets/Wechat.jpg" width="20%" height="auto">
 
-<t id="t10"></t>
 ## ✏️ Citation
 
 If you use `BCEmbedding` in your research or project, please feel free to cite and star it:
@@ -341,12 +332,10 @@ If you use `BCEmbedding` in your research or project, please feel free to cite a
 }
 ```
 
-<t id="t11"></t>
 ## 🔐 License
 
 `BCEmbedding` is licensed under [Apache 2.0 License](./LICENSE)
 
-<t id="t12"></t>
 ## 🔗 Related Links
 
 [Netease Youdao - QAnything](https://github.com/netease-youdao/qanything)

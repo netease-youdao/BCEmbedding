@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-26 16:24:57
-@LastEditTime: 2024-01-02 18:30:52
+@LastEditTime: 2024-01-02 23:09:08
 @LastEditors: shenlei
 '''
 import os, json, sys
@@ -59,8 +59,9 @@ EMBEDDINGS = {
     "bge-large-en-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-en-v1.5', 'device': 'cuda:0'}},
     "bge-large-zh-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-zh-v1.5', 'device': 'cuda:0'}},
     "llm-embedder": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/llm-embedder', 'device': 'cuda:0'}},
-    "CohereV3": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-english-v3.0', 'input_type': 'search_document'}},
-    "JinaAI-Base": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'jinaai/jina-embeddings-v2-base-en', 'pooling': 'mean', 'trust_remote_code': True, 'device': 'cuda:0'}},
+    "CohereV3-en": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-english-v3.0', 'input_type': 'search_document'}},
+    "CohereV3-multilingual": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-multilingual-v3.0', 'input_type': 'search_document'}},
+    "JinaAI-v2-Base-en": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'jinaai/jina-embeddings-v2-base-en', 'pooling': 'mean', 'trust_remote_code': True, 'device': 'cuda:0'}},
     "bce-embedding-base_v1": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'maidalun1020/bce-embedding-base_v1', 'max_length':512, 'device': 'cuda:0'}},
 }
 
@@ -175,10 +176,10 @@ if __name__ == '__main__':
             service_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)
             vector_index = VectorStoreIndex(nodes, service_context=service_context)
 
-            if embed_name != 'CohereV3':
+            if not embed_name.startswith('CohereV3'):
                 vector_retriever = VectorIndexRetriever(index=vector_index, similarity_top_k=10, service_context=service_context)
             else:
-                embed_model = CohereEmbedding(cohere_api_key=os.environ.get('COHERE_APPKEY'), model_name='embed-english-v3.0', input_type='search_query')
+                embed_model = CohereEmbedding(cohere_api_key=os.environ.get('COHERE_APPKEY'), model_name=embed_model_setup['args']['model_name'], input_type='search_query')
                 service_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)
                 vector_retriever = VectorIndexRetriever(index=vector_index, similarity_top_k=10, service_context=service_context)
 
