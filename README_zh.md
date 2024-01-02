@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-02 19:15:46
+ * @LastEditTime: 2024-01-02 19:18:18
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -30,8 +30,8 @@
 <summary>点击打开目录</summary>
 
 - <a href="#🌐双语和跨语种优势">🌐双语和跨语种优势</a>
-- <a href="#t2">💡 主要特点</a>
-- <a href="#t3">🚀 最新更新</a>
+- <a href="#💡-主要特点">💡 主要特点</a>
+- <a href="#🚀最新更新">🚀最新更新</a>
 - <a href="#t4">🍎 模型列表</a>
 - <a href="#t5">📖 使用指南</a>
   - <a href="#t5-1">安装</a>
@@ -59,14 +59,12 @@
 - **强大的双语和跨语种语义表征能力【<a href=#t7-1>基于MTEB的语义表征评测指标</a>】。**
 - **基于LlamaIndex的RAG评测，表现SOTA【<a href=#t7-2>基于LlamaIndex的RAG评测指标</a>】。**
 
-<t id="t1"></t>
 ## 🌐双语和跨语种优势
 
 现有的单个语义表征模型在双语和跨语种场景中常常表现不佳，特别是在中文、英文及其跨语种任务中。`BCEmbedding`充分利用有道翻译引擎的优势，实现只需一个模型就可以在单语、双语和跨语种场景中表现出卓越的性能。
 
 `EmbeddingModel`支持***中文和英文***（之后会支持更多语种）；`RerankerModel`支持***中文，英文，日文和韩文***。
 
-<t id="t2"></t>
 ## 💡 主要特点
 
 - **双语和跨语种能力**：基于有道翻译引擎的强大能力，`BCEmbedding`实现强大的中英双语和跨语种语义表征能力。
@@ -83,8 +81,7 @@
 
 - **产品化检验**：`BCEmbedding`已经被有道众多真实产品检验。
 
-<t id="t3"></t>
-## 🚀 最新更新
+## 🚀最新更新
 
 - ***2024-01-03***: **模型发布** - [bce-embedding-base_v1](https://huggingface.co/maidalun1020/bce-embedding-base_v1)和[bce-reranker-base_v1](https://huggingface.co/maidalun1020/bce-reranker-base_v1)已发布.
 - ***2024-01-03***: **RAG评测数据** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - 基于[LlamaIndex](https://github.com/run-llama/llama_index)的RAG评测数据已发布。

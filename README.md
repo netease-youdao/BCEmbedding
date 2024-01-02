@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-02 18:38:24
+ * @LastEditTime: 2024-01-02 19:18:58
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -29,8 +29,8 @@
 <details open="open">
 <summary>Click to Open Contents</summary>
 
-- <a href="#t1">🌐 Bilingual and Crosslingual Superiority</a>
-- <a href="#t2">💡 Key Features</a>
+- <a href="#🌐-bilingual-and-crosslingual-superiority">🌐 Bilingual and Crosslingual Superiority</a>
+- <a href="#💡-key-features">💡 Key Features</a>
 - <a href="#t3">🚀 Latest Updates</a>
 - <a href="#t4">🍎 Model List</a>
 - <a href="#t5">📖 Manual</a>
@@ -59,14 +59,12 @@ Distinguished for its bilingual and crosslingual proficiency, `BCEmbedding` exce
 - **A high performence on <a href=#semantic-representation-evaluations-in-mteb>Semantic Representation Evaluations in MTEB</a>**;
 - **A new benchmark in the realm of <a href=#rag-evaluations-in-llamaindex>RAG Evaluations in LlamaIndex</a>**.
 
-<t id="t1"></t>
 ## 🌐 Bilingual and Crosslingual Superiority
 
 Existing embedding models often encounter performance challenges in bilingual and crosslingual scenarios, particularly in Chinese, English and their crosslingual tasks. `BCEmbedding`, leveraging the strength of Youdao's translation engine, excels in delivering superior performance across monolingual, bilingual, and crosslingual settings.
 
 `EmbeddingModel` supports ***Chinese (ch) and English (en)*** (more languages support will come soon), while `RerankerModel` supports ***Chinese (ch), English (en), Japanese (ja) and Korean (ko)***.
 
-<t id="t2"></t>
 ## 💡 Key Features
 
 - **Bilingual and Crosslingual Proficiency**: Powered by Youdao's translation engine, excelling in Chinese, English and their crosslingual retrieval task, with upcoming support for additional languages.
