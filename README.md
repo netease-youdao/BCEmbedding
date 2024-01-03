@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-03 10:44:54
+ * @LastEditTime: 2024-01-03 11:52:10
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -159,7 +159,7 @@ rerank_results = model.rerank(query, passages)
 
 ### Evaluate Semantic Representation by MTEB
 
-We provide evaluateion tools for `embedding` and `reranker` models, based on [MTEB](https://github.com/embeddings-benchmark/mteb) and [C_MTEB](https://github.com/FlagOpen/FlagEmbedding/tree/master/C_MTEB).
+We provide evaluation tools for `embedding` and `reranker` models, based on [MTEB](https://github.com/embeddings-benchmark/mteb) and [C_MTEB](https://github.com/FlagOpen/FlagEmbedding/tree/master/C_MTEB).
 
 #### 1. Embedding Models
 
@@ -234,7 +234,7 @@ CUDA_VISIBLE_DEVICES=0,1 python BCEmbedding/tools/eval_rag/eval_llamaindex_repro
 
 Then, sumarize the evaluation results by:
 ```bash
-python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir results/rag_reproduce_results
+python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbedding/results/rag_reproduce_results
 ```
 
 Results Reproduced from the LlamaIndex Blog can be checked in ***[Reproduced Summary of RAG Evaluation](./Docs/EvaluationSummary/rag_eval_reproduced_summary.md)***, with some obvious ***conclusions***:
@@ -255,7 +255,7 @@ CUDA_VISIBLE_DEVICES=0,1 python BCEmbedding/tools/eval_rag/eval_llamaindex_multi
 
 Then, run the following script to sumarize the evaluation results:
 ```bash
-python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir results/rag_results
+python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbedding/results/rag_results
 ```
 
 The summary of multiple domains evaluations can be seen in <a href="#1-multiple-domains-scenarios" target="_Self">Multiple Domains Scenarios</a>.
