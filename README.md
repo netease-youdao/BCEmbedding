@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-03 01:51:03
+ * @LastEditTime: 2024-01-03 10:44:54
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -207,6 +207,13 @@ First, install LlamaIndex:
 pip install llama-index==0.9.22
 ```
 
+Export your "openai" and "cohere" app keys to env:
+```bash
+export OPENAI_API_KEY={your_openai_api_key}
+export COHERE_APPKEY={your_cohere_api_key}
+```
+
+
 #### 1. Metrics Definition
 
 - Hit Rate:
@@ -293,16 +300,7 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 
 #### 1. Multiple Domains Scenarios
 
-| Embedding Models | WithoutReranker <br> [*hit_rate/mrr*] | CohereRerank <br> [*hit_rate/mrr*] | bge-reranker-large <br> [*hit_rate/mrr*] | ***bce-reranker-base_v1*** <br> [*hit_rate/mrr*] | 
-|:-------------------------------|:--------:|:--------:|:--------:|:--------:| 
-| OpenAI-ada-2 | 81.04/57.35 | 88.35/67.83 | 88.89/69.64 | **90.71/75.46** |  
-| bge-large-en-v1.5 | 52.67/34.69 | 64.59/52.11 | 64.71/52.05 | **65.36/55.50** |  
-| bge-large-zh-v1.5 | 69.81/47.38 | 79.37/62.13 | 80.11/63.95 | **81.19/68.50** |  
-| llm-embedder | 50.85/33.26 | 63.62/51.45 | 63.54/51.32 | **64.47/54.98** |  
-| CohereV3-en | 53.10/35.39 | 65.75/52.80 | 66.29/53.31 | **66.91/56.93** |  
-| CohereV3-multilingual | 79.80/57.22 | 86.34/66.62 | 86.76/68.56 | **88.35/73.73** |  
-| JinaAI-v2-Base-en | 50.27/32.31 | 63.97/51.10 | 64.28/51.83 | **64.82/54.98** |  
-| ***bce-embedding-base_v1*** | **85.91/62.36** | **91.25/69.38** | **91.80/71.13** | ***93.46/77.02*** |  
+<img src="./Docs/assets/rag_eval_multiple_domains_summary.jpg">
 
 ***NOTE:***
 - In `WithoutReranker` setting, our `bce-embedding-base_v1` outperforms all the other embedding models.
