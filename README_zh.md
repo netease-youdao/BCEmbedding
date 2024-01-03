@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-03 12:42:07
+ * @LastEditTime: 2024-01-03 13:35:01
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -43,7 +43,7 @@
   - <a href="#基于mteb的语义表征评测指标" target="_Self">基于MTEB的语义表征评测指标</a>
   - <a href="#基于llamaindex的rag评测指标" target="_Self">基于LlamaIndex的RAG评测指标</a>
 - <a href="#-有道bcembedding-api" target="_Self">🛠 有道BCEmbedding API</a>
-- <a href="#-微信群" target="_Self">🧲 微信群</a>
+- <a href="#-技术交流群" target="_Self">🧲 技术交流群</a>
 - <a href="#%EF%B8%8F-引用说明" target="_Self">✏️ 引用说明</a>
 - <a href="#-许可说明" target="_Self">🔐 许可说明</a>
 - <a href="#-相关链接" target="_Self">🔗 相关链接</a>
@@ -310,9 +310,9 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 
 对于那些更喜欢直接调用api的用户，有道提供方便的`BCEmbedding`调用api。该方式是一种简化和高效的方式，将`BCEmbedding`集成到您的项目中，避开了手动设置和系统维护的复杂性。更详细的api调用接口说明详见[有道BCEmbedding API](https://ai.youdao.com/DOCSIRMA/html/aigc/api/embedding/index.html)。
 
-## 🧲 微信群
+## 🧲 技术交流群
 
-欢迎大家扫码加入官方微信交流群。
+欢迎大家踊跃试用和反馈，技术讨论请扫码加入官方微信交流群。
 
 <img src="./Docs/assets/Wechat.jpg" width="20%" height="auto">
 
