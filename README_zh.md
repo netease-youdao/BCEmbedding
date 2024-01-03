@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-03 13:35:01
+ * @LastEditTime: 2024-01-03 17:28:16
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -106,7 +106,7 @@ conda activate bce
 
 然后安装`BCEmbedding`:
 ```bash
-pip install git+https://github.com/netease-youdao/BCEmbedding.git
+pip install BCEmbedding
 ```
 
 也可以通过项目源码安装:
