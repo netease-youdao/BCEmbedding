@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-03 17:28:02
+ * @LastEditTime: 2024-01-04 11:01:20
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -200,15 +200,16 @@ python BCEmbedding/evaluation/mteb/summarize_eval_results.py --results_dir {your
 
 ### Evaluate RAG by LlamaIndex
 
-[LlamaIndex](https://github.com/run-llama/llama_index) is a famous data framework for LLM-based applications, particularly in RAG. Recently, the [LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83) has evaluated the popular embedding and reranker models in RAG pipeline and attract great attention. Now, we follow its pipeline to evaluate our `BCEmbedding`.
+[LlamaIndex](https://github.com/run-llama/llama_index) is a famous data framework for LLM-based applications, particularly in RAG. Recently, a [LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83) has evaluated the popular embedding and reranker models in RAG pipeline and attracts great attention. Now, we follow its pipeline to evaluate our `BCEmbedding`.
 
 First, install LlamaIndex:
 ```bash
 pip install llama-index==0.9.22
 ```
 
-Export your "openai" and "cohere" app keys to env:
+Export your "openai" and "cohere" app keys, and openai base url (e.g. "https://api.openai.com/v1") to env:
 ```bash
+export OPENAI_BASE_URL={openai_base_url}  # https://api.openai.com/v1
 export OPENAI_API_KEY={your_openai_api_key}
 export COHERE_APPKEY={your_cohere_api_key}
 ```
