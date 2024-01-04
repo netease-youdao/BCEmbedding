@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-04 11:01:20
+ * @LastEditTime: 2024-01-04 18:08:48
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -91,8 +91,8 @@ Existing embedding models often encounter performance challenges in bilingual an
 
 | Model Name | Model Type | Languages | Parameters | Weights |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|  
-| bce-embedding-base_v1 | `EmbeddingModel` | ch, en | 279M | [download](https://huggingface.co/maidalun1020/bce-embedding-base_v1) |  
-| bce-reranker-base_v1 | `RerankerModel` | ch, en, ja, ko | 279M | [download](https://huggingface.co/maidalun1020/bce-reranker-base_v1) |  
+| bce-embedding-base_v1 | `EmbeddingModel` | ch, en | 279M | [Huggingface](https://huggingface.co/maidalun1020/bce-embedding-base_v1), [ModelScope](https://www.modelscope.cn/models/maidalun/bce-embedding-base_v1/summary) |  
+| bce-reranker-base_v1 | `RerankerModel` | ch, en, ja, ko | 279M | [Huggingface](https://huggingface.co/maidalun1020/bce-reranker-base_v1), [ModelScope](https://www.modelscope.cn/models/maidalun/bce-reranker-base_v1/summary) |  
 
 ## 📖 Manual
 
@@ -104,9 +104,9 @@ conda create --name bce python=3.10 -y
 conda activate bce
 ```
 
-Then install `BCEmbedding`:
+Then install `BCEmbedding` for minimal installation:
 ```bash
-pip install BCEmbedding
+pip install BCEmbedding==0.0.7
 ```
 
 Or install from source:
@@ -161,6 +161,11 @@ rerank_results = model.rerank(query, passages)
 
 We provide evaluation tools for `embedding` and `reranker` models, based on [MTEB](https://github.com/embeddings-benchmark/mteb) and [C_MTEB](https://github.com/FlagOpen/FlagEmbedding/tree/master/C_MTEB).
 
+First, install `MTEB`:
+```
+pip install mteb==1.1.1
+```
+
 #### 1. Embedding Models
 
 Just run following cmd to evaluate `your_embedding_model` (e.g. `maidalun1020/bce-embedding-base_v1`) in **monolingual, bilingual and crosslingual settings** (e.g. `["en", "zh", "en-zh", "zh-en"]`).
@@ -202,8 +207,10 @@ python BCEmbedding/evaluation/mteb/summarize_eval_results.py --results_dir {your
 
 [LlamaIndex](https://github.com/run-llama/llama_index) is a famous data framework for LLM-based applications, particularly in RAG. Recently, a [LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83) has evaluated the popular embedding and reranker models in RAG pipeline and attracts great attention. Now, we follow its pipeline to evaluate our `BCEmbedding`.
 
-First, install LlamaIndex:
+First, install LlamaIndex, and upgrade `transformers` to 4.36.0:
 ```bash
+pip install transformers==4.36.0
+
 pip install llama-index==0.9.22
 ```
 

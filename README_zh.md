@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-04 11:06:55
+ * @LastEditTime: 2024-01-04 17:30:46
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -91,8 +91,8 @@
 
 | 模型名称 | 模型类型 | 支持语种 | 参数量 | 开源权重 |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|  
-| bce-embedding-base_v1 | `EmbeddingModel` | 中英 | 279M | [下载](https://huggingface.co/maidalun1020/bce-embedding-base_v1) |  
-| bce-reranker-base_v1 | `RerankerModel` | 中英日韩 | 279M | [下载](https://huggingface.co/maidalun1020/bce-reranker-base_v1) |  
+| bce-embedding-base_v1 | `EmbeddingModel` | 中英 | 279M | [Huggingface](https://huggingface.co/maidalun1020/bce-embedding-base_v1), [ModelScope](https://www.modelscope.cn/models/maidalun/bce-embedding-base_v1/summary) |  
+| bce-reranker-base_v1 | `RerankerModel` | 中英日韩 | 279M | [Huggingface](https://huggingface.co/maidalun1020/bce-reranker-base_v1), [ModelScope](https://www.modelscope.cn/models/maidalun/bce-reranker-base_v1/summary) |  
 
 ## 📖 使用指南
 
@@ -104,9 +104,9 @@ conda create --name bce python=3.10 -y
 conda activate bce
 ```
 
-然后安装`BCEmbedding`:
+然后最简化安装`BCEmbedding`:
 ```bash
-pip install BCEmbedding
+pip install BCEmbedding==0.0.7
 ```
 
 也可以通过项目源码安装:
@@ -159,6 +159,11 @@ rerank_results = model.rerank(query, passages)
 
 我们基于[MTEB](https://github.com/embeddings-benchmark/mteb)和[C_MTEB](https://github.com/FlagOpen/FlagEmbedding/tree/master/C_MTEB)，提供`embedding`和`reranker`模型的语义表征评测工具。
 
+首先安装 `MTEB`:
+```
+pip install mteb==1.1.1
+```
+
 #### 1. Embedding模型
 
 运行下面命令评测`your_embedding_model`（比如，`maidalun1020/bce-embedding-base_v1`）。评测任务将会在**单语种，双语种和跨语种**（比如，`["en", "zh", "en-zh", "zh-en"]`）模式下评测：
@@ -201,8 +206,10 @@ python BCEmbedding/evaluation/mteb/summarize_eval_results.py --results_dir {your
 
 [LlamaIndex](https://github.com/run-llama/llama_index)是一个著名的大模型应用的开源工具，在RAG中很受欢迎。最近，[LlamaIndex博客](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83)对市面上常用的embedding和reranker模型进行RAG流程的评测，吸引广泛关注。下面我们按照该评测流程验证`BCEmbedding`在RAG中的效果。
 
-首先，安装LlamaIndex：
+首先，安装LlamaIndex，并升级transformers到4.36.0：
 ```bash
+pip install transformers==4.36.0
+
 pip install llama-index==0.9.22
 ```
 
