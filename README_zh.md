@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-04 11:01:47
+ * @LastEditTime: 2024-01-04 11:06:55
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -206,7 +206,7 @@ python BCEmbedding/evaluation/mteb/summarize_eval_results.py --results_dir {your
 pip install llama-index==0.9.22
 ```
 
-将您的"openai"和"cohere"的app key，以及openai base url (openai官方接口“https://api.openai.com/v1”)放到环境变量中：
+将您的"openai"和"cohere"的app key，以及openai base url（ openai官方接口"https://api.openai.com/v1" ）放到环境变量中：
 ```bash
 export OPENAI_BASE_URL={openai_base_url}  # https://api.openai.com/v1
 export OPENAI_API_KEY={your_openai_api_key}
