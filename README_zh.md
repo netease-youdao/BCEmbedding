@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-05 15:23:31
+ * @LastEditTime: 2024-01-05 15:43:11
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -118,7 +118,7 @@ pip install -v -e .
 
 ### 快速使用
 
-#### 1. 基于`transformers`
+#### 1. 基于`BCEmbedding`
 
 通过`BCEmbedding`调用`EmbeddingModel`。[pooler](./BCEmbedding/models/embedding.py#L24)默认是`cls`。
 ```python
@@ -155,7 +155,54 @@ scores = model.compute_score(sentence_pairs)
 rerank_results = model.rerank(query, passages)
 ```
 
-#### 2. 基于`sentence_transformers`
+#### 2. 基于`transformers`
+
+`EmbeddingModel`调用方法:
+```python
+from transformers import AutoModel, AutoTokenizer
+
+# list of sentences
+sentences = ['sentence_0', 'sentence_1', ...]
+
+# init model and tokenizer
+tokenizer = AutoTokenizer.from_pretrained('maidalun1020/bce-embedding-base_v1')
+model = AutoModel.from_pretrained('maidalun1020/bce-embedding-base_v1')
+
+device = 'cuda'  # if no GPU, please "cpu"
+model.to(device)
+
+# get inputs
+inputs = tokenizer(sentences, padding=True, truncation=True, max_length=512, return_tensors="pt")
+inputs_on_device = {k: v.to(self.device) for k, v in inputs.items()}
+
+# get embeddings
+outputs = model(**inputs_on_device, return_dict=True)
+embeddings = outputs.last_hidden_state[:, 0]  # cls pooler
+embeddings = embeddings / embeddings.norm(dim=1, keepdim=True)  # normalize
+```
+
+`RerankerModel`调用方法:
+```python
+import torch
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+# init model and tokenizer
+tokenizer = AutoTokenizer.from_pretrained('maidalun1020/bce-reranker-base_v1')
+model = AutoModelForSequenceClassification.from_pretrained('maidalun1020/bce-reranker-base_v1')
+
+device = 'cuda'  # if no GPU, please "cpu"
+model.to(device)
+
+# get inputs
+inputs = tokenizer(sentence_pairs, padding=True, truncation=True, max_length=512, return_tensors="pt")
+inputs_on_device = {k: v.to(device) for k, v in inputs.items()}
+
+# calculate scores
+scores = model(**inputs_on_device, return_dict=True).logits.view(-1,).float()
+scores = torch.sigmoid(scores)
+```
+
+#### 3. 基于`sentence_transformers`
 
 `EmbeddingModel`调用方法：
 ```python
