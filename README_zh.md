@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-05 15:18:55
+ * @LastEditTime: 2024-01-05 15:21:18
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -325,7 +325,7 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 
 #### 2. Reranker模型
 
-| 模型名称 | Reranking | 平均 |  
+| 模型名称 | Reranking (12) | 平均 (12) |  
 |:-------------------------------|:--------:|:--------:|  
 | bge-reranker-base | 57.78 | 57.78 |  
 | bge-reranker-large | 59.69 | 59.69 |  
