@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-05 12:56:34
+ * @LastEditTime: 2024-01-05 13:55:40
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -343,6 +343,7 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 <img src="./Docs/assets/rag_eval_multiple_domains_summary.jpg">
 
 ***NOTE:***
+- Consistent with our ***[Reproduced Results](./Docs/EvaluationSummary/rag_eval_reproduced_summary.md)*** of [LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83).
 - In `WithoutReranker` setting, our `bce-embedding-base_v1` outperforms all the other embedding models.
 - With fixing the embedding model, our `bce-reranker-base_v1` achieves the best performence.
 - **The combination of `bce-embedding-base_v1` and `bce-reranker-base_v1` is SOTA**.

@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-05 13:02:46
+ * @LastEditTime: 2024-01-05 13:58:59
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -91,8 +91,8 @@
 
 | 模型名称 | 模型类型 | 支持语种 | 参数量 | 开源权重 |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|  
-| bce-embedding-base_v1 | `EmbeddingModel` | 中英 | 279M | [Huggingface](https://huggingface.co/maidalun1020/bce-embedding-base_v1), [ModelScope](https://www.modelscope.cn/models/maidalun/bce-embedding-base_v1/summary) |  
-| bce-reranker-base_v1 | `RerankerModel` | 中英日韩 | 279M | [Huggingface](https://huggingface.co/maidalun1020/bce-reranker-base_v1), [ModelScope](https://www.modelscope.cn/models/maidalun/bce-reranker-base_v1/summary) |  
+| bce-embedding-base_v1 | `EmbeddingModel` | 中英 | 279M | [Huggingface](https://huggingface.co/maidalun1020/bce-embedding-base_v1), [国内ModelScope](https://www.modelscope.cn/models/maidalun/bce-embedding-base_v1/summary) |  
+| bce-reranker-base_v1 | `RerankerModel` | 中英日韩 | 279M | [Huggingface](https://huggingface.co/maidalun1020/bce-reranker-base_v1), [国内ModelScope](https://www.modelscope.cn/models/maidalun/bce-reranker-base_v1/summary) |  
 
 ## 📖 使用指南
 
@@ -343,6 +343,7 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 <img src="./Docs/assets/rag_eval_multiple_domains_summary.jpg">
 
 ***要点：***
+- 与我们按照[LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83)的 ***[复现结果](./Docs/EvaluationSummary/rag_eval_reproduced_summary.md)*** 一致.
 - 在`WithoutReranker`设置下（**竖排对比**），`bce-embedding-base_v1`优于其他Embedding模型，包括开源和闭源。
 - 在固定Embedding模型设置下，对比不同reranker效果（**横排对比**），`bce-reranker-base_v1`比其他reranker模型效果都要好，包括开源和闭源。
 - ***`bce-embedding-base_v1`和`bce-reranker-base_v1`组合，表现SOTA。***
