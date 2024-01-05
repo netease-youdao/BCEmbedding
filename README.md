@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-04 18:08:48
+ * @LastEditTime: 2024-01-05 12:56:34
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -35,7 +35,7 @@
 - <a href="#-model-list" target="_Self">🍎 Model List</a>
 - <a href="#-manual" target="_Self">📖 Manual</a>
   - <a href="#installation" target="_Self">Installation</a>
-  - <a href="#quick-start" target="_Self">Quick Start</a>
+  - <a href="#quick-start" target="_Self">Quick Start (`transformers`, `sentence-transformers`)</a>
 - <a href="#%EF%B8%8F-evaluation" target="_Self">⚙️ Evaluation</a>
   - <a href="#evaluate-semantic-representation-by-mteb" target="_Self">Evaluate Semantic Representation by MTEB</a>
   - <a href="#evaluate-rag-by-llamaindex" target="_Self">Evaluate RAG by LlamaIndex</a>
@@ -106,7 +106,7 @@ conda activate bce
 
 Then install `BCEmbedding` for minimal installation:
 ```bash
-pip install BCEmbedding==0.0.7
+pip install BCEmbedding==0.0.8
 ```
 
 Or install from source:
@@ -117,6 +117,8 @@ pip install -v -e .
 ```
 
 ### Quick Start
+
+#### 1. Based on `transformers`
 
 Use `EmbeddingModel` by `BCEmbedding`, and `cls` [pooler](./BCEmbedding/models/embedding.py#L24) is default.
 
@@ -153,6 +155,36 @@ scores = model.compute_score(sentence_pairs)
 
 # method 1: rerank passages
 rerank_results = model.rerank(query, passages)
+```
+
+#### 2. Based on `sentence_transformers`
+
+For `EmbeddingModel`:
+```python
+from sentence_transformers import SentenceTransformer
+
+# list of sentences
+sentences = ['sentence_0', 'sentence_1', ...]
+
+# init embedding model
+model = SentenceTransformer("maidalun1020/bce-embedding-base_v1")
+
+# set max_length to 512 to avoid an error.
+model.max_seq_length = 512
+
+# extract embeddings
+embeddings = model.encode(sentences, normalize_embeddings=True)
+```
+
+For `RerankerModel`:
+```python
+from sentence_transformers import CrossEncoder
+
+# init reranker model
+model = CrossEncoder('maidalun1020/bce-reranker-base_v1', max_length=512)
+
+# calculate scores of sentence pairs
+scores = model.predict(sentence_pairs)
 ```
 
 ## ⚙️ Evaluation

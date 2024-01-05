@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-04 17:30:46
+ * @LastEditTime: 2024-01-05 13:02:46
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -35,7 +35,7 @@
 - <a href="#-模型列表" target="_Self">🍎 模型列表</a>
 - <a href="#-使用指南" target="_Self">📖 使用指南</a>
   - <a href="#安装" target="_Self">安装</a>
-  - <a href="#快速入门" target="_Self">快速入门</a>
+  - <a href="#快速使用" target="_Self">快速使用(`transformers`, `sentence-transformers`)</a>
 - <a href="#%EF%B8%8F-模型评测" target="_Self">⚙️ 模型评测</a>
   - <a href="#基于mteb的语义表征评测说明" target="_Self">基于MTEB的语义表征评测说明</a>
   - <a href="#基于llamaindex的rag评测说明" target="_Self">基于LlamaIndex的RAG评测说明</a>
@@ -106,7 +106,7 @@ conda activate bce
 
 然后最简化安装`BCEmbedding`:
 ```bash
-pip install BCEmbedding==0.0.7
+pip install BCEmbedding==0.0.8
 ```
 
 也可以通过项目源码安装:
@@ -116,7 +116,9 @@ cd BCEmbedding
 pip install -v -e .
 ```
 
-### 快速入门
+### 快速使用
+
+#### 1. 基于`transformers`
 
 通过`BCEmbedding`调用`EmbeddingModel`。[pooler](./BCEmbedding/models/embedding.py#L24)默认是`cls`。
 ```python
@@ -152,6 +154,37 @@ scores = model.compute_score(sentence_pairs)
 # method 1: rerank passages
 rerank_results = model.rerank(query, passages)
 ```
+
+#### 2. 基于`sentence_transformers`
+
+`EmbeddingModel`调用方法：
+```python
+from sentence_transformers import SentenceTransformer
+
+# list of sentences
+sentences = ['sentence_0', 'sentence_1', ...]
+
+# init embedding model
+model = SentenceTransformer("maidalun1020/bce-embedding-base_v1")
+
+# set max_length to 512 to avoid an error.
+model.max_seq_length = 512
+
+# extract embeddings
+embeddings = model.encode(sentences, normalize_embeddings=True)
+```
+
+`RerankerModel`调用方法：
+```python
+from sentence_transformers import CrossEncoder
+
+# init reranker model
+model = CrossEncoder('maidalun1020/bce-reranker-base_v1', max_length=512)
+
+# calculate scores of sentence pairs
+scores = model.predict(sentence_pairs)
+```
+
 
 ## ⚙️ 模型评测
 
