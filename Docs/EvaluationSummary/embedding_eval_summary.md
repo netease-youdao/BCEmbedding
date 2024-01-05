@@ -257,7 +257,7 @@
 | bce-embedding-base_v1 | 83.53 | 69.57 | 59.11 | 76.56 |  
 
 ## Summary on all langs: `['en', 'zh', 'en-zh', 'zh-en']`  
-| Model | Retrieval | STS | PairClassification | Classification | Reranking | Clustering | Avg |  
+| Model | Retrieval (47) | STS (19) | PairClassification (5) | Classification (21) | Reranking (12) | Clustering (15) | Avg (119) |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 37.14 | 55.06 | 75.45 | 59.73 | 43.05 | 37.74 | 47.20 |  
 | bge-base-zh-v1.5 | 47.60 | 63.72 | 77.40 | 63.38 | 54.85 | 32.56 | 53.60 |  

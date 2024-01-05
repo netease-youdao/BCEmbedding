@@ -92,6 +92,7 @@ def output_markdown(tasks_results_wt_langs, model_names, model_type, save_file):
     with open(save_file, 'w') as f:
         f.write(f"# {model_type} Evaluation Results  \n")
         task_type_res_merge_lang = {}
+        has_CQADupstack_overall = False
         for lang, tasks_results in tasks_results_wt_langs.items():
             f.write(f'## Language: `{lang}`  \n')
 
@@ -114,6 +115,7 @@ def output_markdown(tasks_results_wt_langs, model_names, model_type, save_file):
                 for task_name in tasks_names:
                     if "CQADupstack" in task_name:
                         has_CQADupstack = True
+                        has_CQADupstack_overall = True
                         continue
                     first_line += f" {task_name} |"
                     second_line += ":--------:|"
@@ -187,10 +189,15 @@ def output_markdown(tasks_results_wt_langs, model_names, model_type, save_file):
         first_line = "| Model |"
         second_line = "|:-------------------------------|"
         task_type_res_merge_lang_keys = list(task_type_res_merge_lang.keys())
+        task_nums = 0
         for t_type in task_type_res_merge_lang_keys:
-            first_line += f" {t_type} |"
+            task_num = max([len(tmp_metrics) for tmp_model_name, tmp_metrics in task_type_res_merge_lang[t_type].items()])
+            if t_type == 'Retrieval' and has_CQADupstack_overall: # 'CQADupstack' has been merged 12 to 1. We should add 11.
+                task_num +=  11
+            task_nums += task_num
+            first_line += f" {t_type} ({task_num}) |"
             second_line += ":--------:|"
-        f.write(first_line + ' Avg |  \n')
+        f.write(first_line + f' Avg ({task_nums}) |  \n')
         f.write(second_line + ':--------:|  \n')
 
         for model in model_names:
@@ -220,6 +227,14 @@ def get_args():
 
 if __name__ == '__main__':
     args = get_args()
+
+    save_name = osp.basename(args.results_dir.strip('/'))
+    if 'embedding' in save_name.lower():
+        args.model_type = 'embedding'
+        save_name = 'embedding_eval_summary'
+    elif 'reranker' in save_name.lower():
+        args.model_type = 'reranker'
+        save_name = 'reranker_eval_summary'
     
     if args.lang == 'zh':
         task_types = ["Retrieval", "STS", "PairClassification", "Classification", "Reranking", "Clustering"]
@@ -237,14 +252,6 @@ if __name__ == '__main__':
     else:
         raise NotImplementedError(f"args.lang must be zh or en, but {args.lang}")
     
-    save_name = osp.basename(args.results_dir.strip('/'))
-    if 'embedding' in save_name.lower():
-        args.model_type = 'embedding'
-        save_name = 'embedding_eval_summary'
-    elif 'reranker' in save_name.lower():
-        args.model_type = 'reranker'
-        save_name = 'reranker_eval_summary'
-    
     args.model_type = args.model_type.capitalize()
     logger.info(f'eval results path: {args.results_dir}')
     logger.info(f'model type: {args.model_type}')
@@ -261,5 +268,3 @@ if __name__ == '__main__':
             save_name + ".md"
             )
         )
-
-

@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: shenlei
  * @Date: 2023-12-27 12:50:02
- * @LastEditTime: 2023-12-31 16:25:05
+ * @LastEditTime: 2024-01-05 15:04:14
  * @LastEditors: shenlei
 -->
 # Reranker Evaluation Results  
@@ -67,7 +67,7 @@
 | bge-reranker-large | 66.01 | 66.01 |  
 | bce-reranker-base_v1 | 66.31 | 66.31 |  
 ## Summary on all langs: `['en', 'zh', 'en-zh', 'zh-en']`  
-| Model | Reranking | Avg |  
+| Model | Reranking (12) | Avg (12) |  
 |:-------------------------------|:--------:|:--------:|  
 | bge-reranker-base | 57.78 | 57.78 |  
 | bge-reranker-large | 59.69 | 59.69 |  

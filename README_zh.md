@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-05 13:58:59
+ * @LastEditTime: 2024-01-05 15:18:55
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -305,7 +305,7 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 
 #### 1. Embedding模型
 
-| 模型名称 | Retrieval | STS | PairClassification | Classification | Reranking | Clustering | 平均 |  
+| 模型名称 | Retrieval (47) | STS (19) | PairClassification (5) | Classification (21) | Reranking (12) | Clustering (15) | 平均 (119) |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 37.14 | 55.06 | 75.45 | 59.73 | 43.05 | 37.74 | 47.20 |  
 | bge-base-zh-v1.5 | 47.60 | 63.72 | 77.40 | 63.38 | 54.85 | 32.56 | 53.60 |  
@@ -318,7 +318,7 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 
 ***要点：***
 - 对比所有开源的各种规模的embedding模型，***bce-embedding-base_v1*** 表现最好。
-- 评测包含 **"Retrieval"， "STS"， "PairClassification"， "Classification"， "Reranking"和"Clustering"** 这六大类任务的共 ***114个数据集***。
+- 该榜单包含"Retrieval"， "STS"， "PairClassification"， "Classification"， "Reranking"和"Clustering" 这六大类任务的共 ***114个数据集的119个评测结果*** （某些数据集有多个语种）。**注意**：模型评测是在 ***`["en", "zh", "en-zh", "zh-en"]`*** 下进行。
 - 我们开源的[跨语种语义表征评测数据](./BCEmbedding/evaluation/c_mteb/Retrieval.py)属于`Retrieval`任务。
 - 更详细的评测结果详见[Embedding模型指标汇总](./Docs/EvaluationSummary/embedding_eval_summary.md)。
 
@@ -333,7 +333,7 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 
 ***要点：***
 - ***bce-reranker-base_v1*** 优于其他开源reranker模型。
-- 评测包含 **"Reranking"** 任务的 ***12个数据集***。
+- 该榜单包含 "Reranking"任务的 ***12个数据集***。**注意**：模型评测是在 ***`["en", "zh", "en-zh", "zh-en"]`*** 下进行。
 - 更详细的评测结果详见[Reranker模型指标汇总](./Docs/EvaluationSummary/reranker_eval_summary.md)
 
 ### 基于LlamaIndex的RAG评测指标
