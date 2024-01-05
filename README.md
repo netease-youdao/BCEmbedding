@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-05 15:12:59
+ * @LastEditTime: 2024-01-05 15:23:14
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -321,7 +321,7 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 - Our ***bce-embedding-base_v1*** outperforms other opensource embedding models with various model size.
 - ***114 datastes including 119 eval results*** (some dataset contain multiple languages) of "Retrieval", "STS", "PairClassification", "Classification", "Reranking" and "Clustering" in ***`["en", "zh", "en-zh", "zh-en"]` setting***.
 - The [crosslingual evaluation datasets](./BCEmbedding/evaluation/c_mteb/Retrieval.py) we released belong to `Retrieval` task.
-- More evaluation details please check [Embedding Models Evaluation Summary](./Docs/EvaluationSummary/embedding_eval_summary.md).
+- More evaluation details please check [Embedding Models Evaluations](./Docs/EvaluationSummary/embedding_eval_summary.md).
 
 #### 2. Reranker Models
 
@@ -334,7 +334,7 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 ***NOTE:***
 - Our ***bce-reranker-base_v1*** outperforms other opensource reranker models.
 - ***12 datastes*** of "Reranking" in ***`["en", "zh", "en-zh", "zh-en"]` setting***.
-- More evaluation details please check [Reranker Models Evaluation Summary](./Docs/EvaluationSummary/reranker_eval_summary.md).
+- More evaluation details please check [Reranker Models Evaluations](./Docs/EvaluationSummary/reranker_eval_summary.md).
 
 ### RAG Evaluations in LlamaIndex
 
