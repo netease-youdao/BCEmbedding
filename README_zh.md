@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-05 15:43:11
+ * @LastEditTime: 2024-01-07 02:34:03
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -106,7 +106,7 @@ conda activate bce
 
 然后最简化安装`BCEmbedding`:
 ```bash
-pip install BCEmbedding==0.0.8
+pip install BCEmbedding==0.1.1
 ```
 
 也可以通过项目源码安装:
@@ -154,6 +154,8 @@ scores = model.compute_score(sentence_pairs)
 # method 1: rerank passages
 rerank_results = model.rerank(query, passages)
 ```
+注意：
+- 在`BCEmbedding`的[`RerankerModel.rerank`](./BCEmbedding/models/reranker.py#L137)方法中，我们提供一个query和passage的拼接方法，在query+passage大于模型`max_length`的时候依然适用。
 
 #### 2. 基于`transformers`
 
@@ -255,11 +257,11 @@ python BCEmbedding/tools/eval_mteb/eval_embedding_mteb.py --model_name_or_path m
 评测包含 **"Retrieval"， "STS"， "PairClassification"， "Classification"， "Reranking"和"Clustering"** 这六大类任务的 ***114个数据集***。
 
 ***注意：***
-- 所有模型的评测采用各自推荐的`pooler`。"jina-embeddings-v2-base-en"， "m3e-base"和"m3e-large"的 `pooler`采用`mean`，其他模型的`pooler`采用`cls`.
+- **所有模型的评测采用各自推荐的`pooler`**。"jina-embeddings-v2-base-en"， "m3e-base"，"m3e-large"，"multilingual-e5-base"和"multilingual-e5-large"的 `pooler`采用`mean`，其他模型的`pooler`采用`cls`.
 - "jina-embeddings-v2-base-en"模型在载入时需要`trust_remote_code`。
 
 ```bash
-python BCEmbedding/tools/eval_mteb/eval_embedding_mteb.py --model_name_or_path {moka-ai/m3e-base | moka-ai/m3e-large} --pooler mean
+python BCEmbedding/tools/eval_mteb/eval_embedding_mteb.py --model_name_or_path {moka-ai/m3e-base | moka-ai/m3e-large | intfloat/e5-large-v2 | intfloat/multilingual-e5-base | intfloat/multilingual-e5-large} --pooler mean
 
 python BCEmbedding/tools/eval_mteb/eval_embedding_mteb.py --model_name_or_path jinaai/jina-embeddings-v2-base-en --pooler mean --trust_remote_code
 ```

@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-05 15:41:17
+ * @LastEditTime: 2024-01-07 02:33:46
  * @LastEditors: shenlei
 -->
 <h1 align="center">BCEmbedding: Bilingual and Crosslingual Embedding for RAG</h1>
@@ -106,7 +106,7 @@ conda activate bce
 
 Then install `BCEmbedding` for minimal installation:
 ```bash
-pip install BCEmbedding==0.0.8
+pip install BCEmbedding==0.1.1
 ```
 
 Or install from source:
@@ -156,6 +156,8 @@ scores = model.compute_score(sentence_pairs)
 # method 1: rerank passages
 rerank_results = model.rerank(query, passages)
 ```
+NOTE:
+- For [`RerankerModel.rerank`](./BCEmbedding/models/reranker.py#L137) method in `BCEmbedding`, we provide an advanced preproccess that we use in production for making `sentence_pairs`, when "query" + "passage" is longer than `max_length`.
 
 #### 2. Based on `transformers`
 
@@ -256,10 +258,10 @@ python BCEmbedding/tools/eval_mteb/eval_embedding_mteb.py --model_name_or_path m
 The total evaluation tasks contain ***114 datastes*** of **"Retrieval", "STS", "PairClassification", "Classification", "Reranking" and "Clustering"**.
 
 ***NOTE:***
-- All models are evaluated in their **recommended pooling method (`pooler`)**. "jina-embeddings-v2-base-en", "m3e-base" and "m3e-large" use `mean` pooler, while the others use `cls`.
+- **All models are evaluated in their recommended pooling method (`pooler`)**. "jina-embeddings-v2-base-en", "m3e-base", "m3e-large", "multilingual-e5-base" and "multilingual-e5-large" use `mean` pooler, while the others use `cls`.
 - "jina-embeddings-v2-base-en" model should be loaded with `trust_remote_code`.
 ```bash
-python BCEmbedding/tools/eval_mteb/eval_embedding_mteb.py --model_name_or_path {moka-ai/m3e-base | moka-ai/m3e-large} --pooler mean
+python BCEmbedding/tools/eval_mteb/eval_embedding_mteb.py --model_name_or_path {moka-ai/m3e-base | moka-ai/m3e-large | intfloat/e5-large-v2 | intfloat/multilingual-e5-base | intfloat/multilingual-e5-large} --pooler mean
 
 python BCEmbedding/tools/eval_mteb/eval_embedding_mteb.py --model_name_or_path jinaai/jina-embeddings-v2-base-en --pooler mean --trust_remote_code
 ```

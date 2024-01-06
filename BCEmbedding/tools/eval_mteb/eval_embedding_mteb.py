@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-11-29 17:21:19
-@LastEditTime: 2024-01-02 14:13:21
+@LastEditTime: 2024-01-07 00:19:52
 @LastEditors: shenlei
 '''
 import argparse
@@ -14,7 +14,7 @@ from tqdm import tqdm
 
 from BCEmbedding.evaluation import c_mteb, YDDRESModel
 
-from BCEmbedding.utils import query_instruction_for_retrieval_dict
+from BCEmbedding.utils import query_instruction_for_retrieval_dict, passage_instruction_for_retrieval_dict
 from BCEmbedding.utils import logger_wrapper
 logger = logger_wrapper('evaluation.eval_embedding_mteb')
 
@@ -50,6 +50,7 @@ if __name__ == '__main__':
             logger.info('Skip task {}, which is too large to eval.'.format(task.description["name"]))
             continue
 
+        # for retrieval and reranking tasks
         if 'CQADupstack' in task.description["name"] or \
             'T2Reranking' in task.description["name"] or \
             'T2Retrieval' in task.description["name"] or \
@@ -61,6 +62,9 @@ if __name__ == '__main__':
                 'Touche2020', 'SciFact', 'TRECCOVID', 'NQ',
                 'NFCorpus', 'MSMARCO', 'HotpotQA', 'FiQA2018',
                 'FEVER', 'DBPedia', 'ClimateFEVER', 'SCIDOCS', 
+
+                # add
+                'QuoraRetrieval', 'ArguAna', 'StackOverflowDupQuestions', 'SciDocsRR', 'MindSmallReranking', 'AskUbuntuDupQuestions',
                 
                 # zh
                 'T2Retrieval', 'MMarcoRetrieval', 'DuRetrieval',
@@ -68,16 +72,41 @@ if __name__ == '__main__':
                 'EcomRetrieval', 'MedicalRetrieval', 'VideoRetrieval',
                 'T2Reranking', 'MMarcoReranking', 'CMedQAv1', 'CMedQAv2'
             ]:
+            assert task.description["type"] in ["Retrieval", "Reranking"], task.description
+            # for query
             if args.model_name_or_path not in query_instruction_for_retrieval_dict:
                 instruction = None
                 logger.info(f"{args.model_name_or_path} not in query_instruction_for_retrieval_dict, set instruction={instruction}")
             else:
                 instruction = query_instruction_for_retrieval_dict[args.model_name_or_path]
                 logger.info(f"{args.model_name_or_path} in query_instruction_for_retrieval_dict, set instruction={instruction}")
-        else:
-            instruction = None
+            model.query_instruction_for_retrieval = instruction
 
-        model.query_instruction_for_retrieval = instruction
+            # for passage
+            if args.model_name_or_path not in passage_instruction_for_retrieval_dict:
+                instruction = None
+                logger.info(f"{args.model_name_or_path} not in passage_instruction_for_retrieval_dict, set instruction={instruction}")
+            else:
+                instruction = passage_instruction_for_retrieval_dict[args.model_name_or_path]
+                logger.info(f"{args.model_name_or_path} in passage_instruction_for_retrieval_dict, set instruction={instruction}")
+            model.passage_instruction_for_retrieval = instruction
+        # multilingual-e5 needs instruction for other task
+        elif "e5-base" in save_name or "e5-large" in save_name:
+            assert task.description["type"] not in ["Retrieval", "Reranking"], task.description
+            # for other tasks
+            if args.model_name_or_path not in query_instruction_for_retrieval_dict:
+                instruction = None
+                logger.info(f"other tasks: {args.model_name_or_path} not in query_instruction_for_retrieval_dict, set instruction={instruction}")
+            else:
+                instruction = query_instruction_for_retrieval_dict[args.model_name_or_path]
+                logger.info(f"other tasks: {args.model_name_or_path} in query_instruction_for_retrieval_dict, set instruction={instruction}")
+            model.query_instruction_for_retrieval = instruction
+            model.passage_instruction_for_retrieval = None
+        else:
+            assert task.description["type"] not in ["Retrieval", "Reranking"], task.description
+            model.query_instruction_for_retrieval = None
+            model.passage_instruction_for_retrieval = None
+
         evaluation = c_mteb.MTEB(
             tasks=[task], 
             task_langs=args.task_langs, 

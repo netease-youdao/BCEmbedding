@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-26 16:24:57
-@LastEditTime: 2024-01-03 00:00:45
+@LastEditTime: 2024-01-07 00:21:39
 @LastEditors: shenlei
 '''
 import os, json
@@ -59,6 +59,8 @@ EMBEDDINGS = {
     "CohereV3-en": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-english-v3.0', 'input_type': 'search_document'}},
     "JinaAI-v2-Small-en": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'jinaai/jina-embeddings-v2-small-en', 'pooling': 'mean', 'trust_remote_code': True, 'device': 'cuda:0'}},
     "JinaAI-v2-Base-en": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'jinaai/jina-embeddings-v2-base-en', 'pooling': 'mean', 'trust_remote_code': True, 'device': 'cuda:0'}},
+    "e5-large-v2": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'intfloat/e5-large-v2', 'pooling': 'mean', 'query_instruction': 'query:', 'text_instruction': 'passage:', 'device': 'cuda:0'}},
+    "multilingual-e5-large": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'intfloat/multilingual-e5-large', 'pooling': 'mean', 'max_length': 512, 'query_instruction': 'query:', 'text_instruction': 'passage:', 'device': 'cuda:0'}},
     "bce-embedding-base_v1": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'maidalun1020/bce-embedding-base_v1', 'max_length':512, 'device': 'cuda:0'}},
 }
 

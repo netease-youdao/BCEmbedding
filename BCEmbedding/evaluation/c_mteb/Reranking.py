@@ -105,7 +105,7 @@ class ModChineseRerankingEvaluator(RerankingEvaluator):
             all_docs.extend(sample["positive"])
             all_docs.extend(sample["negative"])
 
-        all_docs_embs = model.encode(all_docs, convert_to_tensor=True, batch_size=self.batch_size)
+        all_docs_embs = model.encode_corpus(all_docs, convert_to_tensor=True, batch_size=self.batch_size)
 
         # Compute scores
         logger.info("Evaluating...")
