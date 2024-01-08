@@ -2,268 +2,377 @@
 ## Language: `en`  
 
 ### Task Type: Retrieval  
-| Model | ArguAna | ClimateFEVER | DBPedia | FEVER | FiQA2018 | HotpotQA | MSMARCO | NFCorpus | NQ | QuoraRetrieval | SCIDOCS | SciFact | Touche2020 | TRECCOVID | CQADupstack | Avg |  
+| Model | ArguAna | ClimateFEVER | DBPedia | FEVER | FiQA2018 | HotpotQA | MSMARCO | NFCorpus | NQ | QuoraRetrieval | SCIDOCS | SciFact | Touche2020 | TRECCOVID | CQADupstack | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
-| bge-base-en-v1.5 | 63.62 | 31.19 | 40.78 | 86.30 | 40.62 | 72.59 | 72.44 | 37.35 | 54.12 | 88.90 | 21.73 | 74.04 | 25.71 | 78.07 | 42.36 | 55.32 |  
-| bge-base-zh-v1.5 | 40.93 | 10.35 | 22.02 | 39.07 | 17.33 | 33.70 | 41.63 | 22.34 | 23.72 | 80.54 | 11.41 | 47.71 | 18.22 | 42.62 | 28.88 | 32.03 |  
-| bge-large-en-v1.5 | 63.57 | 36.57 | 44.10 | 87.19 | 45.00 | 74.10 | 71.03 | 38.13 | 55.01 | 89.05 | 22.63 | 74.63 | 24.81 | 74.82 | 42.23 | 56.19 |  
-| bge-large-zh-v1.5 | 35.15 | 8.53 | 22.36 | 33.89 | 15.81 | 34.07 | 43.82 | 21.36 | 24.97 | 82.35 | 11.25 | 45.63 | 11.40 | 34.05 | 27.45 | 30.14 |  
+| bge-base-en-v1.5 | 63.75 | 31.19 | 40.78 | 86.30 | 40.62 | 72.59 | 72.44 | 37.35 | 54.12 | 88.75 | 21.73 | 74.04 | 25.71 | 78.07 | 42.36 | 55.32 |  
+| bge-base-zh-v1.5 | 41.67 | 10.35 | 22.02 | 39.07 | 17.33 | 33.70 | 41.63 | 22.34 | 23.72 | 80.80 | 11.41 | 47.71 | 18.22 | 42.62 | 28.88 | 32.10 |  
+| bge-large-en-v1.5 | 64.52 | 36.57 | 44.10 | 87.19 | 45.00 | 74.10 | 71.03 | 38.13 | 55.01 | 88.99 | 22.63 | 74.63 | 24.81 | 74.82 | 42.23 | 56.25 |  
+| bge-large-zh-v1.5 | 36.35 | 8.53 | 22.36 | 33.89 | 15.81 | 34.07 | 43.82 | 21.36 | 24.97 | 82.64 | 11.25 | 45.63 | 11.40 | 34.05 | 27.45 | 30.24 |  
+| e5-large-v2 | 46.42 | 22.20 | 44.04 | 82.82 | 41.13 | 73.13 | 71.81 | 37.15 | 63.50 | 85.65 | 20.50 | 72.21 | 20.68 | 66.64 | 38.55 | 52.43 |  
+| gte-large | 57.15 | 28.83 | 42.36 | 84.53 | 44.50 | 67.16 | 71.38 | 38.17 | 54.78 | 88.31 | 23.39 | 74.17 | 25.51 | 70.21 | 43.18 | 54.24 |  
+| gte-large-zh | 26.43 | 4.09 | 16.73 | 8.17 | 10.62 | 20.65 | 39.82 | 17.61 | 19.56 | 74.90 | 9.42 | 38.19 | 12.96 | 29.52 | 21.34 | 23.33 |  
 | jina-embeddings-v2-base-en | 44.39 | 23.66 | 35.03 | 72.63 | 41.81 | 61.38 | 70.86 | 32.39 | 60.44 | 88.20 | 19.93 | 66.62 | 25.36 | 65.72 | 39.75 | 49.88 |  
 | m3e-base | 48.93 | 12.85 | 24.46 | 38.32 | 21.89 | 43.66 | 50.37 | 26.42 | 22.99 | 83.01 | 14.85 | 58.71 | 10.98 | 35.46 | 30.17 | 34.87 |  
 | m3e-large | 32.40 | 2.31 | 9.91 | 11.19 | 8.33 | 17.01 | 16.46 | 11.56 | 4.92 | 70.93 | 6.19 | 31.11 | 6.31 | 14.04 | 16.30 | 17.27 |  
+| multilingual-e5-base | 44.21 | 23.88 | 40.45 | 79.42 | 38.14 | 68.57 | 70.22 | 32.49 | 60.03 | 88.79 | 17.17 | 69.39 | 21.50 | 69.50 | 38.51 | 50.82 |  
+| multilingual-e5-large | 54.36 | 25.73 | 41.30 | 82.79 | 43.81 | 71.22 | 71.64 | 33.95 | 64.03 | 89.26 | 17.45 | 70.42 | 23.13 | 71.21 | 39.67 | 53.33 |  
 | bce-embedding-base_v1 | 37.46 | 19.72 | 22.44 | 33.20 | 31.13 | 19.35 | 62.10 | 26.18 | 45.24 | 85.87 | 11.39 | 56.96 | 16.52 | 50.10 | 34.82 | 36.83 |  
 
 ### Task Type: STS  
-| Model | BIOSSES | SICK-R | STS12 | STS13 | STS14 | STS15 | STS16 | STS17 | STS22 | STSBenchmark | Avg |  
+| Model | BIOSSES | SICK-R | STS12 | STS13 | STS14 | STS15 | STS16 | STS17 | STS22 | STSBenchmark | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 86.94 | 80.30 | 78.03 | 84.18 | 82.27 | 87.96 | 85.47 | 86.41 | 65.95 | 86.42 | 82.39 |  
 | bge-base-zh-v1.5 | 73.84 | 69.13 | 61.47 | 68.87 | 65.90 | 79.92 | 75.63 | 82.92 | 62.81 | 72.14 | 71.26 |  
 | bge-large-en-v1.5 | 84.65 | 81.68 | 79.05 | 86.37 | 82.78 | 88.03 | 86.49 | 87.49 | 67.03 | 87.52 | 83.11 |  
 | bge-large-zh-v1.5 | 75.80 | 70.42 | 59.43 | 70.46 | 67.22 | 79.34 | 77.99 | 80.47 | 60.26 | 73.08 | 71.45 |  
+| e5-large-v2 | 83.57 | 79.28 | 76.96 | 84.12 | 80.46 | 89.76 | 85.47 | 89.04 | 64.13 | 87.73 | 82.05 |  
+| gte-large | 88.65 | 79.81 | 76.81 | 88.11 | 82.66 | 88.93 | 84.25 | 88.48 | 69.72 | 86.07 | 83.35 |  
+| gte-large-zh | 74.60 | 70.53 | 67.95 | 62.90 | 64.36 | 80.13 | 71.77 | 83.02 | 55.72 | 73.11 | 70.41 |  
 | jina-embeddings-v2-base-en | 81.25 | 79.65 | 74.28 | 84.18 | 78.81 | 87.55 | 85.35 | 88.88 | 65.43 | 84.84 | 81.02 |  
 | m3e-base | 78.83 | 67.30 | 69.00 | 70.92 | 71.42 | 83.12 | 76.80 | 85.32 | 64.14 | 77.52 | 74.44 |  
 | m3e-large | 67.06 | 61.56 | 64.73 | 56.64 | 62.39 | 77.97 | 70.31 | 79.13 | 61.63 | 69.24 | 67.07 |  
+| multilingual-e5-base | 85.05 | 78.51 | 76.70 | 78.02 | 76.60 | 88.16 | 84.28 | 87.84 | 61.82 | 85.64 | 80.26 |  
+| multilingual-e5-large | 82.49 | 80.23 | 80.02 | 81.55 | 77.72 | 89.31 | 85.79 | 88.12 | 63.05 | 87.29 | 81.56 |  
 | bce-embedding-base_v1 | 82.27 | 73.97 | 71.86 | 75.60 | 70.95 | 82.53 | 82.69 | 83.16 | 61.57 | 82.48 | 76.71 |  
 
 ### Task Type: PairClassification  
-| Model | SprintDuplicateQuestions | TwitterSemEval2015 | TwitterURLCorpus | Avg |  
+| Model | SprintDuplicateQuestions | TwitterSemEval2015 | TwitterURLCorpus | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 96.33 | 77.68 | 85.65 | 86.55 |  
 | bge-base-zh-v1.5 | 83.09 | 60.68 | 83.70 | 75.82 |  
 | bge-large-en-v1.5 | 96.73 | 79.04 | 85.60 | 87.12 |  
 | bge-large-zh-v1.5 | 87.00 | 61.47 | 83.99 | 77.49 |  
+| e5-large-v2 | 94.92 | 76.91 | 86.25 | 86.03 |  
+| gte-large | 95.75 | 73.73 | 85.53 | 85.00 |  
+| gte-large-zh | 85.49 | 53.49 | 80.11 | 73.03 |  
 | jina-embeddings-v2-base-en | 95.30 | 74.74 | 86.09 | 85.37 |  
 | m3e-base | 90.64 | 56.98 | 83.59 | 77.07 |  
 | m3e-large | 80.29 | 50.93 | 78.66 | 69.96 |  
+| multilingual-e5-base | 93.02 | 72.21 | 85.48 | 83.57 |  
+| multilingual-e5-large | 93.14 | 75.28 | 85.83 | 84.75 |  
 | bce-embedding-base_v1 | 88.21 | 62.79 | 83.12 | 78.04 |  
 
 ### Task Type: Classification  
-| Model | AmazonCounterfactualClassification | AmazonPolarityClassification | AmazonReviewsClassification | Banking77Classification | EmotionClassification | ImdbClassification | MassiveIntentClassification | MassiveScenarioClassification | MTOPDomainClassification | MTOPIntentClassification | ToxicConversationsClassification | TweetSentimentExtractionClassification | Avg |  
+| Model | AmazonCounterfactualClassification | AmazonPolarityClassification | AmazonReviewsClassification | Banking77Classification | EmotionClassification | ImdbClassification | MassiveIntentClassification | MassiveScenarioClassification | MTOPDomainClassification | MTOPIntentClassification | ToxicConversationsClassification | TweetSentimentExtractionClassification | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 76.13 | 93.39 | 48.84 | 86.96 | 51.93 | 90.81 | 76.13 | 80.13 | 94.16 | 76.86 | 71.58 | 59.38 | 75.53 |  
 | bge-base-zh-v1.5 | 68.13 | 66.35 | 32.84 | 72.04 | 26.85 | 60.99 | 60.99 | 67.15 | 84.67 | 63.71 | 61.46 | 51.48 | 59.72 |  
 | bge-large-en-v1.5 | 75.84 | 92.42 | 48.18 | 87.81 | 51.55 | 92.85 | 77.55 | 80.52 | 94.60 | 79.48 | 70.92 | 59.93 | 75.97 |  
 | bge-large-zh-v1.5 | 70.76 | 67.12 | 33.75 | 73.57 | 29.10 | 61.37 | 62.98 | 67.92 | 86.48 | 65.96 | 61.78 | 53.23 | 61.17 |  
+| e5-large-v2 | 79.22 | 93.75 | 48.62 | 84.54 | 49.45 | 91.69 | 73.86 | 78.10 | 94.63 | 77.13 | 70.91 | 60.98 | 75.24 |  
+| gte-large | 72.64 | 92.52 | 49.07 | 86.06 | 47.92 | 88.45 | 72.61 | 76.67 | 93.51 | 73.23 | 70.56 | 56.49 | 73.31 |  
+| gte-large-zh | 66.19 | 65.94 | 33.87 | 66.65 | 24.23 | 58.33 | 55.81 | 62.17 | 78.87 | 55.91 | 57.01 | 48.42 | 56.12 |  
 | jina-embeddings-v2-base-en | 73.66 | 88.37 | 43.05 | 87.76 | 46.39 | 77.58 | 75.54 | 78.26 | 96.23 | 88.68 | 70.98 | 59.79 | 73.86 |  
 | m3e-base | 66.46 | 75.11 | 38.49 | 76.57 | 27.56 | 66.41 | 59.93 | 67.94 | 86.51 | 61.74 | 58.56 | 47.95 | 61.10 |  
 | m3e-large | 63.69 | 61.74 | 31.29 | 64.14 | 23.26 | 58.46 | 51.07 | 60.72 | 75.68 | 51.90 | 55.52 | 45.73 | 53.60 |  
+| multilingual-e5-base | 79.01 | 90.64 | 44.55 | 82.71 | 45.25 | 85.46 | 72.05 | 77.10 | 93.13 | 75.25 | 69.80 | 61.29 | 73.02 |  
+| multilingual-e5-large | 79.03 | 93.49 | 47.58 | 84.74 | 46.49 | 90.24 | 73.76 | 77.53 | 93.65 | 77.92 | 71.32 | 61.97 | 74.81 |  
 | bce-embedding-base_v1 | 68.37 | 90.09 | 47.24 | 80.10 | 45.55 | 82.59 | 69.84 | 75.69 | 87.96 | 69.86 | 69.98 | 55.61 | 70.24 |  
 
 ### Task Type: Reranking  
-| Model | AskUbuntuDupQuestions | MindSmallReranking | SciDocsRR | StackOverflowDupQuestions | Avg |  
+| Model | AskUbuntuDupQuestions | MindSmallReranking | SciDocsRR | StackOverflowDupQuestions | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|  
-| bge-base-en-v1.5 | 62.15 | 31.20 | 87.49 | 54.62 | 58.86 |  
-| bge-base-zh-v1.5 | 53.98 | 30.18 | 67.56 | 43.16 | 48.72 |  
-| bge-large-en-v1.5 | 64.48 | 32.06 | 87.64 | 55.94 | 60.03 |  
-| bge-large-zh-v1.5 | 53.33 | 29.97 | 69.39 | 43.15 | 48.96 |  
+| bge-base-en-v1.5 | 62.18 | 31.45 | 86.62 | 54.51 | 58.69 |  
+| bge-base-zh-v1.5 | 54.67 | 29.99 | 67.01 | 44.39 | 49.01 |  
+| bge-large-en-v1.5 | 63.01 | 31.80 | 86.78 | 56.02 | 59.40 |  
+| bge-large-zh-v1.5 | 54.53 | 29.94 | 68.41 | 44.10 | 49.24 |  
+| e5-large-v2 | 60.15 | 30.36 | 85.90 | 49.11 | 56.38 |  
+| gte-large | 63.06 | 32.62 | 87.20 | 53.69 | 59.14 |  
+| gte-large-zh | 52.75 | 28.25 | 65.62 | 41.76 | 47.09 |  
 | jina-embeddings-v2-base-en | 62.26 | 30.54 | 83.11 | 52.04 | 56.98 |  
 | m3e-base | 55.70 | 29.95 | 76.58 | 43.05 | 51.32 |  
 | m3e-large | 50.80 | 28.36 | 62.33 | 38.07 | 44.89 |  
+| multilingual-e5-base | 59.28 | 29.28 | 81.81 | 49.75 | 55.03 |  
+| multilingual-e5-large | 59.24 | 30.24 | 84.22 | 50.14 | 55.96 |  
 | bce-embedding-base_v1 | 57.26 | 30.52 | 78.98 | 44.60 | 52.84 |  
 
 ### Task Type: Clustering  
-| Model | ArxivClusteringP2P | ArxivClusteringS2S | BiorxivClusteringP2P | BiorxivClusteringS2S | MedrxivClusteringP2P | MedrxivClusteringS2S | RedditClustering | RedditClusteringP2P | StackExchangeClustering | StackExchangeClusteringP2P | TwentyNewsgroupsClustering | Avg |  
+| Model | ArxivClusteringP2P | ArxivClusteringS2S | BiorxivClusteringP2P | BiorxivClusteringS2S | MedrxivClusteringP2P | MedrxivClusteringS2S | RedditClustering | RedditClusteringP2P | StackExchangeClustering | StackExchangeClusteringP2P | TwentyNewsgroupsClustering | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 48.73 | 42.59 | 39.40 | 36.73 | 32.94 | 31.56 | 56.38 | 62.93 | 65.18 | 35.10 | 49.28 | 45.53 |  
 | bge-base-zh-v1.5 | 29.51 | 19.25 | 24.33 | 13.73 | 25.71 | 20.41 | 28.25 | 45.20 | 37.34 | 29.91 | 23.56 | 27.02 |  
 | bge-large-en-v1.5 | 48.85 | 42.99 | 39.30 | 36.94 | 32.57 | 31.51 | 57.10 | 64.97 | 65.54 | 35.07 | 50.49 | 45.94 |  
 | bge-large-zh-v1.5 | 29.83 | 19.29 | 25.13 | 14.73 | 26.98 | 21.64 | 29.26 | 44.77 | 38.72 | 30.72 | 23.63 | 27.70 |  
+| e5-large-v2 | 45.47 | 40.92 | 37.35 | 35.18 | 31.29 | 30.29 | 55.01 | 64.24 | 65.47 | 33.64 | 48.33 | 44.29 |  
+| gte-large | 48.77 | 43.34 | 38.97 | 36.69 | 33.31 | 32.08 | 60.87 | 64.23 | 67.21 | 36.42 | 52.85 | 46.79 |  
+| gte-large-zh | 26.83 | 18.05 | 24.53 | 15.03 | 27.39 | 23.33 | 22.12 | 38.88 | 33.42 | 30.58 | 21.15 | 25.57 |  
 | jina-embeddings-v2-base-en | 45.26 | 36.72 | 37.06 | 30.44 | 32.64 | 28.13 | 52.01 | 59.25 | 58.32 | 34.98 | 42.29 | 41.56 |  
 | m3e-base | 38.72 | 25.30 | 34.04 | 21.54 | 31.58 | 25.33 | 38.51 | 51.31 | 46.64 | 32.08 | 30.95 | 34.18 |  
 | m3e-large | 26.93 | 17.17 | 21.35 | 12.47 | 24.22 | 19.65 | 26.87 | 43.86 | 35.22 | 30.54 | 22.05 | 25.49 |  
+| multilingual-e5-base | 40.79 | 35.28 | 35.37 | 29.42 | 29.04 | 27.61 | 41.08 | 55.20 | 54.81 | 30.42 | 34.76 | 37.62 |  
+| multilingual-e5-large | 44.33 | 38.43 | 35.29 | 32.88 | 31.67 | 29.64 | 46.86 | 63.64 | 58.06 | 32.79 | 39.42 | 41.18 |  
 | bce-embedding-base_v1 | 39.91 | 29.37 | 36.50 | 27.92 | 33.07 | 27.58 | 38.76 | 53.71 | 49.99 | 32.94 | 33.23 | 36.63 |  
 
 ### *Summary on `en`*  
-| Model | Retrieval | STS | PairClassification | Classification | Reranking | Clustering | Avg |  
+| Model | Retrieval | STS | PairClassification | Classification | Reranking | Clustering | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
-| bge-base-en-v1.5 | 55.32 | 82.39 | 86.55 | 75.53 | 58.86 | 45.53 | 64.65 |  
-| bge-base-zh-v1.5 | 32.03 | 71.26 | 75.82 | 59.72 | 48.72 | 27.02 | 47.81 |  
-| bge-large-en-v1.5 | 56.19 | 83.11 | 87.12 | 75.97 | 60.03 | 45.94 | 65.32 |  
-| bge-large-zh-v1.5 | 30.14 | 71.45 | 77.49 | 61.17 | 48.96 | 27.70 | 47.88 |  
+| bge-base-en-v1.5 | 55.32 | 82.39 | 86.55 | 75.53 | 58.69 | 45.53 | 64.64 |  
+| bge-base-zh-v1.5 | 32.10 | 71.26 | 75.82 | 59.72 | 49.01 | 27.02 | 47.85 |  
+| bge-large-en-v1.5 | 56.25 | 83.11 | 87.12 | 75.97 | 59.40 | 45.94 | 65.29 |  
+| bge-large-zh-v1.5 | 30.24 | 71.45 | 77.49 | 61.17 | 49.24 | 27.70 | 47.93 |  
+| e5-large-v2 | 52.43 | 82.05 | 86.03 | 75.24 | 56.38 | 44.29 | 63.28 |  
+| gte-large | 54.24 | 83.35 | 85.00 | 73.31 | 59.14 | 46.79 | 64.24 |  
+| gte-large-zh | 23.33 | 70.41 | 73.03 | 56.12 | 47.09 | 25.57 | 43.93 |  
 | jina-embeddings-v2-base-en | 49.88 | 81.02 | 85.37 | 73.86 | 56.98 | 41.56 | 61.56 |  
 | m3e-base | 34.87 | 74.44 | 77.07 | 61.10 | 51.32 | 34.18 | 51.15 |  
 | m3e-large | 17.27 | 67.07 | 69.96 | 53.60 | 44.89 | 25.49 | 40.78 |  
+| multilingual-e5-base | 50.82 | 80.26 | 83.57 | 73.02 | 55.03 | 37.62 | 60.47 |  
+| multilingual-e5-large | 53.33 | 81.56 | 84.75 | 74.81 | 55.96 | 41.18 | 62.62 |  
 | bce-embedding-base_v1 | 36.83 | 76.71 | 78.04 | 70.24 | 52.84 | 36.63 | 54.74 |  
 ## Language: `zh`  
 
 ### Task Type: Retrieval  
-| Model | T2Retrieval | MMarcoRetrieval | DuRetrieval | CovidRetrieval | CmedqaRetrieval | EcomRetrieval | MedicalRetrieval | VideoRetrieval | Avg |  
+| Model | T2Retrieval | MMarcoRetrieval | DuRetrieval | CovidRetrieval | CmedqaRetrieval | EcomRetrieval | MedicalRetrieval | VideoRetrieval | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 11.93 | 12.83 | 13.29 | 23.21 | 2.43 | 5.83 | 3.70 | 11.24 | 10.56 |  
 | bge-base-zh-v1.5 | 83.72 | 77.70 | 85.08 | 74.69 | 41.62 | 64.32 | 56.50 | 72.31 | 69.49 |  
 | bge-large-en-v1.5 | 11.87 | 12.94 | 12.25 | 17.18 | 2.08 | 6.27 | 3.49 | 9.49 | 9.45 |  
 | bge-large-zh-v1.5 | 83.98 | 79.23 | 86.33 | 73.33 | 42.57 | 65.31 | 59.60 | 73.24 | 70.45 |  
+| e5-large-v2 | 7.44 | 13.01 | 10.81 | 19.59 | 3.27 | 6.23 | 4.60 | 11.33 | 9.54 |  
+| gte-large | 9.84 | 11.67 | 10.13 | 19.65 | 2.46 | 5.88 | 2.98 | 8.99 | 8.95 |  
+| gte-large-zh | 81.93 | 77.53 | 85.04 | 88.41 | 43.15 | 67.25 | 62.88 | 73.66 | 72.48 |  
 | jina-embeddings-v2-base-en | 3.88 | 9.56 | 5.19 | 2.84 | 2.70 | 4.75 | 2.24 | 7.89 | 4.88 |  
 | m3e-base | 73.14 | 65.45 | 75.76 | 66.42 | 30.33 | 50.27 | 42.80 | 51.11 | 56.91 |  
 | m3e-large | 72.36 | 61.06 | 74.69 | 61.33 | 30.73 | 45.18 | 48.66 | 44.06 | 54.76 |  
+| multilingual-e5-base | 70.77 | 76.01 | 81.66 | 73.48 | 27.20 | 54.01 | 48.33 | 61.22 | 61.59 |  
+| multilingual-e5-large | 76.07 | 79.20 | 85.30 | 75.61 | 28.66 | 54.67 | 51.44 | 58.24 | 63.65 |  
 | bce-embedding-base_v1 | 67.94 | 64.06 | 76.27 | 69.02 | 29.69 | 41.58 | 47.57 | 32.86 | 53.62 |  
 
 ### Task Type: STS  
-| Model | STS22 | ATEC | BQ | LCQMC | PAWSX | STSB | AFQMC | QBQTC | Avg |  
+| Model | STS22 | ATEC | BQ | LCQMC | PAWSX | STSB | AFQMC | QBQTC | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 50.20 | 12.82 | 21.90 | 19.55 | 6.17 | 41.69 | 6.67 | 18.51 | 22.19 |  
 | bge-base-zh-v1.5 | 68.01 | 48.17 | 61.78 | 74.45 | 20.41 | 78.30 | 42.40 | 36.21 | 53.72 |  
 | bge-large-en-v1.5 | 51.60 | 9.20 | 14.15 | 13.22 | 5.92 | 36.44 | 5.15 | 11.95 | 18.45 |  
 | bge-large-zh-v1.5 | 68.94 | 49.54 | 62.94 | 74.33 | 33.93 | 78.70 | 44.36 | 37.30 | 56.25 |  
+| e5-large-v2 | 51.63 | 14.38 | 22.88 | 21.50 | 6.36 | 41.68 | 8.41 | 18.07 | 23.11 |  
+| gte-large | 55.59 | 10.68 | 20.67 | 16.72 | 4.87 | 40.10 | 5.93 | 18.19 | 21.59 |  
+| gte-large-zh | 62.98 | 54.60 | 64.41 | 74.40 | 38.55 | 79.68 | 54.58 | 33.36 | 57.82 |  
 | jina-embeddings-v2-base-en | 43.45 | 15.10 | 25.74 | 26.50 | 6.98 | 42.54 | 9.33 | 20.08 | 23.72 |  
 | m3e-base | 66.73 | 41.27 | 63.81 | 74.88 | 12.19 | 76.97 | 35.87 | 32.07 | 50.47 |  
 | m3e-large | 62.91 | 41.80 | 65.20 | 74.20 | 15.95 | 74.16 | 36.53 | 32.65 | 50.43 |  
+| multilingual-e5-base | 65.63 | 37.01 | 45.45 | 74.15 | 12.13 | 79.04 | 29.66 | 28.81 | 46.48 |  
+| multilingual-e5-large | 66.82 | 39.80 | 46.44 | 75.95 | 14.63 | 81.08 | 33.01 | 29.77 | 48.44 |  
 | bce-embedding-base_v1 | 62.43 | 46.86 | 67.47 | 70.92 | 15.57 | 79.13 | 40.91 | 29.01 | 51.54 |  
 
 ### Task Type: PairClassification  
-| Model | Ocnli | Cmnli | Avg |  
+| Model | Ocnli | Cmnli | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 55.15 | 62.46 | 58.80 |  
 | bge-base-zh-v1.5 | 75.41 | 84.10 | 79.76 |  
 | bge-large-en-v1.5 | 53.61 | 60.00 | 56.80 |  
 | bge-large-zh-v1.5 | 77.94 | 85.27 | 81.60 |  
+| e5-large-v2 | 55.31 | 62.98 | 59.14 |  
+| gte-large | 55.54 | 60.93 | 58.23 |  
+| gte-large-zh | 79.32 | 89.50 | 84.41 |  
 | jina-embeddings-v2-base-en | 55.51 | 62.59 | 59.05 |  
 | m3e-base | 58.00 | 69.98 | 63.99 |  
 | m3e-large | 59.33 | 69.27 | 64.30 |  
+| multilingual-e5-base | 59.63 | 74.51 | 67.07 |  
+| multilingual-e5-large | 61.60 | 78.18 | 69.89 |  
 | bce-embedding-base_v1 | 64.27 | 76.40 | 70.34 |  
 
 ### Task Type: Classification  
-| Model | AmazonReviewsClassification | MassiveIntentClassification | MassiveScenarioClassification | TNews | IFlyTek | MultilingualSentiment | JDReview | OnlineShopping | Waimai | Avg |  
+| Model | AmazonReviewsClassification | MassiveIntentClassification | MassiveScenarioClassification | TNews | IFlyTek | MultilingualSentiment | JDReview | OnlineShopping | Waimai | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 23.69 | 25.43 | 34.39 | 20.82 | 20.47 | 41.39 | 60.62 | 58.31 | 63.00 | 38.68 |  
 | bge-base-zh-v1.5 | 38.69 | 69.88 | 75.18 | 51.08 | 48.62 | 70.66 | 83.62 | 91.26 | 85.36 | 68.26 |  
 | bge-large-en-v1.5 | 22.62 | 23.89 | 32.12 | 19.04 | 20.29 | 39.92 | 58.20 | 55.19 | 61.23 | 36.94 |  
 | bge-large-zh-v1.5 | 40.60 | 70.60 | 75.65 | 49.30 | 46.53 | 70.03 | 84.93 | 91.00 | 85.35 | 68.22 |  
+| e5-large-v2 | 23.90 | 24.81 | 33.98 | 19.72 | 22.99 | 41.41 | 60.64 | 58.27 | 61.45 | 38.57 |  
+| gte-large | 22.92 | 24.10 | 33.37 | 18.81 | 21.10 | 39.60 | 57.90 | 55.01 | 59.82 | 36.96 |  
+| gte-large-zh | 45.28 | 74.66 | 76.99 | 48.20 | 44.96 | 73.46 | 86.17 | 91.72 | 87.89 | 69.93 |  
 | jina-embeddings-v2-base-en | 22.84 | 25.32 | 33.56 | 18.86 | 20.16 | 40.14 | 61.05 | 57.74 | 60.94 | 37.85 |  
 | m3e-base | 43.03 | 68.43 | 74.58 | 48.27 | 44.39 | 71.90 | 85.33 | 91.30 | 85.23 | 68.05 |  
 | m3e-large | 44.44 | 67.18 | 74.88 | 48.27 | 43.96 | 72.47 | 86.92 | 92.59 | 87.54 | 68.69 |  
+| multilingual-e5-base | 37.20 | 69.18 | 75.32 | 47.03 | 44.93 | 65.21 | 76.19 | 88.39 | 84.44 | 65.32 |  
+| multilingual-e5-large | 38.83 | 71.15 | 76.83 | 48.38 | 45.49 | 68.58 | 80.98 | 90.82 | 85.02 | 67.34 |  
 | bce-embedding-base_v1 | 42.95 | 69.41 | 75.60 | 46.61 | 42.95 | 72.02 | 79.81 | 91.08 | 85.71 | 67.35 |  
 
 ### Task Type: Reranking  
-| Model | T2Reranking | MMarcoReranking | CMedQAv1 | CMedQAv2 | Avg |  
+| Model | T2Reranking | MMarcoReranking | CMedQAv1 | CMedQAv2 | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 63.09 | 8.23 | 20.77 | 22.06 | 28.54 |  
 | bge-base-zh-v1.5 | 66.49 | 29.71 | 80.47 | 84.88 | 65.39 |  
 | bge-large-en-v1.5 | 63.07 | 6.75 | 16.89 | 19.42 | 26.53 |  
 | bge-large-zh-v1.5 | 65.74 | 28.74 | 83.45 | 85.44 | 65.84 |  
+| e5-large-v2 | 59.62 | 7.97 | 21.33 | 23.13 | 28.01 |  
+| gte-large | 61.36 | 5.56 | 20.69 | 22.20 | 27.45 |  
+| gte-large-zh | 65.86 | 31.19 | 86.09 | 86.46 | 67.40 |  
 | jina-embeddings-v2-base-en | 58.80 | 5.11 | 19.46 | 21.34 | 26.18 |  
 | m3e-base | 66.03 | 17.51 | 77.05 | 76.76 | 59.34 |  
 | m3e-large | 66.13 | 16.46 | 77.76 | 78.27 | 59.65 |  
+| multilingual-e5-base | 64.86 | 30.52 | 66.46 | 66.27 | 57.03 |  
+| multilingual-e5-large | 66.32 | 29.12 | 67.65 | 66.78 | 57.47 |  
 | bce-embedding-base_v1 | 66.48 | 22.32 | 78.78 | 79.10 | 61.67 |  
 
 ### Task Type: Clustering  
-| Model | CLSClusteringS2S | CLSClusteringP2P | ThuNewsClusteringS2S | ThuNewsClusteringP2P | Avg |  
+| Model | CLSClusteringS2S | CLSClusteringP2P | ThuNewsClusteringS2S | ThuNewsClusteringP2P | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 11.15 | 20.08 | 12.59 | 21.52 | 16.33 |  
 | bge-base-zh-v1.5 | 37.26 | 39.71 | 54.95 | 59.26 | 47.79 |  
 | bge-large-en-v1.5 | 5.57 | 16.86 | 11.34 | 20.70 | 13.62 |  
 | bge-large-zh-v1.5 | 38.85 | 39.45 | 56.74 | 59.13 | 48.54 |  
+| e5-large-v2 | 9.76 | 19.24 | 12.67 | 18.86 | 15.13 |  
+| gte-large | 10.69 | 20.01 | 12.04 | 20.16 | 15.73 |  
+| gte-large-zh | 39.24 | 41.42 | 63.95 | 69.55 | 53.54 |  
 | jina-embeddings-v2-base-en | 11.90 | 20.91 | 11.55 | 18.60 | 15.74 |  
 | m3e-base | 37.04 | 38.87 | 53.92 | 61.79 | 47.91 |  
 | m3e-large | 37.46 | 37.67 | 59.06 | 59.70 | 48.47 |  
+| multilingual-e5-base | 37.14 | 31.93 | 53.37 | 40.32 | 40.69 |  
+| multilingual-e5-large | 38.56 | 41.03 | 55.36 | 58.34 | 48.32 |  
 | bce-embedding-base_v1 | 34.68 | 38.13 | 53.11 | 55.37 | 45.32 |  
 
 ### *Summary on `zh`*  
-| Model | Retrieval | STS | PairClassification | Classification | Reranking | Clustering | Avg |  
+| Model | Retrieval | STS | PairClassification | Classification | Reranking | Clustering | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 10.56 | 22.19 | 58.80 | 38.68 | 28.54 | 16.33 | 25.92 |  
 | bge-base-zh-v1.5 | 69.49 | 53.72 | 79.76 | 68.26 | 65.39 | 47.79 | 63.21 |  
 | bge-large-en-v1.5 | 9.45 | 18.45 | 56.80 | 36.94 | 26.53 | 13.62 | 23.71 |  
 | bge-large-zh-v1.5 | 70.45 | 56.25 | 81.60 | 68.22 | 65.84 | 48.54 | 64.24 |  
+| e5-large-v2 | 9.54 | 23.11 | 59.14 | 38.57 | 28.01 | 15.13 | 25.69 |  
+| gte-large | 8.95 | 21.59 | 58.23 | 36.96 | 27.45 | 15.73 | 24.75 |  
+| gte-large-zh | 72.48 | 57.82 | 84.41 | 69.93 | 67.40 | 53.54 | 66.41 |  
 | jina-embeddings-v2-base-en | 4.88 | 23.72 | 59.05 | 37.85 | 26.18 | 15.74 | 24.43 |  
 | m3e-base | 56.91 | 50.47 | 63.99 | 68.05 | 59.34 | 47.91 | 57.96 |  
 | m3e-large | 54.76 | 50.43 | 64.30 | 68.69 | 59.65 | 48.47 | 57.74 |  
+| multilingual-e5-base | 61.59 | 46.48 | 67.07 | 65.32 | 57.03 | 40.69 | 56.50 |  
+| multilingual-e5-large | 63.65 | 48.44 | 69.89 | 67.34 | 57.47 | 48.32 | 59.02 |  
 | bce-embedding-base_v1 | 53.62 | 51.54 | 70.34 | 67.35 | 61.67 | 45.32 | 57.60 |  
 ## Language: `en-zh`  
 
 ### Task Type: Retrieval  
-| Model | CrosslingualRetrievalBooksEn2Zh | CrosslingualRetrievalFinanceEn2Zh | CrosslingualRetrievalLawEn2Zh | CrosslingualRetrievalOthersEn2Zh | CrosslingualRetrievalPaperEn2Zh | CrosslingualRetrievalWikiEn2Zh | CrosslingualRetrievalQasEn2Zh | Avg |  
+| Model | CrosslingualRetrievalBooksEn2Zh | CrosslingualRetrievalFinanceEn2Zh | CrosslingualRetrievalLawEn2Zh | CrosslingualRetrievalOthersEn2Zh | CrosslingualRetrievalPaperEn2Zh | CrosslingualRetrievalWikiEn2Zh | CrosslingualRetrievalQasEn2Zh | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 13.23 | 20.59 | 15.45 | 32.80 | 45.10 | 31.14 | 37.47 | 27.97 |  
 | bge-base-zh-v1.5 | 37.88 | 35.10 | 32.55 | 63.47 | 67.28 | 58.54 | 70.49 | 52.18 |  
 | bge-large-en-v1.5 | 12.82 | 21.79 | 15.54 | 32.86 | 41.08 | 30.85 | 32.88 | 26.83 |  
 | bge-large-zh-v1.5 | 39.87 | 35.39 | 35.23 | 65.25 | 70.79 | 59.09 | 71.41 | 53.86 |  
+| e5-large-v2 | 13.11 | 23.83 | 15.15 | 33.54 | 45.65 | 31.35 | 36.60 | 28.46 |  
+| gte-large | 13.53 | 23.21 | 17.32 | 34.82 | 45.17 | 32.80 | 35.26 | 28.87 |  
+| gte-large-zh | 21.03 | 28.24 | 27.53 | 50.17 | 63.36 | 45.50 | 65.56 | 43.06 |  
 | jina-embeddings-v2-base-en | 6.97 | 12.04 | 6.82 | 20.66 | 38.27 | 19.42 | 26.52 | 18.67 |  
 | m3e-base | 35.74 | 31.95 | 30.84 | 61.10 | 69.07 | 56.98 | 70.71 | 50.91 |  
 | m3e-large | 28.57 | 24.39 | 27.97 | 51.96 | 58.90 | 48.71 | 63.05 | 43.36 |  
+| multilingual-e5-base | 43.30 | 46.50 | 44.36 | 71.97 | 73.11 | 63.08 | 72.99 | 59.33 |  
+| multilingual-e5-large | 43.97 | 44.16 | 45.33 | 71.87 | 74.15 | 63.70 | 74.59 | 59.68 |  
 | bce-embedding-base_v1 | 73.21 | 82.47 | 74.49 | 86.39 | 97.88 | 89.32 | 87.08 | 84.41 |  
 
 ### Task Type: Reranking  
-| Model | T2RerankingEn2Zh | MMarcoRerankingEn2Zh | Avg |  
+| Model | T2RerankingEn2Zh | MMarcoRerankingEn2Zh | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 60.21 | 27.15 | 43.68 |  
 | bge-base-zh-v1.5 | 58.68 | 35.87 | 47.28 |  
 | bge-large-en-v1.5 | 59.19 | 25.11 | 42.15 |  
 | bge-large-zh-v1.5 | 59.07 | 42.25 | 50.66 |  
+| e5-large-v2 | 58.00 | 30.26 | 44.13 |  
+| gte-large | 58.60 | 25.97 | 42.29 |  
+| gte-large-zh | 57.98 | 44.72 | 51.35 |  
 | jina-embeddings-v2-base-en | 60.19 | 23.39 | 41.79 |  
 | m3e-base | 56.07 | 32.31 | 44.19 |  
 | m3e-large | 56.11 | 22.51 | 39.31 |  
+| multilingual-e5-base | 55.18 | 46.05 | 50.62 |  
+| multilingual-e5-large | 55.67 | 52.76 | 54.21 |  
 | bce-embedding-base_v1 | 60.77 | 50.45 | 55.61 |  
 
 ### *Summary on `en-zh`*  
-| Model | Retrieval | Reranking | Avg |  
+| Model | Retrieval | Reranking | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 27.97 | 43.68 | 31.46 |  
 | bge-base-zh-v1.5 | 52.18 | 47.28 | 51.09 |  
 | bge-large-en-v1.5 | 26.83 | 42.15 | 30.24 |  
 | bge-large-zh-v1.5 | 53.86 | 50.66 | 53.15 |  
+| e5-large-v2 | 28.46 | 44.13 | 31.94 |  
+| gte-large | 28.87 | 42.29 | 31.85 |  
+| gte-large-zh | 43.06 | 51.35 | 44.90 |  
 | jina-embeddings-v2-base-en | 18.67 | 41.79 | 23.81 |  
 | m3e-base | 50.91 | 44.19 | 49.42 |  
 | m3e-large | 43.36 | 39.31 | 42.46 |  
+| multilingual-e5-base | 59.33 | 50.62 | 57.39 |  
+| multilingual-e5-large | 59.68 | 54.21 | 58.47 |  
 | bce-embedding-base_v1 | 84.41 | 55.61 | 78.01 |  
 ## Language: `zh-en`  
 
 ### Task Type: Retrieval  
-| Model | CrosslingualRetrievalBooksZh2En | CrosslingualRetrievalFinanceZh2En | CrosslingualRetrievalLawZh2En | CrosslingualRetrievalOthersZh2En | CrosslingualRetrievalPaperZh2En | CrosslingualRetrievalWikiZh2En | Avg |  
+| Model | CrosslingualRetrievalBooksZh2En | CrosslingualRetrievalFinanceZh2En | CrosslingualRetrievalLawZh2En | CrosslingualRetrievalOthersZh2En | CrosslingualRetrievalPaperZh2En | CrosslingualRetrievalWikiZh2En | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 29.63 | 33.29 | 28.82 | 43.34 | 50.14 | 41.65 | 37.81 |  
 | bge-base-zh-v1.5 | 35.83 | 42.08 | 26.45 | 66.15 | 79.46 | 61.97 | 51.99 |  
 | bge-large-en-v1.5 | 30.96 | 33.97 | 30.17 | 44.07 | 50.07 | 42.05 | 38.55 |  
 | bge-large-zh-v1.5 | 36.47 | 42.67 | 26.57 | 66.77 | 84.25 | 62.05 | 53.13 |  
+| e5-large-v2 | 33.12 | 34.81 | 30.60 | 43.69 | 49.74 | 41.33 | 38.88 |  
+| gte-large | 32.14 | 32.86 | 28.74 | 45.55 | 51.02 | 42.83 | 38.86 |  
+| gte-large-zh | 21.21 | 31.80 | 18.43 | 52.75 | 73.95 | 52.16 | 41.71 |  
 | jina-embeddings-v2-base-en | 30.96 | 31.25 | 26.73 | 41.83 | 47.93 | 40.35 | 36.51 |  
 | m3e-base | 42.66 | 40.09 | 31.20 | 72.26 | 80.41 | 65.01 | 55.27 |  
 | m3e-large | 27.89 | 27.58 | 19.23 | 56.64 | 70.02 | 52.75 | 42.35 |  
+| multilingual-e5-base | 39.89 | 41.57 | 36.02 | 64.80 | 66.12 | 51.57 | 50.00 |  
+| multilingual-e5-large | 42.74 | 43.76 | 35.81 | 66.76 | 72.89 | 54.57 | 52.76 |  
 | bce-embedding-base_v1 | 74.58 | 80.83 | 73.20 | 88.11 | 97.31 | 87.17 | 83.53 |  
 
 ### Task Type: STS  
-| Model | STS22 | Avg |  
+| Model | STS22 | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|  
 | bge-base-en-v1.5 | 44.76 | 44.76 |  
 | bge-base-zh-v1.5 | 68.38 | 68.38 |  
 | bge-large-en-v1.5 | 49.02 | 49.02 |  
 | bge-large-zh-v1.5 | 65.32 | 65.32 |  
+| e5-large-v2 | 43.93 | 43.93 |  
+| gte-large | 43.04 | 43.04 |  
+| gte-large-zh | 61.20 | 61.20 |  
 | jina-embeddings-v2-base-en | 31.41 | 31.41 |  
 | m3e-base | 66.54 | 66.54 |  
 | m3e-large | 61.04 | 61.04 |  
+| multilingual-e5-base | 69.80 | 69.80 |  
+| multilingual-e5-large | 65.95 | 65.95 |  
 | bce-embedding-base_v1 | 69.57 | 69.57 |  
 
 ### Task Type: Reranking  
-| Model | T2RerankingZh2En | MMarcoRerankingZh2En | Avg |  
+| Model | T2RerankingZh2En | MMarcoRerankingZh2En | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 58.11 | 21.58 | 39.84 |  
 | bge-base-zh-v1.5 | 63.23 | 43.97 | 53.60 |  
 | bge-large-en-v1.5 | 57.96 | 23.68 | 40.82 |  
 | bge-large-zh-v1.5 | 63.32 | 46.77 | 55.04 |  
+| e5-large-v2 | 55.62 | 23.93 | 39.78 |  
+| gte-large | 56.01 | 22.24 | 39.13 |  
+| gte-large-zh | 63.03 | 43.71 | 53.37 |  
 | jina-embeddings-v2-base-en | 56.88 | 20.84 | 38.86 |  
 | m3e-base | 62.74 | 34.85 | 48.79 |  
 | m3e-large | 62.72 | 28.34 | 45.53 |  
+| multilingual-e5-base | 62.18 | 48.46 | 55.32 |  
+| multilingual-e5-large | 62.30 | 53.42 | 57.86 |  
 | bce-embedding-base_v1 | 64.24 | 53.99 | 59.11 |  
 
 ### *Summary on `zh-en`*  
-| Model | Retrieval | STS | Reranking | Avg |  
+| Model | Retrieval | STS | Reranking | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|  
 | bge-base-en-v1.5 | 37.81 | 44.76 | 39.84 | 39.04 |  
 | bge-base-zh-v1.5 | 51.99 | 68.38 | 53.60 | 54.17 |  
 | bge-large-en-v1.5 | 38.55 | 49.02 | 40.82 | 40.22 |  
 | bge-large-zh-v1.5 | 53.13 | 65.32 | 55.04 | 54.91 |  
+| e5-large-v2 | 38.88 | 43.93 | 39.78 | 39.64 |  
+| gte-large | 38.86 | 43.04 | 39.13 | 39.38 |  
+| gte-large-zh | 41.71 | 61.20 | 53.37 | 46.47 |  
 | jina-embeddings-v2-base-en | 36.51 | 31.41 | 38.86 | 36.46 |  
 | m3e-base | 55.27 | 66.54 | 48.79 | 55.08 |  
 | m3e-large | 42.35 | 61.04 | 45.53 | 45.13 |  
+| multilingual-e5-base | 50.00 | 69.80 | 55.32 | 53.38 |  
+| multilingual-e5-large | 52.76 | 65.95 | 57.86 | 55.36 |  
 | bce-embedding-base_v1 | 83.53 | 69.57 | 59.11 | 76.56 |  
-
 ## Summary on all langs: `['en', 'zh', 'en-zh', 'zh-en']`  
-| Model | Retrieval (47) | STS (19) | PairClassification (5) | Classification (21) | Reranking (12) | Clustering (15) | Avg (119) |  
-|:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
-| bge-base-en-v1.5 | 37.14 | 55.06 | 75.45 | 59.73 | 43.05 | 37.74 | 47.20 |  
-| bge-base-zh-v1.5 | 47.60 | 63.72 | 77.40 | 63.38 | 54.85 | 32.56 | 53.60 |  
-| bge-large-en-v1.5 | 37.15 | 54.09 | 75.00 | 59.24 | 42.68 | 37.32 | 46.82 |  
-| bge-large-zh-v1.5 | 47.54 | 64.73 | 79.14 | 64.19 | 55.88 | 33.26 | 54.21 |  
-| jina-embeddings-v2-base-en | 31.58 | 54.28 | 74.84 | 58.42 | 41.16 | 34.67 | 44.29 |  
-| m3e-base | 46.29 | 63.93 | 71.84 | 64.08 | 52.38 | 37.84 | 53.54 |  
-| m3e-large | 34.85 | 59.74 | 67.69 | 60.07 | 48.99 | 31.62 | 46.78 |  
-| bce-embedding-base_v1 | 57.60 | 65.73 | 74.96 | 69.00 | 57.29 | 38.95 | 59.43 |  
+| Model | Dimensions | Pooler | Instructions | Retrieval (47) | STS (19) | PairClassification (5) | Classification (21) | Reranking (12) | Clustering (15) | ***AVG*** (119) |  
+|:--------|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|  
+| bge-base-en-v1.5 | 768 | `cls` | Need | 37.14 | 55.06 | 75.45 | 59.73 | 43.00 | 37.74 | 47.19 |  
+| bge-base-zh-v1.5 | 768 | `cls` | Need | 47.63 | 63.72 | 77.40 | 63.38 | 54.95 | 32.56 | 53.62 |  
+| bge-large-en-v1.5 | 1024 | `cls` | Need | 37.18 | 54.09 | 75.00 | 59.24 | 42.47 | 37.32 | 46.80 |  
+| bge-large-zh-v1.5 | 1024 | `cls` | Need | 47.58 | 64.73 | 79.14 | 64.19 | 55.98 | 33.26 | 54.23 |  
+| e5-large-v2 | 1024 | `mean` | Need | 35.98 | 55.23 | 75.28 | 59.53 | 42.12 | 36.51 | 46.52 |  
+| gte-large | 1024 | `mean` | Free | 36.68 | 55.22 | 74.29 | 57.73 | 42.44 | 38.51 | 46.67 |  
+| gte-large-zh | 1024 | `cls` | Free | 41.15 | 64.62 | 77.58 | 62.04 | 55.62 | 33.03 | 51.51 |  
+| jina-embeddings-v2-base-en | 768 | `mean` | Free | 31.58 | 54.28 | 74.84 | 58.42 | 41.16 | 34.67 | 44.29 |  
+| m3e-base | 768 | `mean` | Free | 46.29 | 63.93 | 71.84 | 64.08 | 52.38 | 37.84 | 53.54 |  
+| m3e-large | 1024 | `mean` | Free | 34.85 | 59.74 | 67.69 | 60.07 | 48.99 | 31.62 | 46.78 |  
+| multilingual-e5-base | 768 | `mean` | Need | 54.73 | 65.49 | 76.97 | 69.72 | 55.01 | 38.44 | 58.34 |  
+| multilingual-e5-large | 1024 | `mean` | Need | 56.76 | 66.79 | 78.80 | 71.61 | 56.49 | 43.09 | 60.50 |  
+| bce-embedding-base_v1 | 768 | `cls` | Free | 57.60 | 65.73 | 74.96 | 69.00 | 57.29 | 38.95 | 59.43 |  

@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-31 01:04:18
-@LastEditTime: 2024-01-01 00:47:42
+@LastEditTime: 2024-01-09 01:06:41
 @LastEditors: shenlei
 '''
 import os, json, sys
@@ -66,7 +66,10 @@ def output_markdown(merged_results, save_file, eval_more_domains=True):
         for embedding, embedding_results in merged_results.items():
             write_line = f"| {embedding} |"
             for reranker in rerankers:
-                write_line += f" {embedding_results[reranker]['hit_rate']:.2f}/{embedding_results[reranker]['mrr']:.2f} |"
+                if reranker in embedding_results:
+                    write_line += f" {embedding_results[reranker]['hit_rate']:.2f}/{embedding_results[reranker]['mrr']:.2f} |"
+                else:
+                    write_line += "  |"
             f.write(write_line + '  \n')
 
 def get_args():

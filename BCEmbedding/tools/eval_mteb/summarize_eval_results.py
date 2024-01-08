@@ -5,9 +5,11 @@ import os.path as osp
 from collections import defaultdict
 
 from BCEmbedding.evaluation import c_mteb
-from BCEmbedding.utils import logger_wrapper
+from BCEmbedding.utils import logger_wrapper, query_instruction_for_retrieval_dict
 logger = logger_wrapper('evaluation.summarize_eval_results')
 
+need_instruction_models = [model_name_or_path.strip('/').split('/')[-1] for model_name_or_path in query_instruction_for_retrieval_dict]
+need_mean_pooler = ["jina-embeddings-v2-base-en", "m3e-base", "m3e-large", "e5-large-v2", "multilingual-e5-base", "multilingual-e5-large", "gte-large"]
 
 def read_results(task_types, except_tasks, args):
     tasks_results = {}
@@ -124,7 +126,7 @@ def output_markdown(tasks_results_wt_langs, model_names, model_type, save_file):
                     first_line += f" CQADupstack |"
                     second_line += ":--------:|"
                     task_cnt += 1
-                f.write(first_line + ' Avg |  \n')
+                f.write(first_line + ' ***AVG*** |  \n')
                 f.write(second_line + ':--------:|  \n')
 
                 for model in model_names:
@@ -165,7 +167,7 @@ def output_markdown(tasks_results_wt_langs, model_names, model_type, save_file):
             for t_type in task_type_res_keys:
                 first_line += f" {t_type} |"
                 second_line += ":--------:|"
-            f.write(first_line + ' Avg |  \n')
+            f.write(first_line + ' ***AVG*** |  \n')
             f.write(second_line + ':--------:|  \n')
 
             for model in model_names:
@@ -186,8 +188,8 @@ def output_markdown(tasks_results_wt_langs, model_names, model_type, save_file):
         
 
         f.write(f'## Summary on all langs: `{list(tasks_results_wt_langs.keys())}`  \n')
-        first_line = "| Model |"
-        second_line = "|:-------------------------------|"
+        first_line = "| Model | Dimensions | Pooler | Instructions |"
+        second_line = "|:--------|:--------:|:--------:|:--------:|"
         task_type_res_merge_lang_keys = list(task_type_res_merge_lang.keys())
         task_nums = 0
         for t_type in task_type_res_merge_lang_keys:
@@ -197,11 +199,14 @@ def output_markdown(tasks_results_wt_langs, model_names, model_type, save_file):
             task_nums += task_num
             first_line += f" {t_type} ({task_num}) |"
             second_line += ":--------:|"
-        f.write(first_line + f' Avg ({task_nums}) |  \n')
+        f.write(first_line + f' ***AVG*** ({task_nums}) |  \n')
         f.write(second_line + ':--------:|  \n')
 
         for model in model_names:
             write_line = f"| {model} |"
+            write_line += f" {768 if 'base' in model else 1024} |"
+            write_line += f" {'`mean`' if model in need_mean_pooler else '`cls`'} |"
+            write_line += f" {'Need' if model in need_instruction_models else 'Free'} |"
             all_res = []
             for type_name in task_type_res_merge_lang_keys:
                 results = task_type_res_merge_lang[type_name]

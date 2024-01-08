@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-26 16:24:57
-@LastEditTime: 2024-01-07 00:20:49
+@LastEditTime: 2024-01-09 01:04:24
 @LastEditors: shenlei
 '''
 import os, json, sys
@@ -62,9 +62,12 @@ EMBEDDINGS = {
     "CohereV3-en": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-english-v3.0', 'input_type': 'search_document'}},
     "CohereV3-multilingual": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-multilingual-v3.0', 'input_type': 'search_document'}},
     "JinaAI-v2-Base-en": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'jinaai/jina-embeddings-v2-base-en', 'pooling': 'mean', 'trust_remote_code': True, 'device': 'cuda:0'}},
-    "e5-large-v2": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'intfloat/e5-large-v2', 'pooling': 'mean', 'query_instruction': 'query:', 'text_instruction': 'passage:', 'device': 'cuda:0'}},
-    "multilingual-e5-large": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'intfloat/multilingual-e5-large', 'pooling': 'mean', 'max_length': 512, 'query_instruction': 'query:', 'text_instruction': 'passage:', 'device': 'cuda:0'}},
+    "gte-large-en": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'thenlper/gte-large', 'pooling': 'mean', 'max_length':512, 'device': 'cuda:0'}},
+    "gte-large-zh": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'thenlper/gte-large-zh', 'max_length':512, 'device': 'cuda:0'}},
+    "e5-large-v2-en": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'intfloat/e5-large-v2', 'pooling': 'mean', 'query_instruction': 'query:', 'text_instruction': 'passage:', 'device': 'cuda:0'}},
+    "e5-large-multilingual": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'intfloat/multilingual-e5-large', 'pooling': 'mean', 'max_length': 512, 'query_instruction': 'query:', 'text_instruction': 'passage:', 'device': 'cuda:0'}},
     "bce-embedding-base_v1": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'maidalun1020/bce-embedding-base_v1', 'max_length':512, 'device': 'cuda:0'}},
+
 }
 
 RERANKERS = {
@@ -136,6 +139,7 @@ if __name__ == '__main__':
         pdf_eval_result = osp.join(eval_pdfs_results_dir, pdf+'.csv')
 
         # use preproc rag dataset on huggingface
+        # NOTE: We preproc dataset has been translated (Youdao translation engine) to crosslingual queries for crosslingual setting, resulting in ['en-en', 'zh-zh', 'en-zh', 'zh-en'].
         if not args.disable_dataset_from_huggingface and pdf+'.json' in datasets:
             logger.info('load preproc rag dataset from huggingface')
             eval_data_cache = datasets[pdf+'.json']
@@ -159,6 +163,7 @@ if __name__ == '__main__':
                             relevant_docs=eval_data_cache['relevant_docs']
                         )
         # use rag dataset produce online
+        # NOTE: This procedure will produce bilingual datasets with ['en-en', 'zh-zh'] setting.
         else:
             logger.info('produce rag dataset from pdf')
             chunk_size = pdfs_chunk_setup[pdf]['chunk_size']
