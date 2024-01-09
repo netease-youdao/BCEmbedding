@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-09 10:32:48
+ * @LastEditTime: 2024-01-09 17:36:38
  * @LastEditors: shenlei
 -->
 
@@ -102,7 +102,7 @@ conda create --name bce python=3.10 -y
 conda activate bce
 ```
 
-Then install `BCEmbedding` for minimal installation:
+Then install `BCEmbedding` for minimal installation (To avoid cuda version conflicting, you should install [`torch`](https://pytorch.org/get-started/previous-versions/) that is compatible to your system cuda version manually first):
 
 ```bash
 pip install BCEmbedding==0.1.1
