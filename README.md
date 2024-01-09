@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-09 10:14:22
+ * @LastEditTime: 2024-01-09 10:32:48
  * @LastEditors: shenlei
 -->
 
@@ -461,7 +461,7 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 ***NOTE:***
 
 - Our ***bce-embedding-base_v1*** outperforms other opensource embedding models with comparable model sizes.
-- ***114 datastes including 119 eval results*** (some dataset contain multiple languages) of "Retrieval", "STS", "PairClassification", "Classification", "Reranking" and "Clustering" in ***`["en", "zh", "en-zh", "zh-en"]` setting***.
+- ***114 datastes including 119 eval results*** (some dataset contain multiple languages) of "Retrieval", "STS", "PairClassification", "Classification", "Reranking" and "Clustering" in ***`["en", "zh", "en-zh", "zh-en"]` setting***, including **MTEB and CMTEB**.
 - The [crosslingual evaluation datasets](./BCEmbedding/evaluation/c_mteb/Retrieval.py) we released belong to `Retrieval` task.
 - More evaluation details please check [Embedding Models Evaluations](./Docs/EvaluationSummary/embedding_eval_summary.md).
 
