@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-09 00:49:07
+ * @LastEditTime: 2024-01-09 10:14:22
  * @LastEditors: shenlei
 -->
 
@@ -59,8 +59,8 @@
 
 Distinguished for its bilingual and crosslingual proficiency, `BCEmbedding` excels in bridging Chinese and English linguistic gaps, which achieves
 
-- **A high performence on `<a href="#semantic-representation-evaluations-in-mteb" target="_Self">`Semantic Representation Evaluations in MTEB`</a>`**;
-- **A new benchmark in the realm of `<a href="#rag-evaluations-in-llamaindex" target="_Self">`RAG Evaluations in LlamaIndex`</a>`**.
+- **A high performence on <a href="#semantic-representation-evaluations-in-mteb" target="_Self">Semantic Representation Evaluations in MTEB</a>**;
+- **A new benchmark in the realm of <a href="#rag-evaluations-in-llamaindex" target="_Self">RAG Evaluations in LlamaIndex</a>**.
 
 ## 🌐 Bilingual and Crosslingual Superiority
 
@@ -71,7 +71,7 @@ Existing embedding models often encounter performance challenges in bilingual an
 ## 💡 Key Features
 
 - **Bilingual and Crosslingual Proficiency**: Powered by Youdao's translation engine, excelling in Chinese, English and their crosslingual retrieval task, with upcoming support for additional languages.
-- **RAG-Optimized**: Tailored for diverse RAG tasks including **translation, summarization, and question answering**, ensuring accurate **query understanding**. See `<a href="#rag-evaluations-in-llamaindex" target="_Self">`RAG Evaluations in LlamaIndex`</a>`.
+- **RAG-Optimized**: Tailored for diverse RAG tasks including **translation, summarization, and question answering**, ensuring accurate **query understanding**. See <a href="#rag-evaluations-in-llamaindex" target="_Self">RAG Evaluations in LlamaIndex</a>.
 - **Efficient and Precise Retrieval**: Dual-encoder for efficient retrieval of `EmbeddingModel` in first stage, and cross-encoder of `RerankerModel` for enhanced precision and deeper semantic analysis in second stage.
 - **Broad Domain Adaptability**: Trained on diverse datasets for superior performance across various fields.
 - **User-Friendly Design**: Instruction-free, versatile use for multiple tasks without specifying query instruction for each task.
@@ -434,7 +434,7 @@ Then, run the following script to sumarize the evaluation results:
 python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbedding/results/rag_results
 ```
 
-The summary of multiple domains evaluations can be seen in `<a href="#1-multiple-domains-scenarios" target="_Self">`Multiple Domains Scenarios`</a>`.
+The summary of multiple domains evaluations can be seen in <a href="#1-multiple-domains-scenarios" target="_Self">Multiple Domains Scenarios</a>.
 
 ## 📈 Leaderboard
 

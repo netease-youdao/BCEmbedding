@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-09 00:49:38
+ * @LastEditTime: 2024-01-09 10:16:03
  * @LastEditors: shenlei
 -->
 
@@ -59,8 +59,8 @@
 
 `BCEmbedding`以其出色的双语和跨语种能力而著称，在语义检索中消除中英语言之间的差异，从而实现：
 
-- **强大的双语和跨语种语义表征能力【`<a href="#基于mteb的语义表征评测指标" target="_Self">`基于MTEB的语义表征评测指标`</a>`】。**
-- **基于LlamaIndex的RAG评测，表现SOTA【`<a href="#基于llamaindex的rag评测指标" target="_Self">`基于LlamaIndex的RAG评测指标`</a>`】。**
+- **强大的双语和跨语种语义表征能力【<a href="#基于mteb的语义表征评测指标" target="_Self">基于MTEB的语义表征评测指标</a>】。**
+- **基于LlamaIndex的RAG评测，表现SOTA【<a href="#基于llamaindex的rag评测指标" target="_Self">基于LlamaIndex的RAG评测指标</a>】。**
 
 ## 🌐 双语和跨语种优势
 
@@ -71,7 +71,7 @@
 ## 💡 主要特点
 
 - **双语和跨语种能力**：基于有道翻译引擎的强大能力，`BCEmbedding`实现强大的中英双语和跨语种语义表征能力。
-- **RAG适配**：面向RAG做针对性优化，可适配大多数相关任务，比如**翻译，摘要，问答**等。此外，针对 **问题理解（query understanding）** 也做了针对优化。详见 `<a href="#基于llamaindex的rag评测指标" target="_Self">`基于LlamaIndex的RAG评测指标`</a>`。
+- **RAG适配**：面向RAG做针对性优化，可适配大多数相关任务，比如**翻译，摘要，问答**等。此外，针对 **问题理解（query understanding）** 也做了针对优化。详见 <a href="#基于llamaindex的rag评测指标" target="_Self">基于LlamaIndex的RAG评测指标</a>。
 - **高效且精确的语义检索**：`EmbeddingModel`采用双编码器，可以在第一阶段实现高效的语义检索。`RerankerModel`采用交叉编码器，可以在第二阶段实现更高精度的语义顺序精排。
 - **更好的领域泛化性**：为了在更多场景实现更好的效果，我们收集了多种多样的领域数据。
 - **用户友好**：语义检索时不需要特殊指令前缀。也就是，你不需要为各种任务绞尽脑汁设计指令前缀。
@@ -434,7 +434,7 @@ CUDA_VISIBLE_DEVICES=0,1 python BCEmbedding/tools/eval_rag/eval_llamaindex_multi
 python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbedding/results/rag_results
 ```
 
-输出的指标汇总详见：`<a href="#1-多领域双语种和跨语种评测场景" target="_Self">`多领域、双语种和跨语种评测场景`</a>`
+输出的指标汇总详见：<a href="#1-多领域双语种和跨语种评测场景" target="_Self">多领域、双语种和跨语种评测场景</a>
 
 ## 📈 指标排行榜
 
