@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-09 17:38:15
+ * @LastEditTime: 2024-01-13 00:36:54
  * @LastEditors: shenlei
 -->
 
@@ -467,11 +467,11 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 
 #### 2. Reranker模型
 
-| 模型名称                           | Reranking (12) |      平均 (12)      |
-| :--------------------------------- | :-------------: | :-----------------: |
-| bge-reranker-base                  |      57.78      |        57.78        |
-| bge-reranker-large                 |      59.69      |        59.69        |
-| ***bce-reranker-base_v1*** | **60.06** | ***60.06*** |
+| 模型名称                            | Reranking (12) | ***平均*** (12) |
+| :--------------------------------- | :-------------: | :--------------------: |
+| bge-reranker-base                  |      59.04      |         59.04         |
+| bge-reranker-large                 |      60.86      |         60.86         |
+| ***bce-reranker-base_v1*** | **61.29** |  ***61.29***  |
 
 ***要点：***
 
