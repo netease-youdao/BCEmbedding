@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: shenlei
  * @Date: 2023-12-27 12:50:02
- * @LastEditTime: 2024-01-09 00:15:55
+ * @LastEditTime: 2024-01-13 00:03:47
  * @LastEditors: shenlei
 -->
 # Reranker Evaluation Results  
@@ -11,16 +11,16 @@
 ### Task Type: Reranking  
 | Model | AskUbuntuDupQuestions | MindSmallReranking | SciDocsRR | StackOverflowDupQuestions | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:|:--------:|  
-| bge-reranker-base | 54.70 | 13.33 | 67.09 | 37.55 | 43.17 |  
-| bge-reranker-large | 58.73 | 14.84 | 71.30 | 39.04 | 45.98 |  
-| bce-reranker-base_v1 | 56.54 | 16.04 | 75.79 | 42.88 | 47.81 |  
+| bge-reranker-base | 54.70 | 28.48 | 67.09 | 37.55 | 46.96 |  
+| bge-reranker-large | 58.73 | 28.84 | 71.30 | 39.04 | 49.48 |  
+| bce-reranker-base_v1 | 56.54 | 30.73 | 75.79 | 42.88 | 51.48 |  
 
 ### *Summary on `en`*  
 | Model | Reranking | ***AVG*** |  
 |:-------------------------------|:--------:|:--------:|  
-| bge-reranker-base | 43.17 | 43.17 |  
-| bge-reranker-large | 45.98 | 45.98 |  
-| bce-reranker-base_v1 | 47.81 | 47.81 |  
+| bge-reranker-base | 46.96 | 46.96 |  
+| bge-reranker-large | 49.48 | 49.48 |  
+| bce-reranker-base_v1 | 51.48 | 51.48 |  
 ## Language: `zh`  
 
 ### Task Type: Reranking  
@@ -69,6 +69,6 @@
 ## Summary on all langs: `['en', 'zh', 'en-zh', 'zh-en']`  
 | Model | Reranking (12) | ***AVG*** (12) |  
 |:-------------------------------|:--------:|:--------:|  
-| bge-reranker-base | 57.78 | 57.78 |  
-| bge-reranker-large | 59.69 | 59.69 |  
-| bce-reranker-base_v1 | 60.06 | 60.06 |  
+| bge-reranker-base | 59.04 | 59.04 |  
+| bge-reranker-large | 60.86 | 60.86 |  
+| bce-reranker-base_v1 | 61.29 | 61.29 |  

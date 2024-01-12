@@ -41,23 +41,28 @@ class ModChineseRerankingEvaluator(RerankingEvaluator):
                 for n in sample['negative']:
                     pairs.append([sample['query'], n])
             elif isinstance(sample['query'], list):
-                for q in sample['query']:
-                    for p in sample['positive']:
+                for p in sample['positive']:
+                    for q in sample['query']:
                         pairs.append([q, p])
-                for q in sample['query']:
-                    for n in sample['negative']:
+                for n in sample['negative']:
+                    for q in sample['query']:
                         pairs.append([q, n])
+            else:
+                raise NotImplementedError
         all_scores = model.compute_score(pairs)
         all_scores = np.array(all_scores)
 
+        # Fix: sample['query'] is a list.
         start_inx = 0
         for sample in tqdm(self.samples, desc="Evaluating"):
-            if isinstance(sample['query'], str):
-                is_relevant = [True] * len(sample['positive']) + [False] * len(sample['negative'])
-            elif isinstance(sample['query'], list):
-                is_relevant = [True] * (len(sample['positive'])*len(sample['query'])) + [False] * (len(sample['negative'])*len(sample['query']))
-            pred_scores = all_scores[start_inx:start_inx + len(is_relevant)]
-            start_inx += len(is_relevant)
+            num_subqueries = len(sample["query"]) if isinstance(sample["query"], list) else 1
+            is_relevant = [True] * len(sample['positive']) + [False] * len(sample['negative'])
+            pred_scores = all_scores[start_inx:start_inx + len(is_relevant)*num_subqueries]
+            start_inx += len(is_relevant)*num_subqueries
+
+            if num_subqueries > 1:
+                pred_scores = pred_scores.reshape(len(is_relevant), num_subqueries)
+                pred_scores = np.max(pred_scores, axis=-1)
 
             pred_scores_argsort = np.argsort(-pred_scores)  # Sort in decreasing order
             mrr = self.mrr_at_k_score(is_relevant, pred_scores_argsort, self.mrr_at_k)

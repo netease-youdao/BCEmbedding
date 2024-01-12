@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-09 17:36:38
+ * @LastEditTime: 2024-01-13 00:05:09
  * @LastEditors: shenlei
 -->
 
@@ -469,9 +469,9 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 
 | Model                              | Reranking (12) | ***AVG*** (12) |
 | :--------------------------------- | :-------------: | :--------------------: |
-| bge-reranker-base                  |      57.78      |         57.78         |
-| bge-reranker-large                 |      59.69      |         59.69         |
-| ***bce-reranker-base_v1*** | **60.06** |  ***60.06***  |
+| bge-reranker-base                  |      59.04      |         59.04         |
+| bge-reranker-large                 |      60.86      |         60.86         |
+| ***bce-reranker-base_v1*** | **61.29** |  ***61.29***  |
 
 ***NOTE:***
 
