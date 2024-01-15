@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-11-28 14:04:27
-@LastEditTime: 2024-01-07 01:38:02
+@LastEditTime: 2024-01-16 00:52:30
 @LastEditors: shenlei
 '''
 import logging
@@ -14,9 +14,11 @@ from tqdm import tqdm
 from typing import List, Dict, Tuple, Type, Union
 from copy import deepcopy
 
+from .utils import reranker_tokenize_preproc
+
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from BCEmbedding.utils import logger_wrapper
-logger = logger_wrapper('RerankerModel')
+logger = logger_wrapper('BCEmbedding.models.RerankerModel')
 
 
 class RerankerModel:
@@ -35,9 +37,16 @@ class RerankerModel:
         if device is None:
             self.device = "cuda" if num_gpus > 0 else "cpu"
         else:
-            self.device = device
-        assert self.device in ['cpu', 'cuda'], "Please input valid device: 'cpu' or 'cuda'!"
-        self.num_gpus = 0 if self.device == "cpu" else num_gpus
+            self.device = 'cuda:{}'.format(int(device)) if device.isdigit() else device
+        
+        if self.device == "cpu":
+            self.num_gpus = 0
+        elif self.device.startswith('cuda:') and num_gpus > 0:
+            self.num_gpus = 1
+        elif self.device == "cuda":
+            self.num_gpus = num_gpus
+        else:
+            raise ValueError("Please input valid device: 'cpu', 'cuda', 'cuda:0', '0' !")
 
         if use_fp16:
             self.model.half()
@@ -51,7 +60,6 @@ class RerankerModel:
         logger.info(f"Execute device: {self.device};\t gpu num: {self.num_gpus};\t use fp16: {use_fp16}")
 
         # for advanced preproc of tokenization
-        self.sep_id = self.tokenizer.sep_token_id
         self.max_length = kwargs.get('max_length', 512)
         self.overlap_tokens = kwargs.get('overlap_tokens', 80)
     
@@ -89,51 +97,7 @@ class RerankerModel:
         if len(scores_collection) == 1:
             return scores_collection[0]
         return scores_collection
-    
-    def _merge_inputs(self, chunk1_raw, chunk2):
-        chunk1 = deepcopy(chunk1_raw)
-        chunk1['input_ids'].extend(chunk2['input_ids'])
-        chunk1['input_ids'].append(self.sep_id)
-        chunk1['attention_mask'].extend(chunk2['attention_mask'])
-        chunk1['attention_mask'].append(chunk2['attention_mask'][0])
-        if 'token_type_ids' in chunk1:
-            token_type_ids = [1 for _ in range(len(chunk2['token_type_ids'])+1)]
-            chunk1['token_type_ids'].extend(token_type_ids)
-        return chunk1
 
-    def tokenize_preproc(
-        self,
-        query: str, 
-        passages: List[str]
-    ):
-        query_inputs = self.tokenizer.encode_plus(query, truncation=False, padding=False)
-        max_passage_inputs_length = self.max_length - len(query_inputs['input_ids']) - 1
-        assert max_passage_inputs_length > 100, "Your query is too long! Please make sure your query less than 400 tokens!"
-        overlap_tokens = min(self.overlap_tokens, max_passage_inputs_length//4)
-        
-        res_merge_inputs = []
-        res_merge_inputs_pids = []
-        for pid, passage in enumerate(passages):
-            passage_inputs = self.tokenizer.encode_plus(passage, truncation=False, padding=False, add_special_tokens=False)
-            passage_inputs_length = len(passage_inputs['input_ids'])
-
-            if passage_inputs_length <= max_passage_inputs_length:
-                qp_merge_inputs = self._merge_inputs(query_inputs, passage_inputs)
-                res_merge_inputs.append(qp_merge_inputs)
-                res_merge_inputs_pids.append(pid)
-            else:
-                start_id = 0
-                while start_id < passage_inputs_length:
-                    end_id = start_id + max_passage_inputs_length
-                    sub_passage_inputs = {k:v[start_id:end_id] for k,v in passage_inputs.items()}
-                    start_id = end_id - overlap_tokens if end_id < passage_inputs_length else end_id
-
-                    qp_merge_inputs = self._merge_inputs(query_inputs, sub_passage_inputs)
-                    res_merge_inputs.append(qp_merge_inputs)
-                    res_merge_inputs_pids.append(pid)
-        
-        return res_merge_inputs, res_merge_inputs_pids
-    
     def rerank(
             self,
             query: str,
@@ -142,12 +106,17 @@ class RerankerModel:
             **kwargs
         ):
         # remove invalid passages
-        passages = [p for p in passages if isinstance(p, str) and 0 < len(p) < 16000]
+        passages = [p[:128000] for p in passages if isinstance(p, str) and 0 < len(p)]
         if query is None or len(query) == 0 or len(passages) == 0:
             return {'rerank_passages': [], 'rerank_scores': []}
         
         # preproc of tokenization
-        sentence_pairs, sentence_pairs_pids = self.tokenize_preproc(query, passages)
+        sentence_pairs, sentence_pairs_pids = reranker_tokenize_preproc(
+            query, passages, 
+            tokenizer=self.tokenizer,
+            max_length=self.max_length,
+            overlap_tokens=self.overlap_tokens,
+            )
 
         # batch inference
         if self.num_gpus > 1:
@@ -182,5 +151,6 @@ class RerankerModel:
         
         return {
             'rerank_passages': sorted_passages,
-            'rerank_scores': sorted_scores
+            'rerank_scores': sorted_scores,
+            'rerank_ids': merge_scores_argsort.tolist()
         }

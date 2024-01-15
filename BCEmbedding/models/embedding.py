@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-11-28 14:04:27
-@LastEditTime: 2023-12-28 18:07:35
+@LastEditTime: 2024-01-16 00:50:59
 @LastEditors: shenlei
 '''
 import logging
@@ -14,7 +14,7 @@ from typing import List, Dict, Tuple, Type, Union
 
 from transformers import AutoModel, AutoTokenizer
 from BCEmbedding.utils import logger_wrapper
-logger = logger_wrapper('EmbeddingModel')
+logger = logger_wrapper('BCEmbedding.models.EmbeddingModel')
 
 
 class EmbeddingModel:
@@ -37,9 +37,16 @@ class EmbeddingModel:
         if device is None:
             self.device = "cuda" if num_gpus > 0 else "cpu"
         else:
-            self.device = device
-        assert self.device in ['cpu', 'cuda'], "Please input valid device: 'cpu' or 'cuda'!"
-        self.num_gpus = 0 if self.device == "cpu" else num_gpus
+            self.device = 'cuda:{}'.format(int(device)) if device.isdigit() else device
+        
+        if self.device == "cpu":
+            self.num_gpus = 0
+        elif self.device.startswith('cuda:') and num_gpus > 0:
+            self.num_gpus = 1
+        elif self.device == "cuda":
+            self.num_gpus = num_gpus
+        else:
+            raise ValueError("Please input valid device: 'cpu', 'cuda', 'cuda:0', '0' !")
 
         if use_fp16:
             self.model.half()

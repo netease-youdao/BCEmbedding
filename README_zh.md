@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-13 00:36:54
+ * @LastEditTime: 2024-01-16 01:01:04
  * @LastEditors: shenlei
 -->
 
@@ -37,7 +37,7 @@
 - <a href="#-使用指南" target="_Self">📖 使用指南</a>
   - <a href="#安装" target="_Self">安装</a>
   - <a href="#快速使用" target="_Self">快速使用(`transformers`, `sentence-transformers`)</a>
-  - <a href="#rag框架集成" target="_Self">RAG框架集成 (`langchain`, `llama_index`)</a>
+  - <a href="#embedding和reranker集成常用rag框架" target="_Self">Embedding和Reranker集成常用RAG框架 (`langchain`, `llama_index`)</a>
 - <a href="#%EF%B8%8F-模型评测" target="_Self">⚙️ 模型评测</a>
   - <a href="#基于mteb的语义表征评测说明" target="_Self">基于MTEB的语义表征评测说明</a>
   - <a href="#基于llamaindex的rag评测说明" target="_Self">基于LlamaIndex的RAG评测说明</a>
@@ -88,8 +88,8 @@
 
 | 模型名称              |      模型类型      | 支持语种 | 参数量 |                                                                           开源权重                                                                           |
 | :-------------------- | :----------------: | :------: | :----: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| bce-embedding-base_v1 | `EmbeddingModel` |   中英   |  279M  | [Huggingface](https://huggingface.co/maidalun1020/bce-embedding-base_v1), [国内ModelScope](https://www.modelscope.cn/models/maidalun/bce-embedding-base_v1/summary) |
-| bce-reranker-base_v1  | `RerankerModel` | 中英日韩 |  279M  |  [Huggingface](https://huggingface.co/maidalun1020/bce-reranker-base_v1), [国内ModelScope](https://www.modelscope.cn/models/maidalun/bce-reranker-base_v1/summary)  |
+| bce-embedding-base_v1 | `EmbeddingModel` |   中英   |  279M  | [Huggingface](https://huggingface.co/maidalun1020/bce-embedding-base_v1), [ModelScope](https://www.modelscope.cn/models/maidalun/bce-embedding-base_v1/summary) |
+| bce-reranker-base_v1  | `RerankerModel` | 中英日韩 |  279M  |  [Huggingface](https://huggingface.co/maidalun1020/bce-reranker-base_v1), [ModelScope](https://www.modelscope.cn/models/maidalun/bce-reranker-base_v1/summary)  |
 
 ## 📖 使用指南
 
@@ -105,7 +105,7 @@ conda activate bce
 然后最简化安装 `BCEmbedding`（为了避免自动安装的torch cuda版本和本地不兼容，建议先手动安装本地cuda版本兼容的[`torch`](https://pytorch.org/get-started/previous-versions/)）:
 
 ```bash
-pip install BCEmbedding==0.1.1
+pip install BCEmbedding==0.1.2
 ```
 
 也可以通过项目源码安装:
@@ -240,65 +240,83 @@ model = CrossEncoder('maidalun1020/bce-reranker-base_v1', max_length=512)
 scores = model.predict(sentence_pairs)
 ```
 
-### RAG框架集成
+### Embedding和Reranker集成常用RAG框架
 
 #### 1. 使用 `langchain`
 
-```python
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import FAISS
-from langchain_community.vectorstores.utils import DistanceStrategy
+为了继承`RerankerModel`精细优化的rerank逻辑，我们提供`BCERerank`方法，可直接继承到langchain demo中。
 
-query = 'apples'
-passages = [
-        'I like apples', 
-        'I like oranges', 
-        'Apples and oranges are fruits'
-    ]
-  
+```python
+# 我们在`BCEmbedding`中提供langchain直接集成的接口。
+from BCEmbedding.tools.langchain import BCERerank
+
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.vectorstores import FAISS
+
+from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores.utils import DistanceStrategy
+from langchain.retrievers import ContextualCompressionRetriever
+
+
 # init embedding model
-model_name = 'maidalun1020/bce-embedding-base_v1'
-model_kwargs = {'device': 'cuda'}
-encode_kwargs = {'batch_size': 64, 'normalize_embeddings': True, 'show_progress_bar': False}
+embedding_model_name = 'maidalun1020/bce-embedding-base_v1'
+embedding_model_kwargs = {'device': 'cuda:0'}
+embedding_encode_kwargs = {'batch_size': 32, 'normalize_embeddings': True, 'show_progress_bar': False}
 
 embed_model = HuggingFaceEmbeddings(
-    model_name=model_name,
-    model_kwargs=model_kwargs,
-    encode_kwargs=encode_kwargs
-  )
+  model_name=embedding_model_name,
+  model_kwargs=embedding_model_kwargs,
+  encode_kwargs=embedding_encode_kwargs
+)
 
-# example #1. extract embeddings
-query_embedding = embed_model.embed_query(query)
-passages_embeddings = embed_model.embed_documents(passages)
+reranker_args = {'model': 'maidalun1020/bce-reranker-base_v1', 'top_n': 5, 'device': 'cuda:1'}
+reranker = BCERerank(**reranker_args)
 
-# example #2. langchain retriever example
-faiss_vectorstore = FAISS.from_texts(passages, embed_model, distance_strategy=DistanceStrategy.MAX_INNER_PRODUCT)
+# init documents
+documents = PyPDFLoader("BCEmbedding/tools/eval_rag/eval_pdfs/Comp_en_llama2.pdf").load()
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=200)
+texts = text_splitter.split_documents(documents)
 
-retriever = faiss_vectorstore.as_retriever(search_type="similarity", search_kwargs={"score_threshold": 0.5, "k": 3})
+# example 1. retrieval with embedding and reranker
+retriever = FAISS.from_documents(texts, embed_model, distance_strategy=DistanceStrategy.MAX_INNER_PRODUCT).as_retriever(search_type="similarity", search_kwargs={"score_threshold": 0.3, "k": 10})
 
-related_passages = retriever.get_relevant_documents(query)
+compression_retriever = ContextualCompressionRetriever(
+    base_compressor=reranker, base_retriever=retriever
+)
+
+response = compression_retriever.get_relevant_documents("What is Llama 2?")
 ```
 
 #### 2. 使用 `llama_index`
 
+为了继承`RerankerModel`精细优化的rerank逻辑，我们提供`BCERerank`方法，可直接继承到LlamaIndex demo中。
+
 ```python
+# 我们在`BCEmbedding`中提供llama_index直接集成的接口。
+from BCEmbedding.tools.llama_index import BCERerank
+
+import os
 from llama_index.embeddings import HuggingFaceEmbedding
 from llama_index import VectorStoreIndex, ServiceContext, SimpleDirectoryReader
 from llama_index.node_parser import SimpleNodeParser
 from llama_index.llms import OpenAI
+from llama_index.retrievers import VectorIndexRetriever
 
+# init embedding model and reranker model
+embed_args = {'model_name': 'maidalun1020/bce-embedding-base_v1', 'max_length': 512, 'embed_batch_size': 32, 'device': 'cuda:0'}
+embed_model = HuggingFaceEmbedding(**embed_args)
+
+reranker_args = {'model': 'maidalun1020/bce-reranker-base_v1', 'top_n': 5, 'device': 'cuda:1'}
+reranker_model = BCERerank(**reranker_args)
+
+# example #1. extract embeddings
 query = 'apples'
 passages = [
         'I like apples', 
         'I like oranges', 
         'Apples and oranges are fruits'
     ]
-
-# init embedding model
-model_args = {'model_name': 'maidalun1020/bce-embedding-base_v1', 'max_length': 512, 'embed_batch_size': 64, 'device': 'cuda'}
-embed_model = HuggingFaceEmbedding(**model_args)
-
-# example #1. extract embeddings
 query_embedding = embed_model.get_query_embedding(query)
 passages_embeddings = embed_model.get_text_embedding_batch(passages)
 
@@ -307,12 +325,22 @@ llm = OpenAI(model='gpt-3.5-turbo-0613', api_key=os.environ.get('OPENAI_API_KEY'
 service_context = ServiceContext.from_defaults(llm=llm, embed_model=embed_model)
 
 documents = SimpleDirectoryReader(input_files=["BCEmbedding/tools/eval_rag/eval_pdfs/Comp_en_llama2.pdf"]).load_data()
-node_parser = SimpleNodeParser.from_defaults(chunk_size=512)
+node_parser = SimpleNodeParser.from_defaults(chunk_size=400, chunk_overlap=80)
 nodes = node_parser.get_nodes_from_documents(documents[0:36])
 index = VectorStoreIndex(nodes, service_context=service_context)
-query_engine = index.as_query_engine()
-response = query_engine.query("What is llama?")
+
+query = "What is Llama 2?"
+
+# example #2.1. retrieval with EmbeddingModel and RerankerModel
+vector_retriever = VectorIndexRetriever(index=index, similarity_top_k=10, service_context=service_context)
+retrieval_by_embedding = vector_retriever.retrieve(query)
+retrieval_by_reranker = reranker_model.postprocess_nodes(retrieval_by_embedding, query_str=query)
+
+# example #2.2. query with EmbeddingModel and RerankerModel
+query_engine = index.as_query_engine(node_postprocessors=[reranker_model])
+query_response = query_engine.query(query)
 ```
+
 
 ## ⚙️ 模型评测
 
