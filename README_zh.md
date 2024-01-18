@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-16 01:01:04
+ * @LastEditTime: 2024-01-18 13:06:06
  * @LastEditors: shenlei
 -->
 
@@ -53,7 +53,7 @@
 </details>
 <br>
 
-`BCEmbedding`是由网易有道开发的双语和跨语种语义表征算法模型库，其中包含 `EmbeddingModel`和 `RerankerModel`两类基础模型。`EmbeddingModel`专门用于生成语义向量，在语义搜索和问答中起着关键作用，而 `RerankerModel`擅长优化语义搜索结果和语义相关顺序精排。
+`BCEmbedding`是由网易有道开发的中英双语和跨语种语义表征算法模型库，其中包含 `EmbeddingModel`和 `RerankerModel`两类基础模型。`EmbeddingModel`专门用于生成语义向量，在语义搜索和问答中起着关键作用，而 `RerankerModel`擅长优化语义搜索结果和语义相关顺序精排。
 
 `BCEmbedding`作为有道的检索增强生成式应用（RAG）的基石，特别是在[QAnything](http://qanything.ai) [[github](https://github.com/netease-youdao/qanything)]中发挥着重要作用。QAnything作为一个网易有道开源项目，在有道许多产品中有很好的应用实践，比如[有道速读](https://read.youdao.com/#/home)和[有道翻译](https://fanyi.youdao.com/download-Mac?keyfrom=fanyiweb_navigation)。
 
@@ -80,6 +80,7 @@
 
 ## 🚀 最新更新
 
+- ***2024-01-16***: **LangChain和LlamaIndex集成** - 详见<a href="#embedding和reranker集成常用rag框架" target="_Self">演示样例</a>。
 - ***2024-01-03***: **模型发布** - [bce-embedding-base_v1](https://huggingface.co/maidalun1020/bce-embedding-base_v1)和[bce-reranker-base_v1](https://huggingface.co/maidalun1020/bce-reranker-base_v1)已发布.
 - ***2024-01-03***: **RAG评测数据** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - 基于[LlamaIndex](https://github.com/run-llama/llama_index)的RAG评测数据已发布。
 - ***2024-01-03***: **跨语种语义表征评测数据** [[详情](./BCEmbedding/evaluation/c_mteb/Retrieval.py)] - 基于[MTEB](https://github.com/embeddings-benchmark/mteb)的跨语种评测数据已发布.
@@ -244,7 +245,7 @@ scores = model.predict(sentence_pairs)
 
 #### 1. 使用 `langchain`
 
-为了继承`RerankerModel`精细优化的rerank逻辑，我们提供`BCERerank`方法，可直接继承到langchain demo中。
+为了继承`RerankerModel`精细优化的rerank逻辑，我们提供`BCERerank`方法，可直接集成到langchain demo中。
 
 ```python
 # 我们在`BCEmbedding`中提供langchain直接集成的接口。
@@ -290,7 +291,7 @@ response = compression_retriever.get_relevant_documents("What is Llama 2?")
 
 #### 2. 使用 `llama_index`
 
-为了继承`RerankerModel`精细优化的rerank逻辑，我们提供`BCERerank`方法，可直接继承到LlamaIndex demo中。
+为了继承`RerankerModel`精细优化的rerank逻辑，我们提供`BCERerank`方法，可直接集成到LlamaIndex demo中。
 
 ```python
 # 我们在`BCEmbedding`中提供llama_index直接集成的接口。

@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-16 00:59:49
+ * @LastEditTime: 2024-01-18 13:05:53
  * @LastEditors: shenlei
 -->
 
@@ -53,7 +53,7 @@
 </details>
 <br>
 
-**B**ilingual and **C**rosslingual **Embedding** (`BCEmbedding`), developed by NetEase Youdao, encompasses `EmbeddingModel` and `RerankerModel`. The `EmbeddingModel` specializes in generating semantic vectors, playing a crucial role in semantic search and question-answering, and the `RerankerModel` excels at refining search results and ranking tasks.
+**B**ilingual and **C**rosslingual **Embedding** (`BCEmbedding`) in English and Chinese, developed by NetEase Youdao, encompasses `EmbeddingModel` and `RerankerModel`. The `EmbeddingModel` specializes in generating semantic vectors, playing a crucial role in semantic search and question-answering, and the `RerankerModel` excels at refining search results and ranking tasks.
 
 `BCEmbedding` serves as the cornerstone of Youdao's Retrieval Augmented Generation (RAG) implmentation, notably [QAnything](http://qanything.ai) [[github](https://github.com/netease-youdao/qanything)], an open-source implementation widely integrated in various Youdao products like [Youdao Speed Reading](https://read.youdao.com/#/home) and [Youdao Translation](https://fanyi.youdao.com/download-Mac?keyfrom=fanyiweb_navigation).
 
@@ -80,6 +80,7 @@ Existing embedding models often encounter performance challenges in bilingual an
 
 ## 🚀 Latest Updates
 
+- ***2024-01-16***: **LangChain and LlamaIndex Integrations** - See <a href="#embedding-and-reranker-integrations-for-rag-frameworks" target="_Self">more</a>.
 - ***2024-01-03***: **Model Releases** - [bce-embedding-base_v1](https://huggingface.co/maidalun1020/bce-embedding-base_v1) and [bce-reranker-base_v1](https://huggingface.co/maidalun1020/bce-reranker-base_v1) are available.
 - ***2024-01-03***: **Eval Datasets** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - Evaluate the performence of RAG, using [LlamaIndex](https://github.com/run-llama/llama_index).
 - ***2024-01-03***: **Eval Datasets** [[Details](./BCEmbedding/evaluation/c_mteb/Retrieval.py)] - Evaluate the performence of crosslingual semantic representation, using [MTEB](https://github.com/embeddings-benchmark/mteb).
