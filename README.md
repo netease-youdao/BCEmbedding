@@ -55,11 +55,11 @@
 
 **B**ilingual and **C**rosslingual **Embedding** (`BCEmbedding`) in English and Chinese, developed by NetEase Youdao, encompasses `EmbeddingModel` and `RerankerModel`. The `EmbeddingModel` specializes in generating semantic vectors, playing a crucial role in semantic search and question-answering, and the `RerankerModel` excels at refining search results and ranking tasks.
 
-`BCEmbedding` serves as the cornerstone of Youdao's Retrieval Augmented Generation (RAG) implmentation, notably [QAnything](http://qanything.ai) [[github](https://github.com/netease-youdao/qanything)], an open-source implementation widely integrated in various Youdao products like [Youdao Speed Reading](https://read.youdao.com/#/home) and [Youdao Translation](https://fanyi.youdao.com/download-Mac?keyfrom=fanyiweb_navigation).
+`BCEmbedding` serves as the cornerstone of Youdao's Retrieval Augmented Generation (RAG) implementation, notably [QAnything](http://qanything.ai) [[github](https://github.com/netease-youdao/qanything)], an open-source implementation widely integrated in various Youdao products like [Youdao Speed Reading](https://read.youdao.com/#/home) and [Youdao Translation](https://fanyi.youdao.com/download-Mac?keyfrom=fanyiweb_navigation).
 
 Distinguished for its bilingual and crosslingual proficiency, `BCEmbedding` excels in bridging Chinese and English linguistic gaps, which achieves
 
-- **A high performence on <a href="#semantic-representation-evaluations-in-mteb" target="_Self">Semantic Representation Evaluations in MTEB</a>**;
+- **A high performance on <a href="#semantic-representation-evaluations-in-mteb" target="_Self">Semantic Representation Evaluations in MTEB</a>**;
 - **A new benchmark in the realm of <a href="#rag-evaluations-in-llamaindex" target="_Self">RAG Evaluations in LlamaIndex</a>**.
 
 ## 🌐 Bilingual and Crosslingual Superiority
@@ -83,7 +83,7 @@ Existing embedding models often encounter performance challenges in bilingual an
 - ***2024-01-16***: **LangChain and LlamaIndex Integrations** - See <a href="#embedding-and-reranker-integrations-for-rag-frameworks" target="_Self">more</a>.
 - ***2024-01-03***: **Model Releases** - [bce-embedding-base_v1](https://huggingface.co/maidalun1020/bce-embedding-base_v1) and [bce-reranker-base_v1](https://huggingface.co/maidalun1020/bce-reranker-base_v1) are available.
 - ***2024-01-03***: **Eval Datasets** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - Evaluate the performence of RAG, using [LlamaIndex](https://github.com/run-llama/llama_index).
-- ***2024-01-03***: **Eval Datasets** [[Details](./BCEmbedding/evaluation/c_mteb/Retrieval.py)] - Evaluate the performence of crosslingual semantic representation, using [MTEB](https://github.com/embeddings-benchmark/mteb).
+- ***2024-01-03***: **Eval Datasets** [[Details](./BCEmbedding/evaluation/c_mteb/Retrieval.py)] - Evaluate the performance of crosslingual semantic representation, using [MTEB](https://github.com/embeddings-benchmark/mteb).
 
 ## 🍎 Model List
 
@@ -362,7 +362,7 @@ Just run following cmd to evaluate `your_embedding_model` (e.g. `maidalun1020/bc
 python BCEmbedding/tools/eval_mteb/eval_embedding_mteb.py --model_name_or_path maidalun1020/bce-embedding-base_v1 --pooler cls
 ```
 
-The total evaluation tasks contain ***114 datastes*** of **"Retrieval", "STS", "PairClassification", "Classification", "Reranking" and "Clustering"**.
+The total evaluation tasks contain ***114 datasets*** of **"Retrieval", "STS", "PairClassification", "Classification", "Reranking" and "Clustering"**.
 
 ***NOTE:***
 
@@ -385,11 +385,11 @@ Run following cmd to evaluate `your_reranker_model` (e.g. "maidalun1020/bce-rera
 python BCEmbedding/tools/eval_mteb/eval_reranker_mteb.py --model_name_or_path maidalun1020/bce-reranker-base_v1
 ```
 
-The evaluation tasks contain ***12 datastes*** of **"Reranking"**.
+The evaluation tasks contain ***12 datasets*** of **"Reranking"**.
 
 #### 3. Metrics Visualization Tool
 
-We proveide a one-click script to sumarize evaluation results of `embedding` and `reranker` models as [Embedding Models Evaluation Summary](./Docs/EvaluationSummary/embedding_eval_summary.md) and [Reranker Models Evaluation Summary](./Docs/EvaluationSummary/reranker_eval_summary.md).
+We provide a one-click script to summarize evaluation results of `embedding` and `reranker` models as [Embedding Models Evaluation Summary](./Docs/EvaluationSummary/embedding_eval_summary.md) and [Reranker Models Evaluation Summary](./Docs/EvaluationSummary/reranker_eval_summary.md).
 
 ```bash
 python BCEmbedding/evaluation/mteb/summarize_eval_results.py --results_dir {your_embedding_results_dir | your_reranker_results_dir}
@@ -433,13 +433,13 @@ In order to compare our `BCEmbedding` with other embedding and reranker models f
 CUDA_VISIBLE_DEVICES=0,1 python BCEmbedding/tools/eval_rag/eval_llamaindex_reproduce.py
 ```
 
-Then, sumarize the evaluation results by:
+Then, summarize the evaluation results by:
 
 ```bash
 python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbedding/results/rag_reproduce_results
 ```
 
-Results Reproduced from the LlamaIndex Blog can be checked in ***[Reproduced Summary of RAG Evaluation](./Docs/EvaluationSummary/rag_eval_reproduced_summary.md)***, with some obvious ***conclusions***:
+Results reproduced from the LlamaIndex Blog can be checked in ***[Reproduced Summary of RAG Evaluation](./Docs/EvaluationSummary/rag_eval_reproduced_summary.md)***, with some obvious ***conclusions***:
 
 - In `WithoutReranker` setting, our `bce-embedding-base_v1` outperforms all the other embedding models.
 - With fixing the embedding model, our `bce-reranker-base_v1` achieves the best performence.
@@ -456,7 +456,7 @@ First, run following cmd to evaluate the most popular and powerful embedding and
 CUDA_VISIBLE_DEVICES=0,1 python BCEmbedding/tools/eval_rag/eval_llamaindex_multiple_domains.py
 ```
 
-Then, run the following script to sumarize the evaluation results:
+Then, run the following script to summarize the evaluation results:
 
 ```bash
 python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbedding/results/rag_results
@@ -488,8 +488,8 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 
 ***NOTE:***
 
-- Our ***bce-embedding-base_v1*** outperforms other opensource embedding models with comparable model sizes.
-- ***114 datastes including 119 eval results*** (some dataset contains multiple languages) of "Retrieval", "STS", "PairClassification", "Classification", "Reranking" and "Clustering" in ***`["en", "zh", "en-zh", "zh-en"]` setting***, including **MTEB and CMTEB**.
+- Our ***bce-embedding-base_v1*** outperforms other open-source embedding models with comparable model sizes.
+- ***114 datasets including 119 eval results*** (some dataset contains multiple languages) of "Retrieval", "STS", "PairClassification", "Classification", "Reranking" and "Clustering" in ***`["en", "zh", "en-zh", "zh-en"]` setting***, including **MTEB and CMTEB**.
 - The [crosslingual evaluation datasets](./BCEmbedding/evaluation/c_mteb/Retrieval.py) we released belong to `Retrieval` task.
 - More evaluation details should be checked in [Embedding Models Evaluations](./Docs/EvaluationSummary/embedding_eval_summary.md).
 
@@ -503,8 +503,8 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 
 ***NOTE:***
 
-- Our ***bce-reranker-base_v1*** outperforms other opensource reranker models.
-- ***12 datastes*** of "Reranking" in ***`["en", "zh", "en-zh", "zh-en"]` setting***.
+- Our ***bce-reranker-base_v1*** outperforms other open-source reranker models.
+- ***12 datasets*** of "Reranking" in ***`["en", "zh", "en-zh", "zh-en"]` setting***.
 - More evaluation details should be checked in [Reranker Models Evaluations](./Docs/EvaluationSummary/reranker_eval_summary.md).
 
 ### RAG Evaluations in LlamaIndex
@@ -517,7 +517,7 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 
 - Consistent with our ***[Reproduced Results](./Docs/EvaluationSummary/rag_eval_reproduced_summary.md)*** of [LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83).
 - In `WithoutReranker` setting, our `bce-embedding-base_v1` outperforms all the other embedding models.
-- With fixing the embedding model, our `bce-reranker-base_v1` achieves the best performence.
+- With fixing the embedding model, our `bce-reranker-base_v1` achieves the best performance.
 - **The combination of `bce-embedding-base_v1` and `bce-reranker-base_v1` is SOTA**.
 
 ## 🛠 Youdao's BCEmbedding API
