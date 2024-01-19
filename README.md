@@ -170,7 +170,7 @@ For `EmbeddingModel`:
 from transformers import AutoModel, AutoTokenizer
 
 # list of sentences
-sentences = ['sentence_0', 'sentence_1', ...]
+sentences = ['sentence_0', 'sentence_1']
 
 # init model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained('maidalun1020/bce-embedding-base_v1')
@@ -181,7 +181,7 @@ model.to(device)
 
 # get inputs
 inputs = tokenizer(sentences, padding=True, truncation=True, max_length=512, return_tensors="pt")
-inputs_on_device = {k: v.to(self.device) for k, v in inputs.items()}
+inputs_on_device = {k: v.to(device) for k, v in inputs.items()}
 
 # get embeddings
 outputs = model(**inputs_on_device, return_dict=True)
