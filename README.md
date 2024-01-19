@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-19 12:20:52
+ * @LastEditTime: 2024-01-19 16:33:34
  * @LastEditors: shenlei
 -->
 
@@ -127,7 +127,7 @@ Use `EmbeddingModel`, and `cls` [pooler](./BCEmbedding/models/embedding.py#L24) 
 from BCEmbedding import EmbeddingModel
 
 # list of sentences
-sentences = ['sentence_0', 'sentence_1', ...]
+sentences = ['sentence_0', 'sentence_1']
 
 # init embedding model
 model = EmbeddingModel(model_name_or_path="maidalun1020/bce-embedding-base_v1")
@@ -143,7 +143,7 @@ from BCEmbedding import RerankerModel
 
 # your query and corresponding passages
 query = 'input_query'
-passages = ['passage_0', 'passage_1', ...]
+passages = ['passage_0', 'passage_1']
 
 # construct sentence pairs
 sentence_pairs = [[query, passage] for passage in passages]
@@ -491,7 +491,7 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 - Our ***bce-embedding-base_v1*** outperforms other opensource embedding models with comparable model sizes.
 - ***114 datastes including 119 eval results*** (some dataset contains multiple languages) of "Retrieval", "STS", "PairClassification", "Classification", "Reranking" and "Clustering" in ***`["en", "zh", "en-zh", "zh-en"]` setting***, including **MTEB and CMTEB**.
 - The [crosslingual evaluation datasets](./BCEmbedding/evaluation/c_mteb/Retrieval.py) we released belong to `Retrieval` task.
-- More evaluation details should be checked [Embedding Models Evaluations](./Docs/EvaluationSummary/embedding_eval_summary.md).
+- More evaluation details should be checked in [Embedding Models Evaluations](./Docs/EvaluationSummary/embedding_eval_summary.md).
 
 #### 2. Reranker Models
 
@@ -505,7 +505,7 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 
 - Our ***bce-reranker-base_v1*** outperforms other opensource reranker models.
 - ***12 datastes*** of "Reranking" in ***`["en", "zh", "en-zh", "zh-en"]` setting***.
-- More evaluation details should be checked [Reranker Models Evaluations](./Docs/EvaluationSummary/reranker_eval_summary.md).
+- More evaluation details should be checked in [Reranker Models Evaluations](./Docs/EvaluationSummary/reranker_eval_summary.md).
 
 ### RAG Evaluations in LlamaIndex
 

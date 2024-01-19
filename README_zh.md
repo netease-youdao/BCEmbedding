@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-19 12:15:15
+ * @LastEditTime: 2024-01-19 16:33:48
  * @LastEditors: shenlei
 -->
 
@@ -127,7 +127,7 @@ pip install -v -e .
 from BCEmbedding import EmbeddingModel
 
 # list of sentences
-sentences = ['sentence_0', 'sentence_1', ...]
+sentences = ['sentence_0', 'sentence_1']
 
 # init embedding model
 model = EmbeddingModel(model_name_or_path="maidalun1020/bce-embedding-base_v1")
@@ -143,7 +143,7 @@ from BCEmbedding import RerankerModel
 
 # your query and corresponding passages
 query = 'input_query'
-passages = ['passage_0', 'passage_1', ...]
+passages = ['passage_0', 'passage_1']
 
 # construct sentence pairs
 sentence_pairs = [[query, passage] for passage in passages]
@@ -170,7 +170,7 @@ rerank_results = model.rerank(query, passages)
 from transformers import AutoModel, AutoTokenizer
 
 # list of sentences
-sentences = ['sentence_0', 'sentence_1', ...]
+sentences = ['sentence_0', 'sentence_1']
 
 # init model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained('maidalun1020/bce-embedding-base_v1')
@@ -181,7 +181,7 @@ model.to(device)
 
 # get inputs
 inputs = tokenizer(sentences, padding=True, truncation=True, max_length=512, return_tensors="pt")
-inputs_on_device = {k: v.to(self.device) for k, v in inputs.items()}
+inputs_on_device = {k: v.to(device) for k, v in inputs.items()}
 
 # get embeddings
 outputs = model(**inputs_on_device, return_dict=True)
