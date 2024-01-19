@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-18 23:08:34
+ * @LastEditTime: 2024-01-19 12:15:15
  * @LastEditors: shenlei
 -->
 
@@ -106,7 +106,7 @@ conda activate bce
 然后最简化安装 `BCEmbedding`（为了避免自动安装的torch cuda版本和本地不兼容，建议先手动安装本地cuda版本兼容的[`torch`](https://pytorch.org/get-started/previous-versions/)）:
 
 ```bash
-pip install BCEmbedding==0.1.2
+pip install BCEmbedding==0.1.3
 ```
 
 也可以通过项目源码安装:

@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-11-28 14:04:27
-@LastEditTime: 2024-01-16 00:50:59
+@LastEditTime: 2024-01-19 12:10:58
 @LastEditors: shenlei
 '''
 import logging
@@ -20,7 +20,7 @@ logger = logger_wrapper('BCEmbedding.models.EmbeddingModel')
 class EmbeddingModel:
     def __init__(
             self,
-            model_name_or_path: str='maidalun1020/yd-embedding-base_v1',
+            model_name_or_path: str='maidalun1020/bce-embedding-base_v1',
             pooler: str='cls',
             use_fp16: bool=False,
             device: str=None,

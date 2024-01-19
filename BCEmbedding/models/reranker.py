@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-11-28 14:04:27
-@LastEditTime: 2024-01-16 00:52:30
+@LastEditTime: 2024-01-19 12:11:05
 @LastEditors: shenlei
 '''
 import logging
@@ -24,7 +24,7 @@ logger = logger_wrapper('BCEmbedding.models.RerankerModel')
 class RerankerModel:
     def __init__(
             self,
-            model_name_or_path: str='maidalun1020/yd-reranker-base_v1',
+            model_name_or_path: str='maidalun1020/bce-reranker-base_v1',
             use_fp16: bool=False,
             device: str=None,
             **kwargs
