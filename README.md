@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-19 16:33:34
+ * @LastEditTime: 2024-01-20 13:46:12
  * @LastEditors: shenlei
 -->
 
@@ -82,7 +82,7 @@ Existing embedding models often encounter performance challenges in bilingual an
 
 - ***2024-01-16***: **LangChain and LlamaIndex Integrations** - See <a href="#embedding-and-reranker-integrations-for-rag-frameworks" target="_Self">more</a>.
 - ***2024-01-03***: **Model Releases** - [bce-embedding-base_v1](https://huggingface.co/maidalun1020/bce-embedding-base_v1) and [bce-reranker-base_v1](https://huggingface.co/maidalun1020/bce-reranker-base_v1) are available.
-- ***2024-01-03***: **Eval Datasets** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - Evaluate the performence of RAG, using [LlamaIndex](https://github.com/run-llama/llama_index).
+- ***2024-01-03***: **Eval Datasets** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - Evaluate the performance of RAG, using [LlamaIndex](https://github.com/run-llama/llama_index).
 - ***2024-01-03***: **Eval Datasets** [[Details](./BCEmbedding/evaluation/c_mteb/Retrieval.py)] - Evaluate the performance of crosslingual semantic representation, using [MTEB](https://github.com/embeddings-benchmark/mteb).
 
 ## 🍎 Model List
@@ -442,7 +442,7 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 Results reproduced from the LlamaIndex Blog can be checked in ***[Reproduced Summary of RAG Evaluation](./Docs/EvaluationSummary/rag_eval_reproduced_summary.md)***, with some obvious ***conclusions***:
 
 - In `WithoutReranker` setting, our `bce-embedding-base_v1` outperforms all the other embedding models.
-- With fixing the embedding model, our `bce-reranker-base_v1` achieves the best performence.
+- With fixing the embedding model, our `bce-reranker-base_v1` achieves the best performance.
 - ***The combination of `bce-embedding-base_v1` and `bce-reranker-base_v1` is SOTA.***
 
 #### 3. Broad Domain Adaptability
