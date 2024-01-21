@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-21 13:38:08
+ * @LastEditTime: 2024-01-21 18:41:48
  * @LastEditors: shenlei
 -->
 
@@ -89,8 +89,8 @@ Existing embedding models often encounter performance challenges in bilingual an
 
 | Model Name            |     Model Type     |   Languages   | Parameters |                                                                          Weights                                                                          |
 | :-------------------- | :----------------: | :------------: | :--------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| bce-embedding-base_v1 | `EmbeddingModel` |     ch, en     |    279M    | [Huggingface](https://huggingface.co/maidalun1020/bce-embedding-base_v1) |
-| bce-reranker-base_v1  | `RerankerModel` | ch, en, ja, ko |    279M    |  [Huggingface](https://huggingface.co/maidalun1020/bce-reranker-base_v1)  |
+| bce-embedding-base_v1 | `EmbeddingModel` |     ch, en     |    279M    | [Huggingface](https://huggingface.co/maidalun1020/bce-embedding-base_v1), [国内通道](https://hf-mirror.com/maidalun1020/bce-embedding-base_v1) |
+| bce-reranker-base_v1  | `RerankerModel` | ch, en, ja, ko |    279M    |  [Huggingface](https://huggingface.co/maidalun1020/bce-reranker-base_v1), [国内通道](https://hf-mirror.com/maidalun1020/bce-reranker-base_v1)  |
 
 ## 📖 Manual
 
