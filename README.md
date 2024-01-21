@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-20 13:46:12
+ * @LastEditTime: 2024-01-21 13:38:08
  * @LastEditors: shenlei
 -->
 
@@ -247,6 +247,15 @@ scores = model.predict(sentence_pairs)
 
 We provide `BCERerank` in `BCEmbedding.tools.langchain` that inherits the advanced preproc tokenization of `RerankerModel`.
 
+- Install langchain first
+```bash
+pip install langchain==0.1.0
+pip install langchain-community==0.0.9
+pip install langchain-core==0.1.7
+pip install langsmith==0.0.77
+```
+
+- Demo
 ```python
 # We provide the advanced preproc tokenization for reranking.
 from BCEmbedding.tools.langchain import BCERerank
@@ -293,6 +302,13 @@ response = compression_retriever.get_relevant_documents("What is Llama 2?")
 
 We provide `BCERerank` in `BCEmbedding.tools.llama_index` that inherits the advanced preproc tokenization of `RerankerModel`.
 
+- Install llama_index first
+
+```bash
+pip install llama-index==0.9.22
+```
+
+- Demo
 ```python
 # We provide the advanced preproc tokenization for reranking.
 from BCEmbedding.tools.llama_index import BCERerank

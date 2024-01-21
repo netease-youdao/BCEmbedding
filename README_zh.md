@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-20 15:04:58
+ * @LastEditTime: 2024-01-21 13:37:34
  * @LastEditors: shenlei
 -->
 
@@ -247,6 +247,15 @@ scores = model.predict(sentence_pairs)
 
 为了继承`RerankerModel`精细优化的rerank逻辑，我们提供`BCERerank`方法，可直接集成到langchain demo中。
 
+- 先安装langchain
+```bash
+pip install langchain==0.1.0
+pip install langchain-community==0.0.9
+pip install langchain-core==0.1.7
+pip install langsmith==0.0.77
+```
+
+- 样例代码
 ```python
 # 我们在`BCEmbedding`中提供langchain直接集成的接口。
 from BCEmbedding.tools.langchain import BCERerank
@@ -293,6 +302,12 @@ response = compression_retriever.get_relevant_documents("What is Llama 2?")
 
 为了继承`RerankerModel`精细优化的rerank逻辑，我们提供`BCERerank`方法，可直接集成到LlamaIndex demo中。
 
+- 先安装llama_index
+```bash
+pip install llama-index==0.9.22
+```
+
+- 样例代码
 ```python
 # 我们在`BCEmbedding`中提供llama_index直接集成的接口。
 from BCEmbedding.tools.llama_index import BCERerank
