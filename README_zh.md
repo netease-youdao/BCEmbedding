@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-21 18:42:52
+ * @LastEditTime: 2024-01-23 18:32:00
  * @LastEditors: shenlei
 -->
 
@@ -109,7 +109,7 @@ conda activate bce
 pip install BCEmbedding==0.1.3
 ```
 
-也可以通过项目源码安装:
+也可以通过项目源码安装（**推荐**）:
 
 ```bash
 git clone git@github.com:netease-youdao/BCEmbedding.git

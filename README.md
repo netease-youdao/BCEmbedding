@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-21 18:41:48
+ * @LastEditTime: 2024-01-23 18:31:33
  * @LastEditors: shenlei
 -->
 
@@ -109,7 +109,7 @@ Then install `BCEmbedding` for minimal installation (To avoid cuda version confl
 pip install BCEmbedding==0.1.3
 ```
 
-Or install from source:
+Or install from source (**recommended**):
 
 ```bash
 git clone git@github.com:netease-youdao/BCEmbedding.git
