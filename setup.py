@@ -2,7 +2,7 @@
 @Description: A text embedding model and reranking model produced by YouDao Inc., which can be use for dense embedding retrieval and reranking in RAG workflow.
 @Author: shenlei
 @Date: 2023-11-28 17:53:45
-@LastEditTime: 2024-01-19 12:12:20
+@LastEditTime: 2024-01-23 18:30:59
 @LastEditors: shenlei
 '''
 from setuptools import setup, find_packages
@@ -23,7 +23,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'torch>=1.6.0',
-        'transformers>=4.35.0',
+        'transformers>=4.35.0,<4.37.0',
         'datasets',
         'sentence-transformers'
     ]
