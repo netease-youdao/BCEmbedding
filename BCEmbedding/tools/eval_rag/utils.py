@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-29 17:09:31
-@LastEditTime: 2023-12-31 01:02:48
+@LastEditTime: 2024-01-27 13:12:00
 @LastEditors: shenlei
 '''
 import json
@@ -56,7 +56,7 @@ qa_generate_prompt_tmpl_zh = """\
 将问题限制在所提供的上下文信息中。\
 """
 
-def load_dataset_from_huggingface(dataset_name='maidalun1020/CrosslingualRAGDataset'):
+def load_dataset_from_huggingface(dataset_name='maidalun1020/CrosslingualMultiDomainsDataset'):
     datasets_raw = load_dataset(dataset_name, split='dev')
     datasets = {}
     for dataset_raw in datasets_raw:

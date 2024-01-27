@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-26 16:24:57
-@LastEditTime: 2024-01-09 01:04:24
+@LastEditTime: 2024-01-27 18:26:28
 @LastEditors: shenlei
 '''
 import os, json, sys
@@ -61,7 +61,7 @@ EMBEDDINGS = {
     "llm-embedder": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/llm-embedder', 'device': 'cuda:0'}},
     "CohereV3-en": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-english-v3.0', 'input_type': 'search_document'}},
     "CohereV3-multilingual": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-multilingual-v3.0', 'input_type': 'search_document'}},
-    "JinaAI-v2-Base-en": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'jinaai/jina-embeddings-v2-base-en', 'pooling': 'mean', 'trust_remote_code': True, 'device': 'cuda:0'}},
+    "JinaAI-v2-Base-zh": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'jinaai/jina-embeddings-v2-base-zh', 'pooling': 'mean', 'trust_remote_code': True, 'device': 'cuda:0'}},
     "gte-large-en": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'thenlper/gte-large', 'pooling': 'mean', 'max_length':512, 'device': 'cuda:0'}},
     "gte-large-zh": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'thenlper/gte-large-zh', 'max_length':512, 'device': 'cuda:0'}},
     "e5-large-v2-en": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'intfloat/e5-large-v2', 'pooling': 'mean', 'query_instruction': 'query:', 'text_instruction': 'passage:', 'device': 'cuda:0'}},
