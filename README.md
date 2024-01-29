@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-23 18:31:33
+ * @LastEditTime: 2024-01-29 16:28:08
  * @LastEditors: shenlei
 -->
 
@@ -531,6 +531,7 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 
 ***NOTE:***
 
+- Evaluated in ***`["en", "zh", "en-zh", "zh-en"]` setting***. If you are interested in monolingual setting, please check in [Chinese RAG evaluations with ["zh"] setting](./Docs/EvaluationSummary/rag_eval_multiple_domains_summary_zh.md), and [English RAG evaluations with ["en"] setting](./Docs/EvaluationSummary/rag_eval_multiple_domains_summary_en.md).
 - Consistent with our ***[Reproduced Results](./Docs/EvaluationSummary/rag_eval_reproduced_summary.md)*** of [LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83).
 - In `WithoutReranker` setting, our `bce-embedding-base_v1` outperforms all the other embedding models.
 - With fixing the embedding model, our `bce-reranker-base_v1` achieves the best performance.
