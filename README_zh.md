@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-31 15:22:29
+ * @LastEditTime: 2024-01-31 16:08:53
  * @LastEditors: shenlei
 -->
 
@@ -61,6 +61,8 @@
 
 - **强大的双语和跨语种语义表征能力【<a href="#基于mteb的语义表征评测指标" target="_Self">基于MTEB的语义表征评测指标</a>】。**
 - **基于LlamaIndex的RAG评测，表现SOTA【<a href="#基于llamaindex的rag评测指标" target="_Self">基于LlamaIndex的RAG评测指标</a>】。**
+
+<img src="./Docs/assets/rag_eval_multiple_domains_summary.jpg">
 
 ## 🌐 双语和跨语种优势
 

@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-31 15:24:48
+ * @LastEditTime: 2024-01-31 16:09:33
  * @LastEditors: shenlei
 -->
 
@@ -61,6 +61,8 @@ Distinguished for its bilingual and crosslingual proficiency, `BCEmbedding` exce
 
 - **A high performance on <a href="#semantic-representation-evaluations-in-mteb" target="_Self">Semantic Representation Evaluations in MTEB</a>**;
 - **A new benchmark in the realm of <a href="#rag-evaluations-in-llamaindex" target="_Self">RAG Evaluations in LlamaIndex</a>**.
+
+<img src="./Docs/assets/rag_eval_multiple_domains_summary.jpg">
 
 ## 🌐 Bilingual and Crosslingual Superiority
 
