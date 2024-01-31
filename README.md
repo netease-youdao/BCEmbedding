@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-31 17:10:12
+ * @LastEditTime: 2024-01-31 18:14:32
  * @LastEditors: shenlei
 -->
 
@@ -68,13 +68,13 @@ Distinguished for its bilingual and crosslingual proficiency, `BCEmbedding` exce
 
 Provide a bilingual and crosslingual two-stage retrieval model repository for the RAG community, which can be used directly without finetuning, including `EmbeddingModel` and `RerankerModel`:
 
-- One Model: Handle bilingual and crosslingual retrieval task in English and Chinese.
-- One Model: Cover common business application scenarios with RAG optimization. e.g. Education, Medical Scenario, Law, Finance, Literature, FAQ, General Conversation.
-- Easy to Integrate: We provide API in `BCEmbedding` for LlamaIndex and LangChain integrations.
+- One Model: `EmbeddingModel` handle **bilingual and crosslingual** retrieval task in English and Chinese. `RerankerModel` supports **English, Chinese, Japanese and Korean**.
+- One Model: **Cover common business application scenarios with RAG optimization**. e.g. Education, Medical Scenario, Law, Finance, Literature, FAQ, Textbook, Wikipedia, General Conversation.
+- Easy to Integrate: We provide **API** in `BCEmbedding` for LlamaIndex and LangChain integrations.
 - Others Points:
-  - `RerankerModel` supports long passages (more than 512 tokens) reranking;
-  - `RerankerModel` provides meaningful relevance score that helps to remove passages with low quality.
-  - `EmbeddingModel` does not need specific instructions.
+  - `RerankerModel` supports **long passages (more than 512 tokens) reranking**;
+  - `RerankerModel` provides **meaningful relevance score** that helps to remove passages with low quality.
+  - `EmbeddingModel` **does not need specific instructions**.
 
 ## 🌐 Bilingual and Crosslingual Superiority
 
