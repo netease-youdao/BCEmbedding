@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-31 15:15:15
+ * @LastEditTime: 2024-01-31 15:24:48
  * @LastEditors: shenlei
 -->
 
@@ -463,7 +463,10 @@ Results reproduced from the LlamaIndex Blog can be checked in ***[Reproduced Sum
 
 #### 3. Broad Domain Adaptability
 
-The evaluation of [LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83) is **monolingual, small amount of data, and specific domain** (just including "llama2" paper). In order to evaluate the **broad domain adaptability, bilingual and crosslingual capability**, we follow the blog to build a multiple domains evaluation dataset (includding "Computer Science", "Physics", "Biology", "Economics", "Math", and "Quantitative Finance". [Details](./BCEmbedding/tools/eval_rag/eval_pdfs/)), named [CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset), **by OpenAI `gpt-4-1106-preview` for high quality**.
+The evaluation of [LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83) is **monolingual, small amount of data, and specific domain** (just including "llama2" paper). In order to evaluate the **broad domain adaptability, bilingual and crosslingual capability**, we follow the blog to build a multiple domains evaluation dataset (includding "Computer Science", "Physics", "Biology", "Economics", "Math", and "Quantitative Finance". [Details](./BCEmbedding/tools/eval_rag/eval_pdfs/)), named [CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset):
+
+- To prevent test data leakage, English eval data is selected from the latest English articles in various fields on ArXiv, up to date December 30, 2023. Chinese eval data is selected from high-quality, as recent as possible, Chinese articles in the corresponding fields on Semantic Scholar.
+- Use OpenAI `gpt-4-1106-preview` to produce eval data for high quality.
 
 First, run following cmd to evaluate the most popular and powerful embedding and reranker models:
 
@@ -519,7 +522,6 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 
 ***NOTE:***
 
-- Data Quality: To prevent test data leakage, English eval data is selected from the latest English articles in various fields on ArXiv, up to date December 30, 2023. Chinese eval data is selected from high-quality, as recent as possible, Chinese articles in the corresponding fields on Semantic Scholar.
 - Our ***bce-reranker-base_v1*** outperforms other open-source reranker models.
 - ***12 datasets*** of "Reranking" in ***`["en", "zh", "en-zh", "zh-en"]` setting***.
 - More evaluation details should be checked in [Reranker Models Evaluations](./Docs/EvaluationSummary/reranker_eval_summary.md).
@@ -532,7 +534,9 @@ The summary of multiple domains evaluations can be seen in <a href="#1-multiple-
 
 ***NOTE:***
 
-- 
+- Data Quality: 
+  - To prevent test data leakage, English eval data is selected from the latest English articles in various fields on ArXiv, up to date December 30, 2023. Chinese eval data is selected from high-quality, as recent as possible, Chinese articles in the corresponding fields on Semantic Scholar. 
+  - Use OpenAI `gpt-4-1106-preview` to produce eval data for high quality.
 - Evaluated in ***`["en", "zh", "en-zh", "zh-en"]` setting***. If you are interested in monolingual setting, please check in [Chinese RAG evaluations with ["zh"] setting](./Docs/EvaluationSummary/rag_eval_multiple_domains_summary_zh.md), and [English RAG evaluations with ["en"] setting](./Docs/EvaluationSummary/rag_eval_multiple_domains_summary_en.md).
 - Consistent with our ***[Reproduced Results](./Docs/EvaluationSummary/rag_eval_reproduced_summary.md)*** of [LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83).
 - In `WithoutReranker` setting, our `bce-embedding-base_v1` outperforms all the other embedding models.

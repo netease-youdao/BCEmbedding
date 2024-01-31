@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-31 15:16:54
+ * @LastEditTime: 2024-01-31 15:22:29
  * @LastEditors: shenlei
 -->
 
@@ -464,8 +464,8 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 #### 3. 更好的领域泛化性
 
 在上述的[LlamaIndex博客](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83)的评测数据只用了“llama2”这一篇文章，该评测是 **单语种，小数据量，特定领域** 的。为了兼容更真实更广的用户使用场景，评测算法模型的 **领域泛化性，双语和跨语种能力**，我们按照该博客的方法构建了一个多领域（计算机科学，物理学，生物学，经济学，数学，量化金融等，[详情](./BCEmbedding/tools/eval_rag/eval_pdfs/)）的双语种、跨语种评测数据，[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)：
-- 1、为了防止评测数据泄漏，英文数据选择ArXiv上2023年12月30日最新的各领域英文文章；中文数据选择Semantic Scholar相应领域高质量的尽可能新的中文文章；
-- 2、为了保证构建数据的质量尽可能高，我们采用OpenAI的 `gpt-4-1106-preview`。**
+- 1、为了防止评测数据泄漏，英文数据选择ArXiv上2023年12月30日最新的各领域英文文章；中文数据选择Semantic Scholar相应领域高质量的尽可能新的中文文章。
+- 2、为了保证构建数据的质量尽可能高，我们采用OpenAI的 `gpt-4-1106-preview`。
 
 运行下面命令，对市面上各家开源、闭源的最强有力的embedding和reranker模型进行系统性评测：
 
@@ -533,7 +533,9 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 
 ***要点：***
 
-- 评测数据质量和公平性：1、为了防止评测数据泄漏，英文数据选择ArXiv上2023年12月30日最新的各领域英文文章；中文数据选择Semantic Scholar相应领域高质量的尽可能新的中文文章；2、为了保证构建数据的质量尽可能高，我们采用OpenAI的 `gpt-4-1106-preview`。**
+- 评测数据质量和公平性：
+  - 为了防止评测数据泄漏，英文数据选择ArXiv上2023年12月30日最新的各领域英文文章；中文数据选择Semantic Scholar相应领域高质量的尽可能新的中文文章。
+  - 为了保证构建数据的质量尽可能高，我们采用OpenAI的 `gpt-4-1106-preview`。
 - 评测是在 ***`["en", "zh", "en-zh", "zh-en"]`*** 下进行。如果你对中文、英文单语种评测感兴趣，请查看 [中文RAG评测["zh"]](./Docs/EvaluationSummary/rag_eval_multiple_domains_summary_zh.md)，和[英文RAG评测["en"]](./Docs/EvaluationSummary/rag_eval_multiple_domains_summary_en.md).
 - 与我们按照[LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83)的 ***[复现结果](./Docs/EvaluationSummary/rag_eval_reproduced_summary.md)*** 一致.
 - 在 `WithoutReranker`设置下（**竖排对比**），`bce-embedding-base_v1`优于其他Embedding模型，包括开源和闭源。
