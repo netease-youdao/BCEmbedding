@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-31 16:09:33
+ * @LastEditTime: 2024-01-31 17:10:12
  * @LastEditors: shenlei
 -->
 
@@ -63,6 +63,18 @@ Distinguished for its bilingual and crosslingual proficiency, `BCEmbedding` exce
 - **A new benchmark in the realm of <a href="#rag-evaluations-in-llamaindex" target="_Self">RAG Evaluations in LlamaIndex</a>**.
 
 <img src="./Docs/assets/rag_eval_multiple_domains_summary.jpg">
+
+### Our Goals
+
+Provide a bilingual and crosslingual two-stage retrieval model repository for the RAG community, which can be used directly without finetuning, including `EmbeddingModel` and `RerankerModel`:
+
+- One Model: Handle bilingual and crosslingual retrieval task in English and Chinese.
+- One Model: Cover common business application scenarios with RAG optimization. e.g. Education, Medical Scenario, Law, Finance, Literature, FAQ, General Conversation.
+- Easy to Integrate: We provide API in `BCEmbedding` for LlamaIndex and LangChain integrations.
+- Others Points:
+  - `RerankerModel` supports long passages (more than 512 tokens) reranking;
+  - `RerankerModel` provides meaningful relevance score that helps to remove passages with low quality.
+  - `EmbeddingModel` does not need specific instructions.
 
 ## 🌐 Bilingual and Crosslingual Superiority
 

@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-31 16:08:53
+ * @LastEditTime: 2024-01-31 17:33:27
  * @LastEditors: shenlei
 -->
 
@@ -63,6 +63,18 @@
 - **基于LlamaIndex的RAG评测，表现SOTA【<a href="#基于llamaindex的rag评测指标" target="_Self">基于LlamaIndex的RAG评测指标</a>】。**
 
 <img src="./Docs/assets/rag_eval_multiple_domains_summary.jpg">
+
+### 开源目的
+
+给RAG社区一个可以直接拿来用，尽可能不需要用户finetune的中英双语和跨语种二阶段检索模型库，包含`EmbeddingModel`和`RerankerModel`。
+
+- 只需一个模型：覆盖中英双语和中英跨语种检索任务，尤其是其跨语种能力。
+- 只需一个模型：覆盖常见业务落地领域（针对众多常见rag场景已做优化），比如：教育、医疗、法律、金融、科研论文、客服(FAQ)、通用QA等场景。用户不需要在上述特定领域finetune，直接可以用。
+- 方便集成：`EmbeddingModel`和`RerankerModel`提供了LlamaIndex和LangChain集成的接口，用户可非常方便集成进现有产品中。
+- 其他特性：
+  - `RerankerModel`支持长passage（超过512）rerank精排；
+  - `RerankerModel`可以给出有意义分数，帮助过滤低质量召回；
+  - `EmbeddingModel`不需要“精心设计”instruction，尽可能召回有用片段。
 
 ## 🌐 双语和跨语种优势
 
