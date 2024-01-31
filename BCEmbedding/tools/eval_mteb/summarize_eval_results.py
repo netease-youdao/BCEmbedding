@@ -9,7 +9,7 @@ from BCEmbedding.utils import logger_wrapper, query_instruction_for_retrieval_di
 logger = logger_wrapper('evaluation.summarize_eval_results')
 
 need_instruction_models = [model_name_or_path.strip('/').split('/')[-1] for model_name_or_path in query_instruction_for_retrieval_dict]
-need_mean_pooler = ["jina-embeddings-v2-base-en", "m3e-base", "m3e-large", "e5-large-v2", "multilingual-e5-base", "multilingual-e5-large", "gte-large"]
+need_mean_pooler = ["jina-embeddings-v2-base-en", "jina-embeddings-v2-base-zh", "m3e-base", "m3e-large", "e5-large-v2", "multilingual-e5-base", "multilingual-e5-large", "gte-large"]
 
 def read_results(task_types, except_tasks, args):
     tasks_results = {}

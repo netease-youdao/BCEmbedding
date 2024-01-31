@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-26 16:24:57
-@LastEditTime: 2024-01-29 16:35:14
+@LastEditTime: 2024-01-31 12:59:59
 @LastEditors: shenlei
 '''
 import os, json, sys
@@ -60,6 +60,7 @@ EMBEDDINGS = {
     'en': {
         "OpenAI-ada-2": {'model': OpenAIEmbedding, 'args': {'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
         "bge-large-en-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-en-v1.5', 'device': 'cuda:0'}},
+        "bge-m3-large": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-m3', 'device': 'cuda:0'}},
         "llm-embedder": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/llm-embedder', 'device': 'cuda:0'}},
         "CohereV3-en": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-english-v3.0', 'input_type': 'search_document'}},
         "CohereV3-multilingual": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-multilingual-v3.0', 'input_type': 'search_document'}},
@@ -74,6 +75,7 @@ EMBEDDINGS = {
     'zh': {
         "OpenAI-ada-2": {'model': OpenAIEmbedding, 'args': {'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
         "bge-large-zh-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-zh-v1.5', 'device': 'cuda:0'}},
+        "bge-m3-large": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-m3', 'device': 'cuda:0'}},
         "CohereV3-multilingual": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-multilingual-v3.0', 'input_type': 'search_document'}},
         "JinaAI-v2-Base-zh": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'jinaai/jina-embeddings-v2-base-zh', 'pooling': 'mean', 'trust_remote_code': True, 'device': 'cuda:0'}},
         "gte-large-zh": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'thenlper/gte-large-zh', 'max_length':512, 'device': 'cuda:0'}},
@@ -86,6 +88,7 @@ EMBEDDINGS = {
         "OpenAI-ada-2": {'model': OpenAIEmbedding, 'args': {'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
         "bge-large-en-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-en-v1.5', 'device': 'cuda:0'}},
         "bge-large-zh-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-zh-v1.5', 'device': 'cuda:0'}},
+        "bge-m3-large": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-m3', 'device': 'cuda:0'}},
         "llm-embedder": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/llm-embedder', 'device': 'cuda:0'}},
         "CohereV3-en": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-english-v3.0', 'input_type': 'search_document'}},
         "CohereV3-multilingual": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-multilingual-v3.0', 'input_type': 'search_document'}},
