@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-02-04 15:24:08
+ * @LastEditTime: 2024-02-04 18:44:03
  * @LastEditors: shenlei
 -->
 
@@ -94,7 +94,7 @@ Existing embedding models often encounter performance challenges in bilingual an
 
 ## 🚀 Latest Updates
 
-- ***2024-02-04***: **Tech Blog of BCEmbedding** - See <a href="">Blog</a>.
+- ***2024-02-04***: **Technical Blog** - See <a href="https://zhuanlan.zhihu.com/p/681370855">为RAG而生-BCEmbedding设计思路</a>.
 - ***2024-01-16***: **LangChain and LlamaIndex Integrations** - See <a href="#embedding-and-reranker-integrations-for-rag-frameworks" target="_Self">more</a>.
 - ***2024-01-03***: **Model Releases** - [bce-embedding-base_v1](https://huggingface.co/maidalun1020/bce-embedding-base_v1) and [bce-reranker-base_v1](https://huggingface.co/maidalun1020/bce-reranker-base_v1) are available.
 - ***2024-01-03***: **Eval Datasets** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - Evaluate the performance of RAG, using [LlamaIndex](https://github.com/run-llama/llama_index).
