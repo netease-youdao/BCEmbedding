@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-26 16:24:57
-@LastEditTime: 2024-01-09 01:05:12
+@LastEditTime: 2024-02-04 11:40:05
 @LastEditors: shenlei
 '''
 import os, json
@@ -18,6 +18,7 @@ from llama_index.llms import OpenAI
 
 # Embeddings
 from llama_index.embeddings import OpenAIEmbedding, HuggingFaceEmbedding, CohereEmbedding
+from llama_index.embeddings.openai import OpenAIEmbeddingModelType
 from langchain.embeddings import VoyageEmbeddings, GooglePalmEmbeddings
 
 # Retrievers
@@ -51,9 +52,12 @@ For each query, MRR evaluates the system's accuracy by looking at the rank of th
 # Define embeddings and rerankers setups to test
 EMBEDDINGS = {
     "OpenAI-ada-2": {'model': OpenAIEmbedding, 'args': {'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
+    "OpenAI-embed-3-small": {'model': OpenAIEmbedding, 'args': {'model': OpenAIEmbeddingModelType.TEXT_EMBED_3_SMALL, 'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
+    "OpenAI-embed-3-large": {'model': OpenAIEmbedding, 'args': {'model': OpenAIEmbeddingModelType.TEXT_EMBED_3_LARGE, 'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
     "bge-large-en": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-en', 'device': 'cuda:0'}},
     "bge-base-en-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-base-en-v1.5', 'device': 'cuda:0'}},
     "bge-large-en-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-en-v1.5', 'device': 'cuda:0'}},
+    "bge-m3-large": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-m3', 'device': 'cuda:0'}},
     "llm-embedder": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/llm-embedder', 'device': 'cuda:0'}},
     "CohereV2-en": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-english-v2.0'}},
     "CohereV3-en": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-english-v3.0', 'input_type': 'search_document'}},

@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-26 16:24:57
-@LastEditTime: 2024-01-31 12:59:59
+@LastEditTime: 2024-02-04 11:08:06
 @LastEditors: shenlei
 '''
 import os, json, sys
@@ -18,6 +18,7 @@ from llama_index.llms import OpenAI
 
 # Embeddings
 from llama_index.embeddings import OpenAIEmbedding, HuggingFaceEmbedding, CohereEmbedding
+from llama_index.embeddings.openai import OpenAIEmbeddingModelType
 from langchain.embeddings import VoyageEmbeddings, GooglePalmEmbeddings
 
 # Retrievers
@@ -59,6 +60,8 @@ EMBEDDINGS = {
     # eval rag metrics in 'en' language
     'en': {
         "OpenAI-ada-2": {'model': OpenAIEmbedding, 'args': {'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
+        "OpenAI-embed-3-small": {'model': OpenAIEmbedding, 'args': {'model': OpenAIEmbeddingModelType.TEXT_EMBED_3_SMALL, 'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
+        "OpenAI-embed-3-large": {'model': OpenAIEmbedding, 'args': {'model': OpenAIEmbeddingModelType.TEXT_EMBED_3_LARGE, 'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
         "bge-large-en-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-en-v1.5', 'device': 'cuda:0'}},
         "bge-m3-large": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-m3', 'device': 'cuda:0'}},
         "llm-embedder": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/llm-embedder', 'device': 'cuda:0'}},
@@ -74,6 +77,8 @@ EMBEDDINGS = {
     # eval rag metrics in 'zh' language
     'zh': {
         "OpenAI-ada-2": {'model': OpenAIEmbedding, 'args': {'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
+        "OpenAI-embed-3-small": {'model': OpenAIEmbedding, 'args': {'model': OpenAIEmbeddingModelType.TEXT_EMBED_3_SMALL, 'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
+        "OpenAI-embed-3-large": {'model': OpenAIEmbedding, 'args': {'model': OpenAIEmbeddingModelType.TEXT_EMBED_3_LARGE, 'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
         "bge-large-zh-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-zh-v1.5', 'device': 'cuda:0'}},
         "bge-m3-large": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-m3', 'device': 'cuda:0'}},
         "CohereV3-multilingual": {'model': CohereEmbedding, 'args': {'cohere_api_key': os.environ.get('COHERE_APPKEY'), 'model_name': 'embed-multilingual-v3.0', 'input_type': 'search_document'}},
@@ -86,6 +91,8 @@ EMBEDDINGS = {
     # eval rag metrics in ['en', 'zh', 'en-zh', 'zh-en'] languages
     'total': {
         "OpenAI-ada-2": {'model': OpenAIEmbedding, 'args': {'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
+        "OpenAI-embed-3-small": {'model': OpenAIEmbedding, 'args': {'model': OpenAIEmbeddingModelType.TEXT_EMBED_3_SMALL, 'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
+        "OpenAI-embed-3-large": {'model': OpenAIEmbedding, 'args': {'model': OpenAIEmbeddingModelType.TEXT_EMBED_3_LARGE, 'api_key': os.environ.get('OPENAI_API_KEY'), 'api_base': os.environ.get('OPENAI_BASE_URL')}},
         "bge-large-en-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-en-v1.5', 'device': 'cuda:0'}},
         "bge-large-zh-v1.5": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-large-zh-v1.5', 'device': 'cuda:0'}},
         "bge-m3-large": {'model': HuggingFaceEmbedding, 'args': {'model_name': 'BAAI/bge-m3', 'device': 'cuda:0'}},
@@ -256,14 +263,13 @@ languages: {["zh", "en", "zh-en", "en-zh"] if args.lang == 'total' else args.lan
 
             # Loop over rerankers
             for rerank_name, reranker_setup in RERANKERS.items():
-                if not args.force:
-                    has_evaluated = False
-                    for _, it in results_df.iterrows():
-                        if it['Embedding'] == embed_name and it['Reranker'] == rerank_name:
-                            has_evaluated = True
-                    if has_evaluated:
-                        logger.info(f"Skip! Embedding Model: {embed_name} and Reranker: {rerank_name} have been evaluated!")
-                        continue
+                has_evaluated = False
+                for _, it in results_df.iterrows():
+                    if it['Embedding'] == embed_name and it['Reranker'] == rerank_name:
+                        has_evaluated = True
+                if not args.force and has_evaluated:
+                    logger.info(f"Skip! Embedding Model: {embed_name} and Reranker: {rerank_name} have been evaluated!")
+                    continue
 
                 logger.info('\n'+ 40*'-*' + f"\nRunning Evaluation for Embedding Model: {embed_name} and Reranker: {rerank_name}")
                 
@@ -276,7 +282,13 @@ languages: {["zh", "en", "zh-en", "en-zh"] if args.lang == 'total' else args.lan
                 eval_results = asyncio.run(retriever_evaluator.aevaluate_dataset(qa_dataset))
 
                 current_df = display_results(embed_name, rerank_name, eval_results)
-                results_df = pd.concat([results_df, current_df], ignore_index=True)
+                if has_evaluated:
+                    for i in range(len(results_df)):
+                        if results_df.at[i, 'Embedding'] == embed_name and results_df.at[i, 'Reranker'] == rerank_name:
+                            results_df.at[i, 'hit_rate'] = current_df.at[0, 'hit_rate']
+                            results_df.at[i, 'mrr'] = current_df.at[0, 'mrr']
+                else:
+                    results_df = pd.concat([results_df, current_df], ignore_index=True)
 
                 logger.info(current_df)
                 results_df.to_csv(pdf_eval_result, index=False)

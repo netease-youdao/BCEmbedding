@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: shenlei
  * @Date: 2024-01-29 16:14:48
- * @LastEditTime: 2024-01-31 13:01:30
+ * @LastEditTime: 2024-02-04 14:54:55
  * @LastEditors: shenlei
 -->
 # RAG Evaluations in LlamaIndex  
@@ -11,6 +11,8 @@
 | Embedding Models | WithoutReranker <br> [*hit_rate/mrr*] | CohereRerank <br> [*hit_rate/mrr*] | bge-reranker-large <br> [*hit_rate/mrr*] | ***bce-reranker-base_v1*** <br> [*hit_rate/mrr*] | 
 |:-------------------------------|:--------:|:--------:|:--------:|:--------:| 
 | OpenAI-ada-2 | 85.05/62.29 | 91.72/72.77 | 91.83/72.17 | **92.90/77.17** |  
+| OpenAI-embed-3-small | 87.20/61.64 | 91.72/72.60 | 92.15/72.22 | **92.80/76.46** |  
+| OpenAI-embed-3-large | 85.38/61.79 | 90.97/72.25 | 91.29/71.97 | **91.72/76.37** |  
 | bge-large-en-v1.5 | 84.62/61.22 | 91.51/72.71 | 91.94/72.35 | **92.47/76.61** |  
 | bge-m3-large | 86.67/64.22 | 92.15/73.19 | 92.69/72.04 | **93.33/77.24** |  
 | llm-embedder | 77.53/56.10 | 86.34/69.36 | 86.56/68.78 | **87.42/73.44** |  

@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-01-31 18:13:41
+ * @LastEditTime: 2024-02-04 15:29:15
  * @LastEditors: shenlei
 -->
 
@@ -94,6 +94,7 @@
 
 ## 🚀 最新更新
 
+- ***2024-02-04***: **BCEmbedding技术博客** - 包含算法设计和实操细节，<a href="">Blog</a>。
 - ***2024-01-16***: **LangChain和LlamaIndex集成** - 详见<a href="#embedding和reranker集成常用rag框架" target="_Self">演示样例</a>。
 - ***2024-01-03***: **模型发布** - [bce-embedding-base_v1](https://huggingface.co/maidalun1020/bce-embedding-base_v1)和[bce-reranker-base_v1](https://huggingface.co/maidalun1020/bce-reranker-base_v1)已发布.
 - ***2024-01-03***: **RAG评测数据** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - 基于[LlamaIndex](https://github.com/run-llama/llama_index)的RAG评测数据已发布。
@@ -318,7 +319,7 @@ response = compression_retriever.get_relevant_documents("What is Llama 2?")
 
 - 先安装llama_index
 ```bash
-pip install llama-index==0.9.22
+pip install llama-index==0.9.42.post2
 ```
 
 - 样例代码
