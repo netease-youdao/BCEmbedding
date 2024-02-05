@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-02-04 18:44:03
+ * @LastEditTime: 2024-02-05 17:36:40
  * @LastEditors: shenlei
 -->
 
@@ -72,7 +72,7 @@ Provide a bilingual and crosslingual two-stage retrieval model repository for th
 - One Model: **Cover common business application scenarios with RAG optimization**. e.g. Education, Medical Scenario, Law, Finance, Literature, FAQ, Textbook, Wikipedia, General Conversation.
 - Easy to Integrate: We provide **API** in `BCEmbedding` for LlamaIndex and LangChain integrations.
 - Others Points:
-  - `RerankerModel` supports **long passages (more than 512 tokens) reranking**;
+  - `RerankerModel` supports **long passages (more than 512 tokens, less than 32k tokens) reranking**;
   - `RerankerModel` provides **meaningful relevance score** that helps to remove passages with low quality.
   - `EmbeddingModel` **does not need specific instructions**.
 
@@ -94,7 +94,7 @@ Existing embedding models often encounter performance challenges in bilingual an
 
 ## 🚀 Latest Updates
 
-- ***2024-02-04***: **Technical Blog** - See <a href="https://zhuanlan.zhihu.com/p/681370855">为RAG而生-BCEmbedding设计思路</a>.
+- ***2024-02-04***: **Technical Blog** - See <a href="https://zhuanlan.zhihu.com/p/681370855">为RAG而生-BCEmbedding技术报告</a>.
 - ***2024-01-16***: **LangChain and LlamaIndex Integrations** - See <a href="#embedding-and-reranker-integrations-for-rag-frameworks" target="_Self">more</a>.
 - ***2024-01-03***: **Model Releases** - [bce-embedding-base_v1](https://huggingface.co/maidalun1020/bce-embedding-base_v1) and [bce-reranker-base_v1](https://huggingface.co/maidalun1020/bce-reranker-base_v1) are available.
 - ***2024-01-03***: **Eval Datasets** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - Evaluate the performance of RAG, using [LlamaIndex](https://github.com/run-llama/llama_index).

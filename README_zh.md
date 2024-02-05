@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-02-04 18:40:43
+ * @LastEditTime: 2024-02-05 17:37:07
  * @LastEditors: shenlei
 -->
 
@@ -72,7 +72,7 @@
 - 只需一个模型： **覆盖常见业务落地领域**（针对众多常见rag场景已做优化），比如：教育、医疗、法律、金融、科研论文、客服(FAQ)、书籍、百科、通用QA等场景。用户不需要在上述特定领域finetune，直接可以用。
 - 方便集成：`EmbeddingModel`和`RerankerModel`提供了LlamaIndex和LangChain **集成接口** ，用户可非常方便集成进现有产品中。
 - 其他特性：
-  - `RerankerModel`支持 **长passage（超过512）rerank**；
+  - `RerankerModel`支持 **长passage（超过512 tokens，不超过32k tokens）rerank**；
   - `RerankerModel`可以给出有意义 **相关性分数** ，帮助 **过滤低质量召回**；
   - `EmbeddingModel` **不需要“精心设计”instruction** ，尽可能召回有用片段。
 
@@ -94,7 +94,7 @@
 
 ## 🚀 最新更新
 
-- ***2024-02-04***: **BCEmbedding技术博客** - 包含算法设计和实操细节，<a href="https://zhuanlan.zhihu.com/p/681370855">为RAG而生-BCEmbedding设计思路</a>。
+- ***2024-02-04***: **BCEmbedding技术博客** - 包含算法设计和实操细节，<a href="https://zhuanlan.zhihu.com/p/681370855">为RAG而生-BCEmbedding技术报告</a>。
 - ***2024-01-16***: **LangChain和LlamaIndex集成** - 详见<a href="#embedding和reranker集成常用rag框架" target="_Self">演示样例</a>。
 - ***2024-01-03***: **模型发布** - [bce-embedding-base_v1](https://huggingface.co/maidalun1020/bce-embedding-base_v1)和[bce-reranker-base_v1](https://huggingface.co/maidalun1020/bce-reranker-base_v1)已发布.
 - ***2024-01-03***: **RAG评测数据** [[CrosslingualMultiDomainsDataset](https://huggingface.co/datasets/maidalun1020/CrosslingualMultiDomainsDataset)] - 基于[LlamaIndex](https://github.com/run-llama/llama_index)的RAG评测数据已发布。
