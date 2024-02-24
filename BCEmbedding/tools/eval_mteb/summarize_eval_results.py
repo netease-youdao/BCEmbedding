@@ -188,7 +188,7 @@ def output_markdown(tasks_results_wt_langs, model_names, model_type, save_file):
         
 
         f.write(f'## Summary on all langs: `{list(tasks_results_wt_langs.keys())}`  \n')
-        if model_type == 'embedding':
+        if model_type.lower() == 'embedding':
             first_line = "| Model | Dimensions | Pooler | Instructions |"
             second_line = "|:--------|:--------:|:--------:|:--------:|"
         else:
@@ -208,7 +208,7 @@ def output_markdown(tasks_results_wt_langs, model_names, model_type, save_file):
 
         for model in model_names:
             write_line = f"| {model} |"
-            if model_type == 'embedding':
+            if model_type.lower() == 'embedding':
                 write_line += f" {768 if 'base' in model else 1024} |"
                 write_line += f" {'`mean`' if model in need_mean_pooler else '`cls`'} |"
                 write_line += f" {'Need' if model in need_instruction_models else 'Free'} |"

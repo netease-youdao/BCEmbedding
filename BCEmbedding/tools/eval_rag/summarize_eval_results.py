@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-31 01:04:18
-@LastEditTime: 2024-01-09 01:06:41
+@LastEditTime: 2024-02-06 10:33:56
 @LastEditors: shenlei
 '''
 import os, json, sys
@@ -55,21 +55,27 @@ def output_markdown(merged_results, save_file, eval_more_domains=True):
 
         first_line = "| Embedding Models |"
         second_line = "|:-------------------------------|"
-        embeddings = list(merged_results.keys())
-        rerankers = list(merged_results[embeddings[0]].keys())
+        embeddings = sorted(list(merged_results.keys()))
+        rerankers = []
+        for embedding in embeddings:
+            for reranker in list(merged_results[embedding].keys()):
+                if reranker not in rerankers:
+                    rerankers.append(reranker)
+
         for reranker in rerankers:
             first_line += f" {reranker} <br> [*hit_rate/mrr*] |"
             second_line += ":--------:|"
         f.write(first_line + ' \n')
         f.write(second_line + ' \n')
 
-        for embedding, embedding_results in merged_results.items():
+        for embedding in embeddings:
+            embedding_results = merged_results[embedding]
             write_line = f"| {embedding} |"
             for reranker in rerankers:
                 if reranker in embedding_results:
                     write_line += f" {embedding_results[reranker]['hit_rate']:.2f}/{embedding_results[reranker]['mrr']:.2f} |"
                 else:
-                    write_line += "  |"
+                    write_line += " -- |"
             f.write(write_line + '  \n')
 
 def get_args():

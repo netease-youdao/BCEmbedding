@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-26 16:24:57
-@LastEditTime: 2024-02-04 11:40:05
+@LastEditTime: 2024-02-24 23:14:49
 @LastEditors: shenlei
 '''
 import os, json
@@ -151,14 +151,21 @@ if __name__ == '__main__':
 
         # Loop over rerankers
         for rerank_name, reranker_setup in RERANKERS.items():
-            if not args.force:
-                has_evaluated = False
-                for _, it in results_df.iterrows():
-                    if it['Embedding'] == embed_name and it['Reranker'] == rerank_name:
-                        has_evaluated = True
-                if has_evaluated:
-                    logger.info(f"Skip! Embedding Model: {embed_name} and Reranker: {rerank_name} have been evaluated!")
-                    continue
+            has_evaluated = False
+            for _, it in results_df.iterrows():
+                if it['Embedding'] == embed_name and it['Reranker'] == rerank_name:
+                    has_evaluated = True
+            if not args.force and has_evaluated:
+                logger.info(f"Skip! Embedding Model: {embed_name} and Reranker: {rerank_name} have been evaluated!")
+                continue
+            # if not args.force:
+            #     has_evaluated = False
+            #     for _, it in results_df.iterrows():
+            #         if it['Embedding'] == embed_name and it['Reranker'] == rerank_name:
+            #             has_evaluated = True
+            #     if has_evaluated:
+            #         logger.info(f"Skip! Embedding Model: {embed_name} and Reranker: {rerank_name} have been evaluated!")
+            #         continue
 
             logger.info('\n'+ 40*'-*' + f"\nRunning Evaluation for Embedding Model: {embed_name} and Reranker: {rerank_name}")
             
@@ -171,7 +178,13 @@ if __name__ == '__main__':
             eval_results = asyncio.run(retriever_evaluator.aevaluate_dataset(qa_dataset))
 
             current_df = display_results(embed_name, rerank_name, eval_results)
-            results_df = pd.concat([results_df, current_df], ignore_index=True)
+            if has_evaluated:
+                for i in range(len(results_df)):
+                    if results_df.at[i, 'Embedding'] == embed_name and results_df.at[i, 'Reranker'] == rerank_name:
+                        results_df.at[i, 'hit_rate'] = current_df.at[0, 'hit_rate']
+                        results_df.at[i, 'mrr'] = current_df.at[0, 'mrr']
+            else:
+                results_df = pd.concat([results_df, current_df], ignore_index=True)
 
             logger.info(current_df)
             results_df.to_csv(pdf_eval_result, index=False)

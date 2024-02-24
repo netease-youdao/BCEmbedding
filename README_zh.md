@@ -76,6 +76,11 @@
   - `RerankerModel`可以给出有意义 **相关性分数** ，帮助 **过滤低质量召回**；
   - `EmbeddingModel` **不需要“精心设计”instruction** ，尽可能召回有用片段。
 
+### 典型案例
+
+- RAG应用项目：[QAnything](https://github.com/netease-youdao/qanything), [HuixiangDou](https://github.com/InternLM/HuixiangDou), [ChatPDF](https://github.com/shibing624/ChatPDF).
+- 高效推理引擎：[ChatLLM.cpp](https://github.com/foldl/chatllm.cpp), [Xinference](https://github.com/xorbitsai/inference).
+
 ## 🌐 双语和跨语种优势
 
 现有的单个语义表征模型在双语和跨语种场景中常常表现不佳，特别是在中文、英文及其跨语种任务中。`BCEmbedding`充分利用有道翻译引擎的优势，实现只需一个模型就可以在单语、双语和跨语种场景中表现出卓越的性能。

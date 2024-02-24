@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-02-05 17:36:40
+ * @LastEditTime: 2024-02-24 23:55:57
  * @LastEditors: shenlei
 -->
 
@@ -75,6 +75,11 @@ Provide a bilingual and crosslingual two-stage retrieval model repository for th
   - `RerankerModel` supports **long passages (more than 512 tokens, less than 32k tokens) reranking**;
   - `RerankerModel` provides **meaningful relevance score** that helps to remove passages with low quality.
   - `EmbeddingModel` **does not need specific instructions**.
+
+### Third-party Examples
+
+- RAG applications: [QAnything](https://github.com/netease-youdao/qanything), [HuixiangDou](https://github.com/InternLM/HuixiangDou), [ChatPDF](https://github.com/shibing624/ChatPDF).
+- Efficient inference: [ChatLLM.cpp](https://github.com/foldl/chatllm.cpp), [Xinference](https://github.com/xorbitsai/inference).
 
 ## 🌐 Bilingual and Crosslingual Superiority
 

@@ -2,12 +2,10 @@
 @Description: 
 @Author: shenlei
 @Date: 2024-01-15 18:56:59
-@LastEditTime: 2024-01-15 23:18:38
+@LastEditTime: 2024-02-24 23:19:02
 @LastEditors: shenlei
 '''
 from __future__ import annotations
-
-import torch
 
 from typing import Dict, Optional, Sequence, Any
 
@@ -20,16 +18,13 @@ from langchain.retrievers.document_compressors.base import BaseDocumentCompresso
 from pydantic.v1 import PrivateAttr
 
 
-def infer_torch_device():
-    return "cuda" if torch.cuda.is_available() else "cpu"
-
 class BCERerank(BaseDocumentCompressor):
     """Document compressor that uses `BCEmbedding RerankerModel API`."""
 
     client: str = 'BCEmbedding'
     top_n: int = 3
     """Number of documents to return."""
-    model: str = "bce-reranker-base_v1"
+    model: str = "maidalun1020/bce-reranker-base_v1"
     """Model to use for reranking."""
     _model: Any = PrivateAttr()
 
