@@ -601,3 +601,5 @@ If you use `BCEmbedding` in your research or project, please feel free to cite a
 [C_MTEB](https://github.com/FlagOpen/FlagEmbedding/tree/master/C_MTEB)
 
 [LLama Index](https://github.com/run-llama/llama_index) | [LlamaIndex Blog](https://blog.llamaindex.ai/boosting-rag-picking-the-best-embedding-reranker-models-42d079022e83)
+
+[HuixiangDou](https://github.com/internlm/huixiangdou)
