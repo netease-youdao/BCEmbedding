@@ -2,12 +2,12 @@
 @Description: 
 @Author: shenlei
 @Date: 2024-01-15 14:15:30
-@LastEditTime: 2024-01-15 23:16:24
+@LastEditTime: 2024-03-04 16:00:52
 @LastEditors: shenlei
 '''
 from typing import Any, List, Optional
 
-from llama_index.bridge.pydantic import Field, PrivateAttr
+from pydantic.v1 import Field, PrivateAttr
 from llama_index.callbacks import CBEventType, EventPayload
 from llama_index.postprocessor.types import BaseNodePostprocessor
 from llama_index.schema import MetadataMode, NodeWithScore, QueryBundle
