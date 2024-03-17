@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-02-24 23:55:57
+ * @LastEditTime: 2024-03-17 10:21:57
  * @LastEditors: shenlei
 -->
 
@@ -79,7 +79,7 @@ Provide a bilingual and crosslingual two-stage retrieval model repository for th
 ### Third-party Examples
 
 - RAG applications: [QAnything](https://github.com/netease-youdao/qanything), [HuixiangDou](https://github.com/InternLM/HuixiangDou), [ChatPDF](https://github.com/shibing624/ChatPDF).
-- Efficient inference: [ChatLLM.cpp](https://github.com/foldl/chatllm.cpp), [Xinference](https://github.com/xorbitsai/inference).
+- Efficient inference: [ChatLLM.cpp](https://github.com/foldl/chatllm.cpp), [Xinference](https://github.com/xorbitsai/inference), [mindnlp](https://github.com/mindspore-lab/mindnlp/tree/master/llm/inference/bce).
 
 ## 🌐 Bilingual and Crosslingual Superiority
 
