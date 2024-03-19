@@ -3,7 +3,7 @@
  * @Author: shenlei
  * @Modified: linhui
  * @Date: 2023-12-19 10:31:41
- * @LastEditTime: 2024-03-17 10:34:20
+ * @LastEditTime: 2024-03-17 22:34:40
  * @LastEditors: shenlei
 -->
 
@@ -79,7 +79,7 @@
 ### 典型案例
 
 - RAG应用项目：[QAnything](https://github.com/netease-youdao/qanything), [HuixiangDou](https://github.com/InternLM/HuixiangDou), [ChatPDF](https://github.com/shibing624/ChatPDF).
-- 高效推理引擎：[ChatLLM.cpp](https://github.com/foldl/chatllm.cpp), [Xinference](https://github.com/xorbitsai/inference), [mindnlp(昇腾显卡)](https://github.com/mindspore-lab/mindnlp/tree/master/llm/inference/bce).
+- 高效推理引擎：[ChatLLM.cpp](https://github.com/foldl/chatllm.cpp), [Xinference](https://github.com/xorbitsai/inference), [mindnlp(支持华为显卡)](https://github.com/mindspore-lab/mindnlp/tree/master/llm/inference/bce).
 
 ## 🌐 双语和跨语种优势
 

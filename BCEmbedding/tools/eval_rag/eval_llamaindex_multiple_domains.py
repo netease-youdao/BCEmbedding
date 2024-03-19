@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-12-26 16:24:57
-@LastEditTime: 2024-02-04 11:08:06
+@LastEditTime: 2024-03-19 09:59:59
 @LastEditors: shenlei
 '''
 import os, json, sys
@@ -112,6 +112,7 @@ RERANKERS = {
     "WithoutReranker": None,
     "CohereRerank": {'model': CohereRerank, 'args': {'api_key': os.environ.get('COHERE_APPKEY'), 'top_n': 5}},
     "bge-reranker-large": {'model': SentenceTransformerRerank, 'args': {'model': "BAAI/bge-reranker-large", 'top_n': 5, 'device': 'cuda:1'}},
+    "bge-reranker-v2-m3": {'model': SentenceTransformerRerank, 'args': {'model': "BAAI/bge-reranker-v2-m3", 'top_n': 5, 'device': 'cuda:1'}},
     "bce-reranker-base_v1": {'model': SentenceTransformerRerank, 'args': {'model': "maidalun1020/bce-reranker-base_v1", 'top_n': 5, 'device': 'cuda:1'}},
 }
 
