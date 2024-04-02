@@ -1,17 +1,18 @@
-'''
+"""
 @Description: 
 @Author: shenlei
 @Date: 2024-01-15 14:15:30
 @LastEditTime: 2024-03-04 16:00:52
 @LastEditors: shenlei
-'''
+"""
+
 from typing import Any, List, Optional
 
-from pydantic.v1 import Field, PrivateAttr
-from llama_index.callbacks import CBEventType, EventPayload
-from llama_index.postprocessor.types import BaseNodePostprocessor
-from llama_index.schema import MetadataMode, NodeWithScore, QueryBundle
-from llama_index.utils import infer_torch_device
+from llama_index.legacy.bridge.pydantic import Field, PrivateAttr
+from llama_index.legacy.callbacks import CBEventType, EventPayload
+from llama_index.legacy.postprocessor.types import BaseNodePostprocessor
+from llama_index.legacy.schema import MetadataMode, NodeWithScore, QueryBundle
+from llama_index.legacy.utils import infer_torch_device
 
 
 class BCERerank(BaseNodePostprocessor):
@@ -50,7 +51,7 @@ class BCERerank(BaseNodePostprocessor):
             raise ValueError("Missing query bundle in extra info.")
         if len(nodes) == 0:
             return []
-        
+
         query = query_bundle.query_str
         passages = []
         valid_nodes = []
@@ -58,24 +59,26 @@ class BCERerank(BaseNodePostprocessor):
         for node in nodes:
             passage = node.node.get_content(metadata_mode=MetadataMode.EMBED)
             if isinstance(passage, str) and len(passage) > 0:
-                passages.append(passage.replace('\n', ' '))
+                passages.append(passage.replace("\n", " "))
                 valid_nodes.append(node)
             else:
                 invalid_nodes.append(node)
 
         with self.callback_manager.event(
-                CBEventType.RERANKING,
-                payload={
-                    EventPayload.NODES: nodes,
-                    EventPayload.MODEL_NAME: self.model,
-                    EventPayload.QUERY_STR: query_bundle.query_str,
-                    EventPayload.TOP_K: self.top_n,
-                },
-            ) as event:
+            CBEventType.RERANKING,
+            payload={
+                EventPayload.NODES: nodes,
+                EventPayload.MODEL_NAME: self.model,
+                EventPayload.QUERY_STR: query_bundle.query_str,
+                EventPayload.TOP_K: self.top_n,
+            },
+        ) as event:
 
             rerank_result = self._model.rerank(query, passages)
             new_nodes = []
-            for score, nid in zip(rerank_result['rerank_scores'], rerank_result['rerank_ids']):
+            for score, nid in zip(
+                rerank_result["rerank_scores"], rerank_result["rerank_ids"]
+            ):
                 node = valid_nodes[nid]
                 node.score = score
                 new_nodes.append(node)
@@ -85,7 +88,8 @@ class BCERerank(BaseNodePostprocessor):
 
             assert len(new_nodes) == len(nodes)
 
-            new_nodes = new_nodes[:self.top_n]
+            new_nodes = new_nodes[: self.top_n]
             event.on_end(payload={EventPayload.NODES: new_nodes})
 
         return new_nodes
+
