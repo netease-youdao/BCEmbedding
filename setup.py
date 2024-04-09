@@ -2,7 +2,7 @@
 @Description: A text embedding model and reranking model produced by YouDao Inc., which can be use for dense embedding retrieval and reranking in RAG workflow.
 @Author: shenlei
 @Date: 2023-11-28 17:53:45
-@LastEditTime: 2024-01-23 18:30:59
+@LastEditTime: 2024-04-09 17:34:12
 @LastEditors: shenlei
 '''
 from setuptools import setup, find_packages
@@ -12,7 +12,7 @@ with open("README.md", mode="r", encoding="utf-8") as f:
 
 setup(
     name='BCEmbedding',
-    version='0.1.3',
+    version='0.1.4',
     license='apache-2.0',
     description='A text embedding model and reranking model produced by Netease Youdao Inc., which can be use for dense embedding retrieval and reranking in RAG workflow.',
     long_description=readme,
