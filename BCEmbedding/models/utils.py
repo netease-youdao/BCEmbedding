@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2024-01-15 13:06:56
-@LastEditTime: 2024-01-15 13:08:02
+@LastEditTime: 2024-04-09 17:33:35
 @LastEditors: shenlei
 '''
 from typing import List, Dict, Tuple, Type, Union
@@ -20,17 +20,22 @@ def reranker_tokenize_preproc(
 
     def _merge_inputs(chunk1_raw, chunk2):
         chunk1 = deepcopy(chunk1_raw)
+
+        chunk1['input_ids'].append(sep_id)
         chunk1['input_ids'].extend(chunk2['input_ids'])
         chunk1['input_ids'].append(sep_id)
+
+        chunk1['attention_mask'].append(chunk2['attention_mask'][0])
         chunk1['attention_mask'].extend(chunk2['attention_mask'])
         chunk1['attention_mask'].append(chunk2['attention_mask'][0])
+
         if 'token_type_ids' in chunk1:
-            token_type_ids = [1 for _ in range(len(chunk2['token_type_ids'])+1)]
+            token_type_ids = [1 for _ in range(len(chunk2['token_type_ids'])+2)]
             chunk1['token_type_ids'].extend(token_type_ids)
         return chunk1
 
     query_inputs = tokenizer.encode_plus(query, truncation=False, padding=False)
-    max_passage_inputs_length = max_length - len(query_inputs['input_ids']) - 1
+    max_passage_inputs_length = max_length - len(query_inputs['input_ids']) - 2
     assert max_passage_inputs_length > 100, "Your query is too long! Please make sure your query less than 400 tokens!"
     overlap_tokens_implt = min(overlap_tokens, max_passage_inputs_length//4)
     
