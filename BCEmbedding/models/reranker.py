@@ -2,7 +2,7 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-11-28 14:04:27
-@LastEditTime: 2024-01-19 12:11:05
+@LastEditTime: 2024-05-13 17:04:41
 @LastEditors: shenlei
 '''
 import logging
@@ -29,7 +29,7 @@ class RerankerModel:
             device: str=None,
             **kwargs
         ):
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, **kwargs)
         self.model = AutoModelForSequenceClassification.from_pretrained(model_name_or_path, **kwargs)
         logger.info(f"Loading from `{model_name_or_path}`.")
         
