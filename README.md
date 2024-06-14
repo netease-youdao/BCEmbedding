@@ -428,7 +428,7 @@ The evaluation tasks contain ***12 datasets*** of **"Reranking"**.
 We provide a one-click script to summarize evaluation results of `embedding` and `reranker` models as [Embedding Models Evaluation Summary](./Docs/EvaluationSummary/embedding_eval_summary.md) and [Reranker Models Evaluation Summary](./Docs/EvaluationSummary/reranker_eval_summary.md).
 
 ```bash
-python BCEmbedding/evaluation/mteb/summarize_eval_results.py --results_dir {your_embedding_results_dir | your_reranker_results_dir}
+python BCEmbedding/tools/eval_mteb/summarize_eval_results.py --results_dir {your_embedding_results_dir | your_reranker_results_dir}
 ```
 
 ### Evaluate RAG by LlamaIndex
