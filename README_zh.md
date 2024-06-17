@@ -428,7 +428,7 @@ python BCEmbedding/tools/eval_mteb/eval_reranker_mteb.py --model_name_or_path ma
 我们提供了 `embedding`和 `reranker`模型的指标可视化一键脚本，输出一个markdown文件，详见[Embedding模型指标汇总](./Docs/EvaluationSummary/embedding_eval_summary.md)和[Reranker模型指标汇总](./Docs/EvaluationSummary/reranker_eval_summary.md)。
 
 ```bash
-python BCEmbedding/evaluation/mteb/summarize_eval_results.py --results_dir {your_embedding_results_dir | your_reranker_results_dir}
+python BCEmbedding/tools/eval_mteb/summarize_eval_results.py --results_dir {your_embedding_results_dir | your_reranker_results_dir}
 ```
 
 ### 基于LlamaIndex的RAG评测说明
