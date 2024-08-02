@@ -242,7 +242,7 @@ from sentence_transformers import SentenceTransformer
 sentences = ['sentence_0', 'sentence_1', ...]
 
 # init embedding model
-## sentence-trnasformers支持有更新，请注意先删除本地模型缓存："`SENTENCE_TRANSFORMERS_HOME`/maidalun1020_bce-embedding-base_v1"或“～/.cache/torch/sentence_transformers/maidalun1020_bce-embedding-base_v1”
+## sentence-transformers支持有更新，请注意先删除本地模型缓存："`SENTENCE_TRANSFORMERS_HOME`/maidalun1020_bce-embedding-base_v1"或“～/.cache/torch/sentence_transformers/maidalun1020_bce-embedding-base_v1”
 model = SentenceTransformer("maidalun1020/bce-embedding-base_v1")
 
 # extract embeddings
