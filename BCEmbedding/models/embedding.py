@@ -2,8 +2,8 @@
 @Description: 
 @Author: shenlei
 @Date: 2023-11-28 14:04:27
-@LastEditTime: 2024-05-13 17:04:23
-@LastEditors: shenlei
+@LastEditTime: 2024-09-02 22:32:01
+@LastEditors: Chengjie Guo i@guoch.xyz
 '''
 import logging
 import torch
@@ -45,6 +45,9 @@ class EmbeddingModel:
             self.num_gpus = 1
         elif self.device == "cuda":
             self.num_gpus = num_gpus
+        elif self.device == "xpu":
+            import intel_extension_for_pytorch as ipex
+            self.num_gpus = 0
         else:
             raise ValueError("Please input valid device: 'cpu', 'cuda', 'cuda:0', '0' !")
 
@@ -53,6 +56,9 @@ class EmbeddingModel:
 
         self.model.eval()
         self.model = self.model.to(self.device)
+        
+        if self.device == "xpu":
+            self.model = ipex.optimize(self.model)
 
         if self.num_gpus > 1:
             self.model = torch.nn.DataParallel(self.model)
