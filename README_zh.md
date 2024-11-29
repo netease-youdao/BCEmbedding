@@ -156,7 +156,7 @@ model = EmbeddingModel(model_name_or_path="maidalun1020/bce-embedding-base_v1")
 embeddings = model.encode(sentences)
 ```
 
-通过 `BCEmbedding`调用 `RerankerModel`可以计算句子对的语义相关分数，也可以对候选检索见过进行排序。
+通过 `BCEmbedding`调用 `RerankerModel`可以计算句子对的语义相关分数，也可以对候选检索结果进行排序。
 
 ```python
 from BCEmbedding import RerankerModel
