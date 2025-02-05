@@ -580,7 +580,7 @@ If you use `BCEmbedding` in your research or project, please feel free to cite a
 ```
 @misc{youdao_bcembedding_2023,
     title={BCEmbedding: Bilingual and Crosslingual Embedding for RAG},
-    author={NetEase Youdao, Inc.},
+    author={NetEase Youdao},
     year={2023},
     howpublished={\url{https://github.com/netease-youdao/BCEmbedding}}
 }
