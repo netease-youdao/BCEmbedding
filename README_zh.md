@@ -579,7 +579,7 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 ```
 @misc{youdao_bcembedding_2023,
     title={BCEmbedding: Bilingual and Crosslingual Embedding for RAG},
-    author={NetEase Youdao, Inc.},
+    author={NetEase Youdao},
     year={2023},
     howpublished={\url{https://github.com/netease-youdao/BCEmbedding}}
 }
