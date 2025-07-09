@@ -78,7 +78,7 @@ Provide a bilingual and crosslingual two-stage retrieval model repository for th
 
 ### Third-party Examples
 
-- RAG applications: [QAnything](https://github.com/netease-youdao/qanything), [HuixiangDou](https://github.com/InternLM/HuixiangDou), [ChatPDF](https://github.com/shibing624/ChatPDF).
+- RAG applications: [QAnything](https://github.com/netease-youdao/qanything), [ragflow](https://github.com/infiniflow/ragflow), [HuixiangDou](https://github.com/InternLM/HuixiangDou), [ChatPDF](https://github.com/shibing624/ChatPDF).
 - Efficient inference: [ChatLLM.cpp](https://github.com/foldl/chatllm.cpp), [Xinference](https://github.com/xorbitsai/inference), [mindnlp (Huawei GPU)](https://github.com/mindspore-lab/mindnlp/tree/master/llm/inference/bce).
 
 ## 🌐 Bilingual and Crosslingual Superiority
