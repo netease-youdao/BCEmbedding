@@ -580,7 +580,6 @@ For business cooperation, please contact us by phone or email:
 - Phone: 010-82558901
 - Email: AIcloud_Business@corp.youdao.com
 
-For a concise reference, see [SUPPORT.md](SUPPORT.md).
 
 ## ✏️ Citation
 

@@ -579,7 +579,6 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 - 联系电话：010-82558901
 - 邮箱：AIcloud_Business@corp.youdao.com
 
-详细信息请参阅 [SUPPORT.md](SUPPORT.md)。
 
 ## ✏️ 引用说明
 
