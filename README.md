@@ -573,6 +573,15 @@ Welcome to scan the QR code below and join the WeChat group.
 
 <img src="./Docs/assets/Wechat.jpg" width="20%" height="auto">
 
+## Business Contact Information
+
+For business cooperation, please contact us by phone or email:
+
+- Phone: 010-82558901
+- Email: AIcloud_Business@corp.youdao.com
+
+For a concise reference, see [SUPPORT.md](SUPPORT.md).
+
 ## ✏️ Citation
 
 If you use `BCEmbedding` in your research or project, please feel free to cite and star it:

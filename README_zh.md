@@ -572,6 +572,15 @@ python BCEmbedding/tools/eval_rag/summarize_eval_results.py --results_dir BCEmbe
 
 <img src="./Docs/assets/Wechat.jpg" width="20%" height="auto">
 
+## 商务联系信息
+
+商务合作请通过以下电话或邮箱联系我们：
+
+- 联系电话：010-82558901
+- 邮箱：AIcloud_Business@corp.youdao.com
+
+详细信息请参阅 [SUPPORT.md](SUPPORT.md)。
+
 ## ✏️ 引用说明
 
 如果在您的研究或任何项目中使用本工作，烦请按照下方进行引用，并打个小星星～
